@@ -1,0 +1,370 @@
+ :root{font-family:"DM Sans",sans-serif;color:#f5f0df;background:#073d2c;font-synthesis:none;text-rendering:optimizeLegibility}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#073d2c}.site-shell{min-height:100vh;position:relative;overflow:hidden;background:radial-gradient(ellipse at 18% 20%,rgba(41,112,75,.42),transparent 38%),radial-gradient(ellipse at 88% 55%,rgba(10,75,52,.8),transparent 40%),#073d2c}.grain{pointer-events:none;position:absolute;inset:0;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");z-index:0}.site-shell:before{content:"";position:absolute;inset:-20%;opacity:.13;pointer-events:none;background:repeating-radial-gradient(ellipse at 50% 40%,transparent 0 24px,rgba(215,199,147,.45) 25px 26px,transparent 27px 42px);transform:rotate(-18deg)}main,.topbar{position:relative;z-index:1}.topbar{height:76px;padding:0 5.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(235,228,195,.12)}.brand{font-size:23px;font-weight:800;letter-spacing:-1.2px;color:#f8f1dc;text-decoration:none}.brand span{color:#f1b84a}.brand b{font-size:12px;color:#b6c8ad;letter-spacing:0}.nav{display:flex;gap:30px}.nav a,.text-link{color:#d9e1ce;text-decoration:none;font-size:13px}.nav a:hover,.text-link:hover{color:#f3bd50}.top-actions{display:flex;align-items:center;gap:12px}.tiny-pill{border:1px solid rgba(239,190,77,.55);border-radius:22px;padding:9px 13px;color:#f4e9c8;text-decoration:none;font-size:12px;display:flex;gap:7px;align-items:center}.tiny-pill svg{color:#efb84b}.menu-btn{display:none;background:none;color:#fff;border:0}.hero{max-width:1160px;margin:0 auto;min-height:610px;padding:105px 34px 78px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:50px}.eyebrow,.strip-label,.card-kicker{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;color:#e8b94e}.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e6b84d;margin-right:8px;box-shadow:0 0 0 4px #e6b84d22}.hero h1{font-size:clamp(48px,6.5vw,82px);line-height:.99;letter-spacing:-4px;margin:25px 0 24px;font-weight:800;color:#f5f0df}.hero h1 em,h2 em{font-family:"Playfair Display",serif;font-weight:600;color:#f0bc55}.hero-lede{max-width:520px;color:#c5d1c1;font-size:16px;line-height:1.8}.hero-cta{display:flex;align-items:center;gap:25px;margin-top:34px}.btn{display:inline-flex;align-items:center;gap:13px;padding:14px 18px;border-radius:5px;text-decoration:none;font-size:13px;font-weight:700}.btn.primary{background:#efbd57;color:#173e2d}.text-link span{color:#f2bc4e}.hero-meta{display:flex;gap:22px;margin-top:45px;color:#a9bdad;font-family:"DM Mono",monospace;font-size:10px}.hero-meta span{display:flex;align-items:center;gap:6px}.hero-visual{height:380px;position:relative;display:grid;place-items:center}.photo-frame{width:270px;height:330px;background:#e9e0c8;padding:13px;transform:rotate(4deg);box-shadow:18px 22px 0 rgba(0,0,0,.13);position:relative}.photo-placeholder{height:100%;background:linear-gradient(145deg,#d7d9c6,#aabca5);color:#204b37;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}.photo-placeholder:before,.photo-placeholder:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #2d6246;border-radius:50%;opacity:.2}.photo-placeholder:after{width:180px;height:180px}.photo-stamp{position:absolute;top:15px;left:14px;font:10px "DM Mono";letter-spacing:1px}.avatar-mark{font-family:"Playfair Display";font-size:78px;color:#f2e9d3;text-shadow:3px 4px #315d45;z-index:1}.photo-note{text-align:center;font-size:12px;font-weight:700;z-index:1}.photo-note small{font:9px "DM Mono";opacity:.7}.tape{position:absolute;width:90px;height:25px;background:#e3b76d;opacity:.75;top:-10px;left:88px;transform:rotate(-8deg)}.floating-note{position:absolute;background:#f0e7cf;color:#244b38;padding:12px 16px;font:11px "DM Mono";box-shadow:4px 7px 0 #0002}.note-one{top:54px;right:8px;transform:rotate(7deg)}.note-one span{color:#d77b39}.note-two{bottom:37px;left:5px;transform:rotate(-6deg)}.scribble{position:absolute;right:20px;bottom:0;color:#f0bc55;font:italic 20px "Playfair Display";transform:rotate(-8deg)}.intro-strip{max-width:1080px;margin:0 auto 110px;padding:25px 30px;border-top:1px solid #d7e2c02b;border-bottom:1px solid #d7e2c02b;display:flex;align-items:center;justify-content:space-between;gap:30px}.intro-strip p{margin:9px 0 0;max-width:750px;color:#c7d2c3;font-size:14px;line-height:1.8}.intro-strip strong{color:#f4e9c8}.cv-link{white-space:nowrap;color:#f2bd55;text-decoration:none;font-size:12px;display:flex;gap:8px;align-items:center}.section{max-width:1080px;margin:0 auto;padding:0 30px 120px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}.section-head h2,.play-inner h2,.footer h2{font-size:clamp(36px,4.5vw,55px);letter-spacing:-2px;line-height:1.08;margin:12px 0 0}.section-head>p{font-size:12px;line-height:1.7;color:#b8cbb9;margin:0 0 5px}.journey-list{position:relative}.journey-list:before{content:"";position:absolute;left:190px;top:12px;bottom:30px;width:1px;background:#d9dfc13a}.journey-item{display:grid;grid-template-columns:155px 70px 1fr 35px;gap:0;position:relative;padding:0 0 38px}.journey-year{font:10px "DM Mono";color:#b8c7b5;padding-top:7px;letter-spacing:.5px}.journey-pin{width:35px;height:35px;border:1px solid #e5b64c;border-radius:50%;display:grid;place-items:center;color:#efbd55;background:#0b4934;z-index:1}.journey-content{padding:0 0 0 15px}.journey-content h3{font:600 23px "Playfair Display";margin:8px 0;color:#f4efdf}.journey-content p{margin:0;color:#b9cbb9;max-width:620px;font-size:13px;line-height:1.8}.chapter-no{font:11px "DM Mono";color:#75917d;padding-top:6px}.filter-row{display:flex;gap:8px;margin:-15px 0 25px}.filter{background:transparent;color:#bdcbb9;border:1px solid #d5e0c32e;border-radius:30px;padding:8px 15px;font:11px "DM Mono";cursor:pointer}.filter.active{background:#edbd5b;color:#173e2d;border-color:#edbd5b}.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.project-card{border-radius:13px;overflow:hidden;text-decoration:none;color:inherit;background:#eee5d1;transition:transform .2s,box-shadow .2s}.project-card:hover{transform:translateY(-5px);box-shadow:0 14px 30px #001d1480}.project-art{height:170px;padding:17px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;background:#e9e1ce;color:#1e5038}.darkcard .project-art{background:#171c16;color:#e5b84e}.limecard .project-art{background:#b4c49c;color:#173e2d}.art-index{font:9px "DM Mono";letter-spacing:1px}.art-shape{font:italic 104px "Playfair Display";line-height:.8;align-self:center;opacity:.8}.art-caption{font:10px "DM Mono";align-self:end}.project-info{padding:19px 20px 20px;color:#1e3328}.project-info .card-kicker{color:#9b5a26}.project-info h3{font:700 20px "Playfair Display";margin:9px 0}.project-info p{font-size:12px;line-height:1.65;color:#5d695d;min-height:60px}.project-open{font:11px "DM Mono";display:flex;align-items:center;gap:7px;color:#276143;margin-top:16px}.darkcard .project-info{background:#171c16;color:#f1ead8}.darkcard .project-info p{color:#b8c1b1}.darkcard .project-open{color:#e7b74d}.limecard .project-info{background:#e2e7d4}.github-line{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid #d7e2c02b;color:#b9c9b7;font-size:12px}.github-line a{color:#f0bd57;text-decoration:none;display:flex;align-items:center;gap:8px}.empty-collection{border:1px dashed #dce6c44d;border-radius:12px;padding:55px 20px;text-align:center;color:#d9e3ce}.empty-collection svg{color:#e9b94e}.empty-collection h3{font:22px "Playfair Display"}.empty-collection p{font-size:12px;color:#b9c9b7}.play-section{background:#e8dfc8;color:#183f2d;padding:70px 30px;margin-bottom:110px}.play-inner{max-width:1020px;margin:auto;display:flex;justify-content:space-between;align-items:center}.eyebrow.light{color:#a2602e}.play-inner h2{font-size:53px}.play-inner h2 em{color:#b76537}.play-inner p{max-width:440px;font-size:13px;line-height:1.8;color:#60705f;margin:20px 0 25px}.btn.cream{background:#164a34;color:#f3e9d2}.play-doodle{width:240px;height:190px;display:grid;place-items:center;position:relative;color:#1d5a3d;border:1px solid #1c583c4d;border-radius:50%;transform:rotate(-8deg)}.play-doodle svg{transform:rotate(8deg)}.doodle-star{position:absolute;top:13px;right:35px;color:#d27637;font-size:35px}.doodle-caption{position:absolute;bottom:20px;font:9px "DM Mono";letter-spacing:2px}.dump-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.dump-card{min-height:225px;border-radius:10px;padding:22px;display:flex;flex-direction:column;align-items:flex-start;position:relative;overflow:hidden}.dump-card svg{margin-bottom:25px}.dump-card h3{font:22px "Playfair Display";margin:9px 0}.dump-card p{font-size:12px;line-height:1.7;max-width:240px;opacity:.8}.dump-photo{background:#e6dfca;color:#254a36}.dump-photo .card-kicker{color:#a7602d}.dump-notes{background:#c4c9a8;color:#263f2b}.dump-notes .card-kicker{color:#687b45}.dump-links{background:#d8a45c;color:#392e1d}.dump-links .card-kicker{color:#68472b}.big-quote{font:90px "Playfair Display";height:42px;line-height:1}.coming{margin-top:auto;font:9px "DM Mono";letter-spacing:1px}.footer{padding:70px max(30px,calc((100vw - 1020px)/2)) 25px;background:#052d22;display:grid;grid-template-columns:1fr 1fr;gap:40px}.footer h2{font-size:49px}.footer h2 em{color:#e7b64f}.footer-right{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:24px}.mail-button{border:1px solid #e6b74b;color:#f2e9d4;padding:13px 17px;border-radius:4px;text-decoration:none;font-size:12px;display:flex;align-items:center;gap:10px}.mail-button svg:first-child{color:#e8b94e}.socials{display:flex;gap:20px}.socials a{color:#b9cbb9;text-decoration:none;font:11px "DM Mono";display:flex;gap:7px;align-items:center}.footer-bottom{grid-column:1/-1;border-top:1px solid #d8e0c326;padding-top:20px;margin-top:40px;display:flex;justify-content:space-between;color:#809987;font:9px "DM Mono"}.footer-bottom a{color:#e9b94e;text-decoration:none}
+@media(max-width:760px){.topbar{height:65px;padding:0 20px}.brand{font-size:20px}.menu-btn{display:block}.menu-btn svg{width:22px}.nav{display:none;position:absolute;top:64px;left:0;right:0;background:#073d2c;padding:20px;flex-direction:column;gap:18px;border-bottom:1px solid #ffffff20}.nav.open{display:flex}.tiny-pill{padding:8px 10px}.hero{padding:75px 24px 65px;grid-template-columns:1fr;gap:30px}.hero h1{font-size:57px;letter-spacing:-3px}.hero-visual{height:350px}.photo-frame{width:235px;height:295px}.intro-strip{margin:0 22px 85px;padding:22px 0;align-items:flex-start;flex-direction:column}.section{padding:0 23px 85px}.section-head{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:35px}.section-head>p br{display:none}.journey-list:before{left:8px}.journey-item{grid-template-columns:28px 1fr 25px;gap:0;padding-bottom:30px}.journey-year{grid-column:2;padding:0 0 10px}.journey-pin{grid-column:1;grid-row:2;width:18px;height:18px}.journey-pin svg{width:11px}.journey-content{grid-column:2;grid-row:2;padding-left:14px}.journey-content h3{font-size:20px}.chapter-no{grid-column:3;grid-row:1/3}.project-grid,.dump-grid{grid-template-columns:1fr}.project-art{height:155px}.play-section{padding:55px 24px;margin-bottom:80px}.play-inner{align-items:flex-start;flex-direction:column;gap:35px}.play-inner h2{font-size:45px}.play-doodle{align-self:center;width:190px;height:160px}.footer{grid-template-columns:1fr;padding:55px 24px 20px;gap:20px}.footer h2{font-size:43px}.footer-bottom{flex-wrap:wrap;gap:12px}.github-line{gap:15px;align-items:flex-start;flex-direction:column}.hero-meta{flex-wrap:wrap;gap:12px}.hero-cta{gap:15px;flex-wrap:wrap}}
+
+/* Temporary illustrated identity card — easy to replace with a real portrait later */
+.photo-placeholder.illustrated{background:linear-gradient(145deg,#d7dfc8,#9fb79f);isolation:isolate}
+.photo-placeholder.illustrated:before,.photo-placeholder.illustrated:after{z-index:-1;border-color:#2e6747}
+.orbit{position:absolute;border:1px solid rgba(32,79,53,.28);border-radius:50%;z-index:0}
+.orbit-a{width:250px;height:100px;transform:rotate(-35deg)}
+.orbit-b{width:215px;height:145px;transform:rotate(35deg)}
+.avatar-illustration{position:relative;width:142px;height:178px;margin-top:15px;z-index:1}
+.avatar-face{position:absolute;z-index:2;top:31px;left:39px;width:67px;height:79px;border-radius:46% 46% 48% 48%;background:#c98960;border:2px solid #34583d}
+.avatar-hair{position:absolute;z-index:3;top:22px;left:34px;width:78px;height:48px;border-radius:48% 52% 30% 25%;background:#263d2c;transform:rotate(-4deg)}
+.avatar-hair:after{content:"";position:absolute;right:-2px;top:26px;width:18px;height:42px;border-radius:0 60% 50% 0;background:#263d2c}
+.eye{position:absolute;top:36px;width:5px;height:6px;border-radius:50%;background:#243d2c}
+.eye-left{left:17px}.eye-right{right:17px}
+.smile{position:absolute;left:27px;top:54px;width:14px;height:7px;border-bottom:2px solid #784632;border-radius:50%}
+.avatar-shirt{position:absolute;bottom:0;left:13px;width:116px;height:82px;border-radius:55% 55% 8px 8px;background:#285c40;border:2px solid #34583d}
+.avatar-shirt:after{content:"";position:absolute;left:48px;top:0;width:17px;height:35px;background:#e5d8b8;clip-path:polygon(0 0,100% 0,50% 100%)}
+.avatar-mark{position:absolute;right:13px;bottom:66px;font:italic 24px "Playfair Display";color:#f0d28a;text-shadow:1px 2px #315c40;z-index:4}
+.photo-note{font:700 9px "DM Mono";letter-spacing:.3px;line-height:1.8;margin-top:5px}
+.photo-note small{font:8px "DM Mono";letter-spacing:0}
+
+/* Virat Kohli fan tribute */
+.kohli-feature{max-width:1020px;margin:0 auto 115px;padding:35px 42px 0;min-height:360px;border:1px solid #d7e2c02b;border-radius:14px;background:linear-gradient(110deg,rgba(3,39,28,.94),rgba(16,75,49,.62));display:grid;grid-template-columns:1fr .9fr;align-items:center;overflow:hidden;position:relative}
+.kohli-copy{position:relative;z-index:2;padding-bottom:35px}
+.kohli-copy h2{font-size:clamp(37px,4.4vw,54px);line-height:1.05;letter-spacing:-2px;margin:17px 0}
+.kohli-copy h2 em{color:#efbd57;font-family:"Playfair Display",serif}
+.kohli-copy p{max-width:430px;color:#c3d0bf;font-size:13px;line-height:1.85}
+.kohli-tags{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+.kohli-tags span{font:9px "DM Mono";letter-spacing:1px;color:#f3e8c9;border:1px solid #e7b94b66;border-radius:20px;padding:8px 11px}
+.kohli-tags span:nth-child(2){background:#e8b94e;color:#173e2d;font-weight:700;font-size:12px}
+.kohli-link{font:11px "DM Mono";color:#efbd57;text-decoration:none}
+.kohli-link span{font-size:17px}
+.kohli-cutout-wrap{height:340px;position:relative;display:flex;justify-content:center;align-items:flex-end}
+.kohli-cutout{height:330px;max-width:100%;object-fit:contain;object-position:bottom;position:relative;z-index:1;filter:drop-shadow(0 7px 12px #001c13aa)}
+.kohli-number{position:absolute;right:4px;top:8px;font:italic 112px "Playfair Display";color:#eab84d22;line-height:1}
+.kohli-star{position:absolute;top:58px;left:18px;color:#e9b84c;font-size:30px;z-index:2}
+.kohli-caption{position:absolute;bottom:14px;right:5px;z-index:3;background:#e8dfc8;color:#204b36;padding:8px 11px;font:9px "DM Mono";letter-spacing:1px;transform:rotate(-4deg)}
+@media(max-width:760px){.kohli-feature{margin:0 22px 80px;padding:28px 24px 0;grid-template-columns:1fr;gap:0}.kohli-copy{padding-bottom:0}.kohli-cutout-wrap{height:270px;margin-top:10px}.kohli-cutout{height:260px}.kohli-number{font-size:88px;right:12px}.kohli-star{left:10px;top:35px}}
+
+/* Natural, journal-like browsing details */
+html{scroll-padding-top:82px}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(5,48,35,.91);backdrop-filter:blur(12px)}
+.reading-progress{position:fixed;top:0;left:0;height:3px;background:#efbd57;z-index:50;transition:width .08s linear}
+.scroll-cue{display:inline-flex;align-items:center;gap:10px;margin-top:27px;color:#a9bdad;text-decoration:none;font:9px "DM Mono";letter-spacing:1.6px}
+.scroll-cue>span:last-child{color:#efbd57;font-size:15px;animation:nudge 1.7s ease-in-out infinite}
+.scroll-mouse{width:15px;height:22px;border:1px solid #a9bdad;border-radius:10px;position:relative}
+.scroll-mouse:after{content:"";position:absolute;left:6px;top:4px;width:2px;height:5px;background:#efbd57;border-radius:2px;animation:scrollDot 1.5s infinite}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}80%,100%{transform:translateY(7px);opacity:0}}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.journal-note{max-width:760px;margin:-35px auto 110px;padding:26px 32px 24px;background:#e9e0c9;color:#244b37;transform:rotate(-.6deg);box-shadow:0 12px 28px #001d1440;position:relative}
+.journal-note:before{content:"";position:absolute;top:-9px;left:47%;width:82px;height:20px;background:#d5b87eaa;transform:rotate(2deg)}
+.note-pin{font:9px "DM Mono";letter-spacing:1.5px;color:#a35d2b}
+.journal-note p{font:italic 18px/1.7 "Playfair Display";margin:12px 0 8px}
+.note-sign{display:block;text-align:right;font:italic 16px "Playfair Display";color:#9b572f}
+@media(max-width:760px){.journal-note{margin:-20px 24px 80px;padding:23px}.journal-note p{font-size:16px}.topbar{position:sticky}}
+
+/* Work experience — a separate chapter from college life and personal projects */
+.experience-section{padding-top:10px}
+.experience-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.experience-card{padding:25px 25px 23px;border-radius:12px;background:#e9e1cd;color:#203f2e;position:relative;overflow:hidden;min-height:265px;box-shadow:0 10px 22px #001b1230}
+.experience-card:after{content:"";position:absolute;width:150px;height:150px;border:1px solid #345f4522;border-radius:50%;right:-55px;bottom:-75px;box-shadow:0 0 0 14px #345f4508,0 0 0 29px #345f4506}
+.experience-social{background:#d5dfc4}
+.experience-top{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.experience-card .card-kicker{color:#a45f30}
+.experience-date{font:9px "DM Mono";color:#6b7967;white-space:nowrap}
+.experience-card h3{font:700 27px "Playfair Display";margin:20px 0 5px;color:#1b3829}
+.experience-company{font-size:13px;font-weight:700;color:#28583d}
+.experience-company span{font-weight:400;color:#73806e}
+.experience-card p{font-size:12px;line-height:1.8;color:#566655;max-width:480px;position:relative;z-index:1}
+.experience-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;position:relative;z-index:1}
+.experience-tags span{font:9px "DM Mono";padding:7px 9px;border:1px solid #54745b55;border-radius:20px;color:#31553b}
+@media(max-width:760px){.experience-list{grid-template-columns:1fr}.experience-card{min-height:0;padding:22px}.experience-top{align-items:flex-start;flex-direction:column;gap:8px}}
+
+/* A more personal Virat Kohli tribute — scrapbook portrait + fan note */
+.kohli-feature{max-width:1080px;margin:0 auto 115px;padding:28px 34px 28px 24px;min-height:475px;display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center;position:relative;overflow:hidden;border:1px solid rgba(230,222,190,.25);border-radius:15px;background:linear-gradient(112deg,#082f23 0%,#0c4934 56%,#073525 100%);box-shadow:0 22px 55px rgba(0,0,0,.18)}
+.kohli-feature:before{content:"";position:absolute;inset:0;opacity:.16;pointer-events:none;background:repeating-linear-gradient(135deg,transparent 0 15px,rgba(225,216,184,.18) 16px,transparent 17px 34px)}
+.kohli-paper-edge{position:absolute;left:0;top:0;bottom:0;width:8px;background:#e7d9b9;opacity:.8}
+.kohli-portrait-panel{height:420px;position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate}
+.kohli-portrait-panel:before{content:"";position:absolute;z-index:-1;left:8%;right:8%;top:8%;bottom:6%;background:#e7dfc9;clip-path:polygon(4% 2%,96% 0,100% 96%,2% 100%);transform:rotate(-3deg);box-shadow:0 12px 30px #001b12aa}
+.kohli-portrait-halo{position:absolute;z-index:-1;width:280px;height:280px;top:55px;left:50%;transform:translateX(-50%);border:1px solid #a9a17e88;border-radius:50%;box-shadow:0 0 0 18px #d5cba522,0 0 0 38px #d5cba511}
+.kohli-cutout{position:relative;z-index:2;width:min(100%,390px);height:390px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 13px 14px rgba(0,0,0,.32));margin-bottom:31px}
+.kohli-big-18{position:absolute;z-index:1;left:14px;bottom:43px;font:italic 112px/.8 "Playfair Display",serif;color:#173e2c;text-shadow:2px 2px #e6d9b8;opacity:.92;transform:rotate(-9deg)}
+.kohli-side-note{position:absolute;z-index:4;left:17px;top:12px;writing-mode:vertical-rl;transform:rotate(180deg);font:9px "DM Mono";letter-spacing:2px;color:#31563d}
+.kohli-photo-caption{position:absolute;z-index:5;bottom:11px;left:50%;transform:translateX(-50%) rotate(-2deg);width:74%;padding:9px 13px;background:#f1e8d2;color:#244a35;display:flex;align-items:center;justify-content:space-between;gap:8px;box-shadow:0 5px 12px #001d1455}
+.kohli-photo-caption span{font:9px "DM Mono";color:#a85f32;letter-spacing:1px}.kohli-photo-caption strong{font:700 12px "DM Sans";letter-spacing:1px}.kohli-photo-caption small{font:8px "DM Mono";color:#66745d}
+.kohli-crown{position:absolute;z-index:6;right:9%;top:33px;color:#e8b74d;font-size:42px;transform:rotate(13deg);text-shadow:1px 2px #244b36}
+.kohli-copy{position:relative;z-index:2;padding:20px 10px 12px 0}
+.kohli-copy .eyebrow{color:#e6b94f;letter-spacing:2.2px}
+.kohli-copy h2{font:700 clamp(54px,6vw,78px)/.87 "Playfair Display",serif;letter-spacing:-2.5px;color:#f4ecd8;margin:22px 0 19px}
+.kohli-copy h2 em{font-style:italic;color:#efbd57}
+.kohli-intro{font:600 18px/1.5 "Playfair Display",serif;color:#f1e8d2;max-width:470px;margin:0 0 12px}
+.kohli-body{font-size:13px;line-height:1.85;color:#c5d3c3;max-width:500px;margin:0}
+.kohli-values{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 20px}
+.kohli-values span{background:#e9e0c9;color:#244b37;padding:10px 13px;font:11px "DM Mono";box-shadow:3px 4px 0 rgba(0,0,0,.14);transform:rotate(-1deg)}
+.kohli-values span:nth-child(2){transform:rotate(1deg)}.kohli-values span:nth-child(3){transform:rotate(-.5deg)}
+.kohli-values b{color:#b76635;margin-right:7px}
+.kohli-footer-row{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid #d8e2c12c;padding-top:16px}
+.kohli-fan-note{font:italic 12px "Playfair Display",serif;color:#d5dfc9}
+.kohli-link{display:inline-flex;align-items:center;gap:7px;color:#efbd57;text-decoration:none;font:10px "DM Mono";white-space:nowrap}
+.kohli-link:hover{color:#fff0c8}
+@media(max-width:760px){.kohli-feature{margin:0 22px 80px;padding:20px 20px 26px;grid-template-columns:1fr;gap:8px}.kohli-portrait-panel{height:335px;order:1}.kohli-cutout{height:315px;width:min(100%,330px);margin-bottom:26px}.kohli-big-18{font-size:88px;left:8px;bottom:35px}.kohli-copy{order:2;padding:15px 3px 0}.kohli-copy h2{font-size:58px}.kohli-photo-caption{width:82%;padding:8px}.kohli-photo-caption strong{font-size:10px}.kohli-photo-caption small{font-size:7px}.kohli-crown{right:8%;top:22px}.kohli-footer-row{align-items:flex-start;flex-direction:column}}
+
+/* GEORUSH game feature card */
+.game-feature{max-width:1020px;margin:38px auto 0;display:grid;grid-template-columns:.85fr 1.15fr;border-radius:12px;overflow:hidden;box-shadow:0 14px 32px #001d1440;background:#f0e7d2}
+.game-feature-art{min-height:260px;background:radial-gradient(circle at 80% 20%,#2b7652 0 2px,transparent 3px),linear-gradient(145deg,#0a4b35,#082d22);background-size:26px 26px,auto;color:#f3e9d2;padding:25px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.game-stamp{font:9px "DM Mono";letter-spacing:1.5px;color:#e8bd58}
+.game-map-doodle{position:absolute;right:25px;top:30px;font:100px "Playfair Display";color:#f0bd5740;transform:rotate(20deg)}
+.game-art-title{font:italic 74px/.75 "Playfair Display";font-weight:700;letter-spacing:-4px;margin:auto 0 15px;color:#f3e9d2;text-shadow:4px 4px #b46e2d}
+.game-art-sub{font:9px "DM Mono";letter-spacing:1px;color:#e8bd58;max-width:220px}
+.game-feature-copy{padding:28px 30px;color:#244b37;display:flex;flex-direction:column;justify-content:center}
+.game-feature-copy .card-kicker{color:#a35d2b}
+.game-feature-copy h3{font:700 32px "Playfair Display";margin:9px 0}
+.game-feature-copy p{font-size:13px;line-height:1.8;color:#58695b;max-width:480px}
+.game-tags{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0 20px}
+.game-tags span{font:9px "DM Mono";padding:7px 10px;border:1px solid #315f4438;border-radius:30px;color:#315f44}
+.game-feature-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #315f4425;padding-top:16px;font:10px "DM Mono";color:#75816f}
+.game-feature-bottom a{color:#a35d2b;text-decoration:none;font-weight:700;display:flex;align-items:center;gap:5px}
+@media(max-width:760px){.game-feature{margin:28px 22px 0;grid-template-columns:1fr}.game-feature-art{min-height:205px}.game-feature-copy{padding:23px}.game-feature-bottom{align-items:flex-start;flex-direction:column}}
+
+
+/* Refined Virat photo treatment: a close-fitting vintage print frame, not a blank white panel */
+.kohli-portrait-panel{
+  min-width:0;
+  padding:34px 18px 46px;
+  align-items:center;
+}
+.kohli-portrait-panel:before{
+  left:5%;
+  right:5%;
+  top:14%;
+  bottom:14%;
+  background:#e8dfc8;
+  clip-path:polygon(2% 3%,97% 0,100% 97%,0 100%);
+  transform:rotate(-1.8deg);
+  box-shadow:0 15px 28px rgba(0,20,13,.34);
+}
+.kohli-portrait-halo{
+  width:310px;
+  height:310px;
+  top:50%;
+  transform:translate(-50%,-50%);
+  border-color:rgba(169,161,126,.62);
+  box-shadow:0 0 0 14px rgba(213,203,162,.12),0 0 0 30px rgba(213,203,162,.07);
+}
+.kohli-cutout{
+  display:block;
+  width:min(92%,430px);
+  height:auto;
+  max-height:310px;
+  object-fit:contain;
+  object-position:center;
+  margin:0 0 18px;
+  padding:9px 9px 25px;
+  background:#f3ead5;
+  border:1px solid #d4c6a3;
+  outline:1px solid rgba(255,244,214,.55);
+  outline-offset:4px;
+  transform:rotate(-1.2deg);
+  box-shadow:0 12px 24px rgba(0,18,12,.38),3px 4px 0 rgba(33,64,43,.22);
+}
+.kohli-photo-caption{
+  bottom:18px;
+  width:78%;
+  padding:10px 14px;
+  background:#f1e8d2;
+  border:1px solid #d5c7a6;
+  box-shadow:0 7px 16px rgba(0,20,13,.3);
+  transform:translateX(-50%) rotate(-1deg);
+}
+@media(max-width:760px){
+  .kohli-portrait-panel{height:330px;padding:22px 10px 42px}
+  .kohli-portrait-panel:before{top:12%;bottom:13%;left:4%;right:4%}
+  .kohli-cutout{width:min(94%,420px);max-height:230px;margin-bottom:12px;padding:7px 7px 20px}
+  .kohli-photo-caption{width:84%;bottom:13px;padding:8px 10px}
+  .kohli-photo-caption small{font-size:7px}
+}
+
+/* Simplified project browsing: no category filter controls or dump section */
+.projects-section .project-grid{margin-top:8px}
+
+
+/* Stronger contrast and clearer hierarchy for the short introduction strip */
+.intro-strip{
+  background:linear-gradient(110deg,rgba(235,225,199,.13),rgba(235,225,199,.055));
+  border:1px solid rgba(236,222,187,.34);
+  border-left:4px solid #efbd57;
+  border-radius:12px;
+  padding:30px 34px;
+  box-shadow:0 14px 36px rgba(0,18,12,.22), inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(5px);
+}
+.intro-strip .strip-label{
+  display:inline-block;
+  color:#ffd16c;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:2px;
+  margin-bottom:4px;
+}
+.intro-strip p{
+  color:#f0ead8;
+  font-size:clamp(15px,1.25vw,18px);
+  line-height:1.9;
+  max-width:790px;
+}
+.intro-strip strong{
+  color:#ffcf68;
+  text-decoration:underline;
+  text-decoration-color:rgba(255,207,104,.45);
+  text-underline-offset:4px;
+}
+.intro-strip .cv-link{
+  color:#153d2d;
+  background:#efbd57;
+  border:1px solid #ffda83;
+  border-radius:6px;
+  padding:13px 16px;
+  font-weight:700;
+  box-shadow:0 5px 0 rgba(119,77,18,.28);
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.intro-strip .cv-link:hover{
+  background:#ffd274;
+  transform:translateY(-2px);
+  box-shadow:0 7px 0 rgba(119,77,18,.24);
+}
+@media(max-width:760px){
+  .intro-strip{padding:24px 22px;margin-left:18px;margin-right:18px;gap:18px}
+  .intro-strip p{font-size:15px;line-height:1.8}
+  .intro-strip .cv-link{align-self:flex-start}
+}
+
+/* Abhi's real portrait */
+.photo-placeholder.personal-photo{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  background:#d7dfc8;
+}
+.personal-photo .profile-photo{
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 48%;
+  z-index:0;
+}
+.personal-photo .photo-stamp{
+  z-index:2;
+  background:rgba(238,226,199,.88);
+  padding:6px 8px;
+  transform:rotate(-3deg);
+}
+.personal-photo .photo-note{
+  position:absolute;
+  z-index:2;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:0;
+  padding:11px 6px 9px;
+  color:#f7f0df;
+  background:linear-gradient(transparent,rgba(15,45,31,.88));
+  text-shadow:0 1px 3px rgba(0,0,0,.55);
+}
+.personal-photo .photo-note small{color:#f3e8cb}
+
+
+/* Hinge-inspired profile redesign — forest green + warm scrapbook paper */
+.hinge-hero{
+  padding-top:82px;
+  padding-bottom:92px;
+  grid-template-columns:1.12fr .88fr;
+  align-items:center;
+}
+.hinge-profile-copy{max-width:690px}
+.profile-kicker{font:9px "DM Mono";letter-spacing:2.4px;color:#e8bd58;margin:25px 0 12px}
+.hinge-profile-copy h1{
+  display:flex;align-items:baseline;gap:15px;flex-wrap:wrap;
+  font-size:clamp(62px,7vw,94px);line-height:.98;letter-spacing:-5px;
+}
+.profile-age{font:italic 27px "Playfair Display";letter-spacing:0;color:#efbd57}
+.profile-details{display:flex;gap:17px;flex-wrap:wrap;margin:21px 0 23px;color:#d2dfce;font:10px "DM Mono"}
+.profile-details span{display:inline-flex;align-items:center;gap:7px}
+.profile-details svg{color:#efbd57}
+.hinge-profile-copy .hero-lede{max-width:600px;font-size:15px;line-height:1.9;color:#e0e5d8}
+.profile-interest-tags{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 27px}
+.profile-interest-tags span{font:10px "DM Mono";color:#f0e8d4;border:1px solid #e6d8b54a;border-radius:30px;padding:9px 12px;background:#ffffff08}
+.profile-presence{display:flex;align-items:center;gap:9px;color:#9fb8a6;font:9px "DM Mono";letter-spacing:.4px;margin-top:27px}
+.hinge-photo-visual .photo-frame{transform:rotate(2deg);width: min(100%,390px);height:490px}
+.hinge-photo-visual .photo-placeholder{height:100%}
+.hinge-photo-visual .profile-photo{object-position:center 43%}
+.hinge-photo-visual .tape{top:-10px}
+.hinge-photo-visual .floating-note{background:#eee4cd;color:#274a36;border:1px solid #d8cba9;box-shadow:0 8px 20px #001b1238}
+.hinge-photo-visual .note-one{top:13%;left:-12%;transform:rotate(-5deg)}
+.hinge-photo-visual .note-two{bottom:17%;right:-12%;transform:rotate(4deg)}
+.hinge-photo-visual .scribble{color:#efbd57}
+.prompts-section{padding-top:10px}
+.prompt-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:17px}
+.prompt-card{min-height:230px;border-radius:15px;padding:27px 29px;position:relative;overflow:hidden;background:#e9e0c9;color:#244b37;box-shadow:0 13px 28px #001b1230;display:flex;flex-direction:column;justify-content:space-between}
+.prompt-wide{min-height:255px;background:#f0e8d5}
+.prompt-light{background:#d7e0c9}
+.prompt-green{background:linear-gradient(145deg,#0c4b35,#082e23);color:#f3ead5;border:1px solid #d9dfc42b}
+.prompt-label{font:9px "DM Mono";letter-spacing:1.6px;color:#a45e31;display:block;margin-bottom:23px}
+.prompt-green .prompt-label{color:#efbd57}
+.prompt-card h3{font:600 clamp(19px,2vw,25px)/1.5 "Playfair Display";max-width:620px;margin:0;position:relative;z-index:1}
+.prompt-doodle{position:absolute;right:23px;bottom:10px;font-size:82px;color:#b77a3b26;transform:rotate(13deg)}
+.prompt-sticker{position:absolute;right:20px;bottom:18px;border:1px solid #a45e3155;border-radius:50%;width:76px;height:76px;display:grid;place-items:center;text-align:center;font:8px/1.5 "DM Mono";color:#a45e31;transform:rotate(12deg)}
+.prompt-photo-card{background:#e3d5b8}
+.prompt-photo-card h3{max-width:80%}
+.prompt-heart{position:absolute;right:25px;bottom:12px;font:90px "Playfair Display";color:#efbd57;opacity:.65}
+.profile-interests{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:22px}
+.profile-interests span:not(.interests-heading){font:9px "DM Mono";padding:9px 12px;border-radius:30px;background:#ffffff0c;border:1px solid #e4e0c02c;color:#e8e3d3}
+.interests-heading{font:9px "DM Mono";letter-spacing:1.4px;color:#efbd57;margin-right:6px}
+@media(max-width:760px){
+ .hinge-hero{padding-top:55px;grid-template-columns:1fr;gap:37px}
+ .hinge-profile-copy h1{font-size:62px;letter-spacing:-3px}
+ .profile-details{gap:12px}
+ .hinge-photo-visual{padding:0 20px 20px}
+ .hinge-photo-visual .photo-frame{height:410px;width:min(100%,330px);margin:auto}
+ .hinge-photo-visual .note-one{left:-2%;top:8%}
+ .hinge-photo-visual .note-two{right:-2%;bottom:15%}
+ .prompt-grid{grid-template-columns:1fr}
+ .prompt-card,.prompt-wide{min-height:210px;padding:23px}
+ .prompt-card h3{font-size:21px}
+ .profile-interests{gap:7px}
+ .interests-heading{width:100%;margin-bottom:4px}
+}
+
+/* Portrait framing correction: bring Abhi into focus and keep scrapbook labels clear */
+.hinge-photo-visual .photo-frame{
+  width:min(100%,390px);
+  height:490px;
+  overflow:visible;
+}
+.hinge-photo-visual .photo-placeholder{
+  overflow:hidden;
+}
+.hinge-photo-visual .profile-photo{
+  object-fit:cover;
+  object-position:center 48%;
+}
+.hinge-photo-visual .note-one{
+  top:-18px;
+  left:auto;
+  right:-12px;
+  transform:rotate(2deg);
+  z-index:5;
+}
+.hinge-photo-visual .note-two{
+  bottom:-18px;
+  right:auto;
+  left:-18px;
+  transform:rotate(-2deg);
+  z-index:5;
+}
+.hinge-photo-visual .scribble{
+  right:-8px;
+  bottom:9%;
+  z-index:5;
+}
+@media(max-width:760px){
+  .hinge-photo-visual .photo-frame{height:430px;width:min(100%,340px)}
+  .hinge-photo-visual .note-one{top:-14px;right:-3px}
+  .hinge-photo-visual .note-two{bottom:-15px;left:-3px}
+  .hinge-photo-visual .scribble{right:0;bottom:8%}
+}
