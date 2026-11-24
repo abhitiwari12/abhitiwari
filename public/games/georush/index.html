@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#086b43">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<title>GEORUSH — Know the world. Beat the distance.</title>
+
+<style>
+:root{--green:#086b43;--deep:#064b32;--mint:#dcefe4;--cream:#f6f5ed;--ink:#17251e;--muted:#65736b;--line:#dce3dc;--gold:#e9b949;--white:#fff}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background-image:radial-gradient(#cbd5cc 0.8px,transparent .8px);background-size:18px 18px}.shell{max-width:1180px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:1.5px;font-size:21px}.mark{width:39px;height:39px;border-radius:12px;background:var(--green);color:#fff;display:grid;place-items:center;font-size:22px;box-shadow:0 4px 12px #086b4333}.tag{font-size:11px;color:var(--muted);letter-spacing:1.7px;font-weight:800}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 14px;font-size:12px;font-weight:750}.hero{background:var(--green);color:#fff;border:3px double #b7e0c6;border-radius:18px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;box-shadow:0 8px 24px #064b321c}.hero h1{font-size:clamp(40px,7vw,72px);line-height:.95;letter-spacing:-3px;margin:0 0 12px}.hero p{font-size:17px;line-height:1.5;margin:0;color:#d7eee1;max-width:540px}.stats{display:flex;gap:24px;flex-wrap:wrap}.stat strong{display:block;font-size:30px}.stat span{font-size:9px;letter-spacing:1.5px;color:#c4e5d1;font-weight:800}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:17px;box-shadow:0 5px 18px #17251e08}.setup{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}.eyebrow{font-size:10px;letter-spacing:1.5px;font-weight:850;color:var(--muted);margin-bottom:9px}.tabs{display:flex;gap:7px;background:#edf1ec;padding:5px;border-radius:12px;width:max-content;max-width:100%}.tab{border:0;background:transparent;border-radius:9px;padding:11px 18px;font-weight:800;color:#5f6d64;cursor:pointer}.tab.active{background:#fff;color:var(--green);box-shadow:0 1px 5px #10251a18}.btn{border:0;border-radius:12px;background:var(--green);color:white;padding:14px 22px;font-size:15px;font-weight:850;cursor:pointer;box-shadow:0 5px 13px #086b432b;transition:.18s}.btn:hover{background:var(--deep);transform:translateY(-1px)}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}.btn.secondary{background:#fff;color:var(--green);border:1px solid var(--line);box-shadow:none}.game{display:none}.game-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.cities{display:grid;grid-template-columns:1fr 50px 1fr;gap:12px;align-items:center}.city{background:var(--green);color:#fff;border:3px double #b9e1c8;border-radius:13px;padding:17px 20px;min-height:112px}.city small{display:block;color:#c5e6d2;font-size:10px;letter-spacing:1.5px;font-weight:850}.city strong{display:block;font-size:clamp(27px,4vw,44px);line-height:1.1;margin:4px 0}.city span{color:#d5ebdd;font-size:13px}.arrow{text-align:center;color:var(--green);font-size:38px;font-weight:900}.question{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:16px}.question h2{font-size:17px;margin:0}.timer{background:var(--green);color:white;border-radius:999px;padding:8px 15px;font-weight:900;font-variant-numeric:tabular-nums}.guessrow{display:grid;grid-template-columns: minmax(170px, .9fr) 1.7fr auto;gap:15px;align-items:center}.inputwrap{display:flex;border:1.5px solid var(--green);border-radius:10px;overflow:hidden}.inputwrap input{width:100%;min-width:0;border:0;padding:13px;font-size:21px;font-weight:800;outline:none}.inputwrap span{padding:13px;background:var(--mint);font-weight:800;color:var(--green)} .scale-wrap{min-width:0;padding:3px 4px}
+.scale-heading,.scale-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.scale-title{font-size:9px;letter-spacing:1.2px;font-weight:950;color:#627168}
+.scale-hint,.scale-foot{font-size:10px;color:var(--muted)}
+.slider-stage{position:relative;padding-top:23px;padding-bottom:4px}
+input[type=range]{--range-fill:15%;appearance:none;-webkit-appearance:none;width:100%;height:9px;border-radius:999px;outline:none;cursor:pointer;background:linear-gradient(to right,var(--green) 0%,var(--green) var(--range-fill),#e1e7e1 var(--range-fill),#e1e7e1 100%);box-shadow:inset 0 1px 2px #102d1a16}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:23px;height:23px;border-radius:50%;background:#fff;border:6px solid var(--green);box-shadow:0 2px 7px #123c2830;transition:transform .12s}
+input[type=range]::-moz-range-thumb{width:13px;height:13px;border-radius:50%;background:#fff;border:5px solid var(--green);box-shadow:0 2px 7px #123c2830}
+input[type=range]:focus-visible{outline:3px solid #0b754533;outline-offset:7px}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.14)}
+.scale-bubble{position:absolute;top:0;left:var(--bubble-left,15%);transform:translateX(-50%);background:#075f3d;color:#fff;border-radius:7px;padding:4px 8px;font-size:10px;font-weight:900;white-space:nowrap;box-shadow:0 3px 8px #0b553122;pointer-events:none}
+.scale-bubble:after{content:"";position:absolute;left:50%;bottom:-4px;transform:translateX(-50%) rotate(45deg);width:8px;height:8px;background:#075f3d}
+.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:9px;margin-top:6px;font-variant-numeric:tabular-nums}
+.scale-foot{margin-top:7px;font-size:9px}
+.scale-foot span:last-child{font-weight:800;color:#087448;font-variant-numeric:tabular-nums}
+.mapwrap{height:390px;margin-top:17px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:#e8eee7;position:relative}
+#map{height:100%;width:100%;display:block}
+to{stroke-dashoffset:0;opacity:1}}.result{display:none;margin-top:16px;padding:16px;border-radius:13px;background:#eff7f1;border:1px solid #cfe5d5}.result h3{margin:0 0 5px}.result p{margin:5px 0;color:#516158}.result-score{font-size:28px;color:var(--green);font-weight:950}.footer{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}.muted{color:var(--muted);font-size:12px}.end{text-align:center;padding:32px 15px;display:none}.end h2{font-size:38px;margin:0 0 8px}.end .big{font-size:56px;color:var(--green);font-weight:950}.notice{font-size:11px;color:var(--muted);margin-top:12px;line-height:1.5}.hidden{display:none!important}
+@media(max-width:720px){.shell{padding:13px}.hero{display:block;padding:23px}.stats{margin-top:20px;gap:20px}.stat strong{font-size:24px}.setup{grid-template-columns:1fr}.setup .btn{width:100%}.cities{grid-template-columns:1fr 28px 1fr;gap:5px}.city{padding:13px 11px;min-height:96px}.city strong{font-size:clamp(21px,6vw,32px)}.city span{font-size:11px}.arrow{font-size:25px}.guessrow{grid-template-columns:1fr}.mapwrap{height:310px}.game-head{align-items:flex-start}.tabs{width:100%}.tab{flex:1;padding:10px 7px;font-size:12px}}
+</style>
+<style>
+.mapwrap{height:430px;margin-top:17px;border-radius:12px;overflow:hidden;border:1px solid #cbd5ce;background:#dce8e5;position:relative}
+#map{height:100%;width:100%;background:#dce8e5}
+.leaflet-container{font:inherit;background:#dce8e5}
+.leaflet-control-zoom a{color:#1d3529!important}
+.leaflet-control-attribution{font-size:10px!important}
+.map-caption{position:absolute;z-index:500;right:14px;top:14px;background:#ffffffed;border:1px solid #d9e1db;border-radius:999px;padding:8px 13px;font-size:12px;color:#52645a;font-weight:750;box-shadow:0 2px 8px #203c2b18}
+@media(max-width:720px){.mapwrap{height:340px}}
+
+/* GeoJSON boundary overlay styles */
+.leaflet-overlay-pane path.georush-india-boundary {
+  fill: rgba(255,255,255,0.10);
+  fill-opacity: 0.10;
+  color: #087448;
+  weight: 1.6;
+  opacity: 0.92;
+  linejoin: round;
+}
+.leaflet-overlay-pane path.georush-state-boundary {
+  fill: none;
+  color: #16845a;
+  weight: 1.05;
+  opacity: 0.78;
+  linejoin: round;
+}
+.leaflet-overlay-pane path.georush-world-boundary {
+  fill: rgba(255,255,255,0.02);
+  color: #83968b;
+  weight: 0.8;
+  opacity: 0.72;
+}
+.leaflet-control-attribution {font-size:10px!important}
+
+
+.result{background:linear-gradient(145deg,#f7fbf7,#edf6ef);border:1px solid #d5e7d9;padding:20px;box-shadow:0 8px 24px #123d2410}
+.result-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:14px}
+.result-head .eyebrow{margin-bottom:4px;color:#718078}
+.result h3{font-size:clamp(20px,3vw,27px);letter-spacing:-.5px}
+.result-score{background:#086b43;color:#fff;padding:8px 14px;border-radius:12px;font-size:22px;white-space:nowrap}
+.result-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.metric-card{padding:14px 15px;border:1px solid #e0e8e1;border-radius:12px;background:#fff;min-width:0}
+.metric-card span{display:block;font-size:9px;font-weight:900;letter-spacing:1.2px;color:#758279;margin-bottom:7px}
+.metric-card strong{font-size:clamp(23px,4vw,34px);letter-spacing:-1px;white-space:nowrap}
+.metric-card strong small{font-size:13px;color:#748078;letter-spacing:0}
+.guess-metric{border-top:3px solid #e8a900}
+.actual-metric{border-top:3px solid #087448}
+.error-metric{border-top:3px solid #81918a}
+.map-legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:13px 0 16px;padding:11px 13px;border-radius:10px;background:#fff;border:1px solid #e1e9e2;color:#58675e;font-size:11px;font-weight:700}
+.map-legend span{display:flex;align-items:center;gap:7px}
+.legend-line{display:inline-block;width:24px;height:0;border-top:4px solid #087448;border-radius:4px}
+.guess-line{border-top:3px dashed #e5a000}
+.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#15231c;border:2px solid #fff;box-shadow:0 0 0 1px #7d8b82}
+.estimate-dot{background:#e5a000;box-shadow:0 0 0 1px #b17a00}
+
+.geo-result-dot{display:block;width:14px;height:14px;border-radius:50%;border:3px solid #fff;box-shadow:0 1px 7px #122c1b55}
+.geo-result-dot.actual{background:#17251e}
+.geo-result-dot.estimate{background:#e5a000}
+
+.city-result-label{background:#fff;border:1px solid #d8e2da;border-radius:8px;padding:4px 8px;color:#25362c;font-weight:800;font-size:12px;white-space:nowrap;box-shadow:0 2px 9px #122c1b20}
+.guess-result-label{background:#fff8e5;border:1px solid #e8b333;color:#8a5a00}
+.leaflet-tooltip.city-result-label:before,.leaflet-tooltip.guess-result-label:before{display:none}
+.leaflet-tooltip-top.city-result-label:before,.leaflet-tooltip-top.guess-result-label:before{display:none}
+.map-caption{font-size:11px;letter-spacing:.3px}
+@media(max-width:620px){.result-metrics{grid-template-columns:1fr 1fr}.error-metric{grid-column:1/-1}.result-head{align-items:flex-start}.result-score{font-size:18px}.map-legend{gap:10px}}
+
+
+.game-actions{display:flex;gap:8px;align-items:center}
+.sound-btn{padding:9px 12px;font-size:12px}
+.round-progress{display:flex;gap:6px;margin:-4px 0 15px}
+.round-progress i{height:5px;flex:1;border-radius:99px;background:#e4eae4;transition:background .25s,transform .25s}
+.round-progress i.done{background:#087448}
+.round-progress i.active{background:#e6aa22;transform:scaleY(1.45)}
+.result{animation:resultIn .38s cubic-bezier(.2,.8,.2,1) both}
+@keyframes resultIn{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+.metric-card{transition:transform .2s,box-shadow .2s}
+.metric-card:hover{transform:translateY(-2px);box-shadow:0 7px 18px #132c1a0d}
+.end{animation:resultIn .45s ease both}
+.final-score-wrap{display:flex;align-items:baseline;justify-content:center;gap:9px;margin:4px 0}
+.final-score-wrap .big{line-height:1}
+.final-outof{font-size:11px;letter-spacing:1.4px;font-weight:900;color:#718078}
+.final-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0}
+.final-stat{background:#f5f8f4;border:1px solid #e0e9e0;border-radius:12px;padding:14px 10px}
+.final-stat span{display:block;font-size:9px;letter-spacing:1.2px;font-weight:900;color:#78867d;margin-bottom:6px}
+.final-stat strong{font-size:clamp(18px,3vw,25px);color:#086b43}
+.history-title{font-size:13px;letter-spacing:1px;text-align:left;margin:20px 0 10px}
+.round-history{display:grid;gap:7px;text-align:left}
+.history-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:11px 12px;border:1px solid #e1e8e1;border-radius:10px;background:#fff}
+.history-round{width:30px;height:30px;border-radius:9px;background:#e8f4eb;color:#086b43;display:grid;place-items:center;font-weight:900;font-size:12px}
+.history-cities{min-width:0}
+.history-cities strong{display:block;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.history-cities small{display:block;color:#748078;font-size:10px;margin-top:2px}
+.history-error{font-size:11px;color:#69766e;white-space:nowrap}
+.history-points{font-size:13px;font-weight:900;color:#086b43;white-space:nowrap}
+.final-actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.share-feedback{min-height:18px;font-size:12px;color:#087448}
+@media(max-width:620px){
+ .game-head{flex-wrap:wrap}.game-actions{margin-left:auto}.sound-btn{display:none}
+ .final-stats{grid-template-columns:1fr 1fr}.final-stat:last-child{grid-column:1/-1}
+ .history-row{grid-template-columns:34px minmax(0,1fr) auto;gap:7px}
+ .history-error{display:none}
+ .final-score-wrap .big{font-size:46px}
+}
+
+
+.round-slot{position:relative;margin-top:13px}
+.round-slot>.question-panel{margin-top:0!important}
+.round-slot>.result{margin-top:0;display:none}
+.question-panel,.round-slot>.result{animation:slotFade .22s ease both}
+@keyframes slotFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+
+@media(max-width:760px){
+ .guessrow{grid-template-columns:minmax(0,1fr);gap:12px}
+ .scale-wrap{padding:3px 1px}
+ .scale-hint{display:none}
+ .scale-foot{font-size:9px}
+ .slider-stage{padding-top:22px}
+ .inputwrap input{font-size:20px}
+}
+
+</style>
+<script src="vendor/leaflet/leaflet.js"></script>
+</head>
+<body><main class="shell">
+<header class="top"><div class="brand"><div>GEORUSH<div class="tag">KNOW THE WORLD. BEAT THE DISTANCE.</div></div></div><div class="pill" id="playerPill">◉ Guest player</div></header>
+<section class="hero"><div><h1>GEORUSH<span style="color:#b8e2c8">.</span></h1><p>How well do you know the world? Guess the straight-line distance between two places. The closer you get, the higher you score.</p></div><div class="stats"><div class="stat"><strong>5</strong><span>ROUNDS</span></div><div class="stat"><strong>20s</strong><span>PER ROUND</span></div><div class="stat"><strong>5,000</strong><span>TOP SCORE</span></div></div></section>
+<section class="panel" id="setup"><div class="setup"><div><div class="eyebrow">CHOOSE YOUR PLAYGROUND</div><div class="tabs"><button class="tab active" data-mode="india">🇮🇳 India</button><button class="tab" data-mode="world">🌍 World</button><button class="tab" data-mode="mixed">✦ Mixed</button></div><div class="notice">Five randomly selected city pairs. No downloads, no account required.</div></div><button class="btn" id="startBtn">Start game&nbsp; →</button></div></section>
+<section class="panel game" id="game"><div class="game-head"><div class="pill" id="roundPill">ROUND 1 / 5</div><div class="pill">SCORE <b id="scoreNow">0</b></div><div class="game-actions"><button class="btn secondary sound-btn" id="soundBtn" aria-pressed="false">♫ Sound off</button><button class="btn secondary" id="leaveBtn">Leave game</button></div></div><div class="round-progress" id="roundProgress" aria-label="Round progress"><i class="active"></i><i></i><i></i><i></i><i></i></div>
+<div class="cities"><div class="city"><small>FROM</small><strong id="fromCity">Delhi</strong><span id="fromRegion">India</span></div><div class="arrow">→</div><div class="city"><small>TO</small><strong id="toCity">Mumbai</strong><span id="toRegion">India</span></div></div>
+<div class="round-slot" id="roundSlot"><div class="panel question-panel" id="questionPanel" style="margin-top:13px;box-shadow:none"><div class="question"><h2>How far apart are they in a straight line?</h2><div class="timer" id="timer">◷ 0:20</div></div><div class="guessrow"><div class="inputwrap"><input type="number" min="0" max="20000" step="1" id="guess" placeholder="Your guess" aria-label="Your distance guess"><span>km</span></div><div class="scale-wrap">
+  <div class="scale-heading"><span class="scale-title">DISTANCE SCALE</span><span class="scale-hint">Drag the slider or use ← →</span></div>
+  <div class="slider-stage">
+    <output id="scaleBubble" class="scale-bubble" for="slider">3,000 km</output>
+    <input type="range" min="0" max="20000" step="10" value="3000" id="slider" aria-label="Choose your distance guess">
+  </div>
+  <div class="range-labels" id="scaleTicks"><span>0</span><span>5,000</span><span>10,000</span><span>15,000</span><span>20,000 km</span></div>
+  <div class="scale-foot"><span id="scaleHint">A wider range helps with long-distance pairs.</span><span id="scalePercent">15% of scale</span></div>
+</div><button class="btn" id="lockBtn">Lock in guess</button></div></div><div class="result" id="result">
+  <div class="result-head"><div><div class="eyebrow">ROUND RESULT</div><h3 id="resultTitle">Nice guess!</h3></div><div class="result-score" id="roundPoints">+850 pts</div></div>
+  <div class="result-metrics">
+    <div class="metric-card guess-metric"><span>YOUR GUESS</span><strong id="guessMetric">1,580 <small>km</small></strong></div>
+    <div class="metric-card actual-metric"><span>ACTUAL DISTANCE</span><strong id="actualMetric">657 <small>km</small></strong></div>
+    <div class="metric-card error-metric"><span>YOU WERE OFF BY</span><strong id="errorMetric">923 <small>km</small></strong></div>
+  </div>
+  <p id="resultText"></p>
+  <div class="map-legend">
+    <span><i class="legend-line actual-line"></i> Actual distance</span>
+    <span><i class="legend-line guess-line"></i> Your estimate</span>
+    <span><i class="legend-dot start-dot"></i> Cities</span>
+    <span><i class="legend-dot estimate-dot"></i> Estimated endpoint</span>
+  </div>
+  <button class="btn" id="nextBtn">Next round →</button>
+</div></div>
+<div class="mapwrap"><div id="map" role="img" aria-label="Interactive geographical map"></div><div class="map-caption" id="mapCaption">MAP · GEORUSH</div></div><div class="footer"><span class="muted">Distances use the great-circle (straight-line) calculation.</span><span class="muted" id="bestScore">Personal best: —</span></div></section>
+<section class="panel end" id="end">
+  <div class="eyebrow">GEORUSH · GAME COMPLETE</div>
+  <h2>Journey complete.</h2>
+  <div class="final-score-wrap"><div class="big" id="finalScore">0</div><div class="final-outof">/ 5,000 POINTS</div></div>
+  <p id="endMessage">Great exploring!</p>
+  <p class="muted" id="bestFinal"></p>
+  <div class="final-stats">
+    <div class="final-stat"><span>ACCURACY</span><strong id="finalAccuracy">0%</strong></div>
+    <div class="final-stat"><span>AVERAGE ERROR</span><strong id="finalError">— km</strong></div>
+    <div class="final-stat"><span>BEST ROUND</span><strong id="finalBestRound">— pts</strong></div>
+  </div>
+  <h3 class="history-title">YOUR ROUND-BY-ROUND JOURNEY</h3>
+  <div class="round-history" id="roundHistory"></div>
+  <div class="final-actions"><button class="btn" id="playAgain">Play again ↻</button><button class="btn secondary" id="shareScore">↗ Share scorecard</button></div>
+  <p class="share-feedback" id="shareFeedback" aria-live="polite"></p>
+</section>
+<p class="notice" style="text-align:center">GEORUSH · Vector boundaries: DataMeet & Natural Earth</p>
+</main>
+
+<script>
+const cities={india:[
+['Delhi','Delhi',28.6139,77.2090],['Mumbai','Maharashtra',19.0760,72.8777],['Kolkata','West Bengal',22.5726,88.3639],['Chennai','Tamil Nadu',13.0827,80.2707],['Bengaluru','Karnataka',12.9716,77.5946],['Hyderabad','Telangana',17.3850,78.4867],['Jaipur','Rajasthan',26.9124,75.7873],['Ahmedabad','Gujarat',23.0225,72.5714],['Lucknow','Uttar Pradesh',26.8467,80.9462],['Kochi','Kerala',9.9312,76.2673],['Bhopal','Madhya Pradesh',23.2599,77.4126],['Guwahati','Assam',26.1445,91.7362],['Srinagar','Jammu & Kashmir',34.0837,74.7973],['Pune','Maharashtra',18.5204,73.8567],['Patna','Bihar',25.5941,85.1376],['Varanasi','Uttar Pradesh',25.3176,82.9739],['Surat','Gujarat',21.1702,72.8311],['Amritsar','Punjab',31.6340,74.8723],['Visakhapatnam','Andhra Pradesh',17.6868,83.2185],['Mysuru','Karnataka',12.2958,76.6394],['Dehradun','Uttarakhand',30.3165,78.0322],['Ranchi','Jharkhand',23.3441,85.3096],['Raipur','Chhattisgarh',21.2514,81.6296],['Thiruvananthapuram','Kerala',8.5241,76.9366]
+],world:[
+['London','United Kingdom',51.5072,-0.1276],['Paris','France',48.8566,2.3522],['Tokyo','Japan',35.6762,139.6503],['New York','United States',40.7128,-74.0060],['Sydney','Australia',-33.8688,151.2093],['Cairo','Egypt',30.0444,31.2357],['Rio de Janeiro','Brazil',-22.9068,-43.1729],['Cape Town','South Africa',-33.9249,18.4241],['Dubai','United Arab Emirates',25.2048,55.2708],['Singapore','Singapore',1.3521,103.8198],['Toronto','Canada',43.6532,-79.3832],['Istanbul','Türkiye',41.0082,28.9784],['Bangkok','Thailand',13.7563,100.5018],['Seoul','South Korea',37.5665,126.9780],['Mexico City','Mexico',19.4326,-99.1332],['Nairobi','Kenya',-1.2921,36.8219],['Rome','Italy',41.9028,12.4964],['Berlin','Germany',52.5200,13.4050],['Buenos Aires','Argentina',-34.6037,-58.3816],['Auckland','New Zealand',-36.8509,174.7645],['Lisbon','Portugal',38.7223,-9.1393],['Moscow','Russia',55.7558,37.6173],['Lima','Peru',-12.0464,-77.0428],['Reykjavik','Iceland',64.1466,-21.9426]
+]};
+const $=id=>document.getElementById(id);let mode='india',round=0,score=0,pair=null,timer=null,timeLeft=20,locked=false,roundHistory=[],soundEnabled=false;let maxRange=20000;
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.mode;if(geoMap){setupMap();if(pair)showMap(locked)}}));
+function distance(a,b){const r=Math.PI/180,lat1=a[2]*r,lat2=b[2]*r,dlat=(b[2]-a[2])*r,dlon=(b[3]-a[3])*r;const h=Math.sin(dlat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dlon/2)**2;return 6371*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h))}
+function fmt(n){return Math.round(n).toLocaleString('en-IN')}
+function pool(){if(mode==='mixed')return [...cities.india,...cities.world];return cities[mode]}
+function pickPair(){const p=pool();let a=Math.floor(Math.random()*p.length),b;do{b=Math.floor(Math.random()*p.length)}while(a===b);return[p[a],p[b]]}
+
+
+// Leaflet slippy map with authoritative/open boundary overlays.
+// Basemap tiles are requested only for the visible viewport. India boundaries are
+// loaded from DataMeet's simplified GeoJSON; world countries from Natural Earth.
+let geoMap=null, routeLayer=null, indiaBoundaryLayer=null, worldBoundaryLayer=null;
+const boundaryCache = {india:null, world:null};
+const DATA_URLS = {
+  india: 'https://raw.githubusercontent.com/datameet/maps/master/Country/india-land-simplified.geojson',
+  states: 'https://raw.githubusercontent.com/datameet/maps/master/docs/data/geojson/states.geojson',
+  world: 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson'
+};
+function mapFallback(message){
+ const node=$('map'); if(!node)return;
+ node.innerHTML=`<div style="height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#52645a;background:linear-gradient(135deg,#dce7e0,#c6dce5)"><div><b>Map temporarily unavailable</b><p style="font-size:12px">${message||'Check your internet connection and refresh.'}</p></div></div>`;
+}
+async function loadGeoJSON(url){
+ const response=await fetch(url,{mode:'cors',cache:'force-cache'});
+ if(!response.ok) throw new Error('Boundary data request failed: '+response.status);
+ return await response.json();
+}
+async function ensureBoundaries(which){
+ if(which==='india'){
+   if(!boundaryCache.india){
+     const [country,states]=await Promise.all([
+       loadGeoJSON(DATA_URLS.india),
+       loadGeoJSON(DATA_URLS.states)
+     ]);
+     boundaryCache.india={country,states};
+   }
+   return boundaryCache.india;
+ }
+ if(!boundaryCache.world) boundaryCache.world=await loadGeoJSON(DATA_URLS.world);
+ return boundaryCache.world;
+}
+function styleIndiaBoundary(){return {className:'georush-india-boundary',color:'#087448',weight:1.9,opacity:1,fillColor:'#ffffff',fillOpacity:.96,lineJoin:'round'};}
+function styleStateBoundary(){return {className:'georush-state-boundary',color:'#8fc6a8',weight:1.05,opacity:.92,fillColor:'#ffffff',fillOpacity:0,lineJoin:'round'};}
+function styleWorldBoundary(){return {className:'georush-world-boundary',color:'#b4c7bd',weight:.85,opacity:.95,fillColor:'#f7f8f4',fillOpacity:1,lineJoin:'round'};}
+function addBoundaryAttribution(){
+ const ctrl=geoMap && geoMap.attributionControl;
+ if(!ctrl)return;
+ ctrl.addAttribution('Boundaries: <a href="https://github.com/datameet/maps" target="_blank" rel="noopener">DataMeet</a>, <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a>');
+}
+async function setupMap(){
+ const node=$('map'); if(!node)return;
+ if(!window.L){mapFallback('Leaflet could not load. Check your connection and refresh.');return;}
+ if(geoMap){geoMap.remove();geoMap=null;}
+ // Vector-only Leaflet map: no CARTO key, no OSM tile endpoint, no raster tiles.
+ geoMap=L.map(node,{zoomControl:true,scrollWheelZoom:true,preferCanvas:true,attributionControl:true,worldCopyJump:true}).setView(mode==='india'?[22.5,82.5]:[20,0],mode==='india'?4:2);
+ L.control.scale({imperial:false,metric:true,position:'bottomleft',maxWidth:120}).addTo(geoMap);
+ routeLayer=L.layerGroup().addTo(geoMap);
+ addBoundaryAttribution();
+ $('mapCaption').textContent='VECTOR MAP · LOADING GEOGRAPHICAL BOUNDARIES';
+ try{
+   // Natural Earth country polygons form the land/sea basemap for both India and World.
+   const world=await ensureBoundaries('world');
+   if(!geoMap)return;
+   worldBoundaryLayer=L.geoJSON(world,{style:styleWorldBoundary,interactive:false}).addTo(geoMap);
+   if(mode==='india'){
+     const data=await ensureBoundaries('india');
+     if(!geoMap)return;
+     // Put India national outline and state boundaries above neighbouring country shapes.
+     indiaBoundaryLayer=L.geoJSON(data.country,{style:styleIndiaBoundary,interactive:false}).addTo(geoMap);
+     worldBoundaryLayer.bringToBack();
+     const statesLayer=L.geoJSON(data.states,{style:styleStateBoundary,interactive:false}).addTo(geoMap);
+     statesLayer.bringToFront();
+     indiaBoundaryLayer.bringToFront();
+     // state boundaries should remain visible within the India fill.
+     statesLayer.bringToFront();
+     geoMap.fitBounds(indiaBoundaryLayer.getBounds().pad(.14),{animate:false});
+     $('mapCaption').textContent='INDIA · STATE & COUNTRY BOUNDARIES';
+   }else{
+     geoMap.fitWorld();
+     $('mapCaption').textContent=mode==='mixed'?'WORLD · COUNTRY BOUNDARIES':'WORLD · COUNTRY BOUNDARIES';
+   }
+ }catch(err){
+   console.warn('Vector boundary data could not load',err);
+   $('mapCaption').textContent='VECTOR MAP · BOUNDARY DATA UNAVAILABLE';
+   mapFallback('The map no longer uses paid tile services. Boundary data could not be fetched. Check your internet connection.');
+ }
+ setTimeout(()=>geoMap&&geoMap.invalidateSize(),120);
+}
+
+function clearMap(){if(routeLayer)routeLayer.clearLayers();}
+function destinationPoint(lat,lon,bearingDeg,distanceKm){
+ const R=6371, d=distanceKm/R, br=bearingDeg*Math.PI/180;
+ const p1=lat*Math.PI/180, l1=lon*Math.PI/180;
+ const p2=Math.asin(Math.sin(p1)*Math.cos(d)+Math.cos(p1)*Math.sin(d)*Math.cos(br));
+ const l2=l1+Math.atan2(Math.sin(br)*Math.sin(d)*Math.cos(p1),Math.cos(d)-Math.sin(p1)*Math.sin(p2));
+ return [p2*180/Math.PI,((l2*180/Math.PI+540)%360)-180];
+}
+function bearingBetween(a,b){
+ const p1=a[2]*Math.PI/180,p2=b[2]*Math.PI/180,dl=(b[3]-a[3])*Math.PI/180;
+ const y=Math.sin(dl)*Math.cos(p2);
+ const x=Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(dl);
+ return (Math.atan2(y,x)*180/Math.PI+360)%360;
+}
+function resultIcon(kind){
+ const cls=kind==='estimate'?'estimate':'actual';
+ return L.divIcon({className:'',html:`<span class="geo-result-dot ${cls}"></span>`,iconSize:[18,18],iconAnchor:[9,9]});
+}
+async function showMap(reveal=false){
+ if(!geoMap){await setupMap();if(!geoMap)return;}
+ clearMap();
+ if(mode==='india' && indiaBoundaryLayer) geoMap.fitBounds(indiaBoundaryLayer.getBounds().pad(.12),{animate:false});
+ else if(mode!=='india') geoMap.setView([20,0],2,{animate:false});
+ if(reveal&&pair){
+   const a=pair[0],b=pair[1],real=distance(a,b);
+   const guess=Math.max(0,Number($('guess').value)||0);
+   const origin=[a[2],a[3]],actualEnd=[b[2],b[3]];
+   const guessEnd=destinationPoint(a[2],a[3],bearingBetween(a,b),guess);
+   const actualLine=L.polyline([origin,actualEnd],{color:'#087448',weight:5,opacity:1,lineCap:'round',lineJoin:'round'}).addTo(routeLayer);
+   const guessLine=L.polyline([origin,guessEnd],{color:'#e5a000',weight:4,opacity:.98,dashArray:'3 9',lineCap:'round',lineJoin:'round'}).addTo(routeLayer);
+   // City/estimate labels and endpoint markers are revealed only on the result screen.
+   L.circleMarker(origin,{radius:6,color:'#fff',weight:2,fillColor:'#17251e',fillOpacity:1}).addTo(routeLayer)
+     .bindTooltip(a[0],{permanent:true,direction:'bottom',offset:[0,9],className:'city-result-label'});
+   L.circleMarker(actualEnd,{radius:6,color:'#fff',weight:2,fillColor:'#17251e',fillOpacity:1}).addTo(routeLayer)
+     .bindTooltip(b[0],{permanent:true,direction:'top',offset:[0,-9],className:'city-result-label'});
+   L.circleMarker(guessEnd,{radius:6,color:'#fff',weight:2,fillColor:'#e5a000',fillOpacity:1}).addTo(routeLayer)
+     .bindTooltip('Your estimate',{permanent:true,direction:'top',offset:[0,-9],className:'city-result-label guess-result-label'});
+   const bounds=L.latLngBounds([origin,actualEnd,guessEnd]);
+   geoMap.fitBounds(bounds.pad(mode==='india'?.22:.32),{animate:true,maxZoom:mode==='india'?6:5});
+   $('mapCaption').textContent='ACTUAL ROUTE + YOUR ESTIMATE';
+ }
+ setTimeout(()=>geoMap&&geoMap.invalidateSize(),80);
+}
+
+function updateProgress(){
+ document.querySelectorAll('#roundProgress i').forEach((el,i)=>{
+   el.classList.toggle('done',i<round);
+   el.classList.toggle('active',i===round && round<5);
+ });
+}
+function playTone(freq=660,duration=.09){
+ if(!soundEnabled)return;
+ try{
+   const Ctx=window.AudioContext||window.webkitAudioContext;
+   const ctx=new Ctx(),osc=ctx.createOscillator(),gain=ctx.createGain();
+   osc.type='sine';osc.frequency.value=freq;gain.gain.setValueAtTime(.045,ctx.currentTime);
+   gain.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+duration);
+   osc.connect(gain);gain.connect(ctx.destination);osc.start();osc.stop(ctx.currentTime+duration);
+   osc.onended=()=>ctx.close();
+ }catch(e){}
+}
+
+
+function updateScale(){
+ const slider=$('slider'),input=$('guess');
+ const val=Math.max(0,Math.min(maxRange,Number(slider.value)||0));
+ const pct=maxRange?val/maxRange*100:0;
+ slider.max=maxRange;input.max=maxRange;
+ slider.style.setProperty('--range-fill',pct+'%');
+ $('scaleBubble').textContent=fmt(val)+' km';
+ $('scaleBubble').style.setProperty('--bubble-left',Math.max(2,Math.min(98,pct))+'%');
+ $('scalePercent').textContent=Math.round(pct)+'% of scale';
+ const ticks=[0,.25,.5,.75,1].map((n,i)=>`<span>${i===4?fmt(maxRange)+' km':fmt(maxRange*n)}</span>`).join('');
+ $('scaleTicks').innerHTML=ticks;
+ $('scaleHint').textContent=mode==='india'?'India mode · distances up to 4,000 km':'World mode · distances up to 20,000 km';
+}
+function syncGuess(value,source){
+ const v=Math.max(0,Math.min(maxRange,Number(value)||0));
+ if(source!=='input')$('guess').value=v?String(v):'';
+ if(source!=='slider')$('slider').value=v;
+ updateScale();
+}
+
+function begin(){round=0;score=0;roundHistory=[];$('scoreNow').textContent='0';updateProgress();$('setup').style.display='none';$('end').style.display='none';$('game').style.display='block';setupMap();nextRound();setTimeout(()=>geoMap&&geoMap.invalidateSize(),150)}
+function nextRound(){if(round>=5){finish();return}updateProgress();locked=false;maxRange=mode==='india'?4000:20000;pair=pickPair();timeLeft=20;$('roundPill').textContent=`ROUND ${round+1} / 5`;$('fromCity').textContent=pair[0][0];$('fromRegion').textContent=pair[0][1];$('toCity').textContent=pair[1][0];$('toRegion').textContent=pair[1][1];$('guess').value='';$('slider').value=Math.min(3000,maxRange);$('result').style.display='none';$('questionPanel').style.display='block';$('lockBtn').disabled=false;$('lockBtn').textContent='Lock in guess';$('timer').textContent='◷ 0:20';updateScale();showMap(false);clearInterval(timer);timer=setInterval(()=>{timeLeft--;$('timer').textContent='◷ 0:'+String(timeLeft).padStart(2,'0');if(timeLeft<=0)lockGuess(true)},1000)}
+$('slider').addEventListener('input',()=>syncGuess($('slider').value,'slider'));$('guess').addEventListener('input',()=>{if($('guess').value===''){ $('slider').value=0;updateScale();return;}syncGuess($('guess').value,'input')});$('guess').addEventListener('blur',()=>{if($('guess').value!=='')syncGuess($('guess').value,'input')});$('lockBtn').addEventListener('click',()=>lockGuess(false));$('guess').addEventListener('keydown',e=>{if(e.key==='Enter')lockGuess(false)});
+function lockGuess(timeout){if(locked)return;locked=true;clearInterval(timer);const real=distance(pair[0],pair[1]),guess=timeout?0:Math.max(0,Math.min(maxRange,Number($('guess').value)||0));const error=Math.abs(guess-real)/real;const points=Math.max(0,Math.round(1000*Math.max(0,1-error)));score+=points;roundHistory.push({from:pair[0][0],to:pair[1][0],guess,actual:real,error:Math.abs(guess-real),points,timeout});round++;updateProgress();playTone(points>=800?880:points>=400?620:330,.12);$('scoreNow').textContent=fmt(score);$('lockBtn').disabled=true;$('questionPanel').style.display='none';$('result').style.display='block';$('resultTitle').textContent=timeout?'Time is up!':points>=900?'Incredible accuracy!':points>=650?'Great estimate!':points>=300?'Not bad!':'Keep exploring!';$('roundPoints').textContent='+'+fmt(points)+' points';$('guessMetric').innerHTML=fmt(guess)+' <small>km</small>';$('actualMetric').innerHTML=fmt(real)+' <small>km</small>';$('errorMetric').innerHTML=fmt(Math.abs(guess-real))+' <small>km</small>';$('resultText').textContent=timeout?'The timer ran out before you locked an estimate. The actual route is shown in green.':`You were ${fmt(Math.abs(guess-real))} km away from the actual distance. The green line shows the real route; the dotted amber line shows your estimate from ${pair[0][0]}.`;showMap(true);$('nextBtn').textContent=round===5?'See final score →':'Next round →';$('bestScore').textContent='Personal best: '+fmt(Number(localStorage.getItem('georushBest')||0))}
+$('nextBtn').addEventListener('click',nextRound);function finish(){
+ clearInterval(timer);
+ $('game').style.display='none';$('end').style.display='block';
+ $('finalScore').textContent=fmt(score);
+ const best=Math.max(score,Number(localStorage.getItem('georushBest')||0));
+ localStorage.setItem('georushBest',best);
+ $('bestFinal').textContent='Personal best: '+fmt(best)+' points';
+ $('endMessage').textContent=score>=4500?'Outstanding. You know your geography!':score>=3500?'Excellent run. You have a sharp sense of distance.':score>=2000?'Good effort. Ready for another round?':'Every journey teaches you something. Try again!';
+ const totalActual=roundHistory.reduce((v,r)=>v+r.actual,0);
+ const totalError=roundHistory.reduce((v,r)=>v+r.error,0);
+ const accuracy=roundHistory.length?Math.max(0,100*(1-totalError/Math.max(totalActual,1))):0;
+ $('finalAccuracy').textContent=accuracy.toFixed(1)+'%';
+ $('finalError').textContent=roundHistory.length?fmt(totalError/roundHistory.length)+' km':'— km';
+ $('finalBestRound').textContent=fmt(Math.max(0,...roundHistory.map(r=>r.points)))+' pts';
+ $('roundHistory').innerHTML=roundHistory.map((r,i)=>`<div class="history-row"><div class="history-round">${i+1}</div><div class="history-cities"><strong>${r.from} → ${r.to}</strong><small>${r.timeout?'Time expired':fmt(r.guess)+' km guessed · '+fmt(r.actual)+' km actual'}</small></div><div class="history-error">${fmt(r.error)} km off</div><div class="history-points">+${fmt(r.points)}</div></div>`).join('');
+ $('shareFeedback').textContent='';
+}
+$('shareScore').addEventListener('click',async()=>{
+ const lines=roundHistory.map((r,i)=>`${i+1}. ${r.from} → ${r.to}: +${fmt(r.points)} pts`).join('\n');
+ const text=`GEORUSH ${mode.toUpperCase()} CHALLENGE\nScore: ${fmt(score)} / 5,000\n${$('finalAccuracy').textContent} distance accuracy\n\n${lines}\n\nCan you beat my score?`;
+ try{
+   if(navigator.share){await navigator.share({title:'My GEORUSH score',text});$('shareFeedback').textContent='Scorecard shared!';}
+   else if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(text);$('shareFeedback').textContent='Scorecard copied. Paste it anywhere to share!';}
+   else {$('shareFeedback').textContent=text;}
+ }catch(e){if(e.name!=='AbortError')$('shareFeedback').textContent='Could not share automatically. Try copying your score from the dashboard.';}
+});
+$('soundBtn').addEventListener('click',()=>{
+ soundEnabled=!soundEnabled;
+ $('soundBtn').textContent=soundEnabled?'♫ Sound on':'♫ Sound off';
+ $('soundBtn').setAttribute('aria-pressed',String(soundEnabled));
+ if(soundEnabled)playTone(740,.12);
+});
+$('startBtn').addEventListener('click',begin);$('playAgain').addEventListener('click',()=>{$('end').style.display='none';$('setup').style.display='block';updateProgress()});$('leaveBtn').addEventListener('click',()=>{clearInterval(timer);$('game').style.display='none';$('setup').style.display='block'});$('bestScore').textContent='Personal best: '+fmt(Number(localStorage.getItem('georushBest')||0));
+</script></body></html>
