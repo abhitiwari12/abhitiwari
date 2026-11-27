@@ -177,27 +177,27 @@ function App(){
 
 
       <section className="section academics-section" id="academics">
-        <div className="section-head"><div><span className="eyebrow">UNIVERSITY WORK & MINI PROJECTS</span><h2>What I explored <em>at college.</em></h2></div><p>Team projects, individual work<br/>and the reports behind them.</p></div>
-        <div className="academic-intro">
-          <span className="academic-stamp">THE ACADEMIC FOLDER</span>
-          <p>Not everything starts as a startup idea. Some of these began as coursework, some became working prototypes, and all of them taught me something useful.</p>
+        <div className="section-head">
+          <div><span className="eyebrow">UNIVERSITY WORK & MINI PROJECTS</span><h2>What I explored <em>at college.</em></h2></div>
+          <p>Team projects, individual work<br/>and coursework from university.</p>
         </div>
+        <p className="academic-intro">A few projects I worked on during my B.Tech, including team assignments and individual work.</p>
         <div className="academic-grid">
-          {academicProjects.map((project,i)=><article className={"academic-card academic-card-"+(i+1)} key={project.title}>
-            <div className="academic-card-top"><span className="card-kicker">{project.tag}</span><span className="academic-number">0{i+1}</span></div>
+          {academicProjects.map(project=><article className="academic-card" key={project.title}>
+            <span className="academic-course">{project.tag}</span>
             <h3>{project.title}</h3>
             <p className="academic-desc">{project.desc}</p>
-            <div className="academic-contribution"><span>MY PART</span><p>{project.contribution}</p></div>
-            <div className="academic-stack">{project.stack.split(" · ").map(t=><span key={t}>{t}</span>)}</div>
-            <div className="academic-meta">{project.meta} {project.status ? "· "+project.status : ""}</div>
+            <p className="academic-contribution"><strong>My contribution:</strong> {project.contribution.replace("My contribution: ","")}</p>
+            <p className="academic-stack"><strong>Technologies:</strong> {project.stack.replaceAll(" · ", ", ")}</p>
+            <p className="academic-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>
             <div className="academic-links">
-              {project.href && <a href={project.href} target="_blank" rel="noreferrer">Source code <Github size={14}/></a>}
-              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
-              <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>
+              {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub</a>}
+              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo</a>}
+              <a href={project.report} target="_blank" rel="noreferrer">Read report</a>
             </div>
           </article>)}
         </div>
-        <p className="academic-footnote">Team contributions are credited as described in the submitted reports and project repositories. SolarTwin AI is presented as a Phase-1 prototype, not as a fully deployed solar-plant system.</p>
+        <p className="academic-footnote">Team contributions are credited as described in the project reports and repositories. SolarTwin AI is a Phase-1 prototype.</p>
       </section>
 
       <section className="play-section" id="play">
