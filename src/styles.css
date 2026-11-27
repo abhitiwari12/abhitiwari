@@ -418,7 +418,9 @@ html{scroll-padding-top:82px}
   border: 0;
   box-shadow: none;
   color: #dfe8dc;
-  font: 15px/1.7 inherit;
+  font-size: 15px;
+  line-height: 1.7;
+  font-family: inherit;
   max-width: 740px;
 }
 .academic-stamp, .academic-number { display: none !important; }
