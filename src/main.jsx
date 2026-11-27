@@ -16,7 +16,6 @@ const academicProjects = [
     tag:"AGENTIC AI · SEMESTER VI · TEAM PROJECT",
     title:"theScientist — Multi-Agent AI Scientist",
     desc:"A multi-agent research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes testable hypotheses, reviews them adversarially and generates a structured research manuscript.",
-    contribution:"My contribution: Streamlit interface, Graphviz visualisation support, screenshots, README and project documentation.",
     stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
     href:"https://github.com/abhitiwari12/thescientist",
     report:"/MiniProject_Report_D&G_AgenticAI.pdf",
@@ -26,7 +25,6 @@ const academicProjects = [
     tag:"COMPILER DESIGN · SEMESTER VII · TEAM PROJECT",
     title:"End-to-End Mini Compiler with Phase Visualisation",
     desc:"A hand-written compiler for a small C-like language. It demonstrates lexical, syntax and semantic analysis, parse-tree visualisation, Three Address Code, quadruples, triples and code optimisation.",
-    contribution:"My contribution: Streamlit user interface, Graphviz visualisation support, screenshots, README and project report. Core compiler and optimiser modules were developed by teammates.",
     stack:"Python · Streamlit · Graphviz · Git · GitHub",
     href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
     live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
@@ -37,7 +35,6 @@ const academicProjects = [
     tag:"SOFTWARE PROJECT MANAGEMENT · SEMESTER VII · INDIVIDUAL PROJECT",
     title:"SolarTwin AI — Digital Twin for Solar PV Plants",
     desc:"A Phase-1 prototype for solar photovoltaic predictive maintenance, combining a physics-based PV reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
-    contribution:"Individual project covering system architecture, implementation, automated testing and the associated software project-management plan.",
     stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
     href:null,
     report:"/AbhiTiwari_120.pdf",
@@ -181,13 +178,12 @@ function App(){
           <div><span className="eyebrow">UNIVERSITY WORK & MINI PROJECTS</span><h2>What I explored <em>at college.</em></h2></div>
           <p>Team projects, individual work<br/>and coursework from university.</p>
         </div>
-        <p className="academic-intro">A few projects I worked on during my B.Tech, including team assignments and individual work.</p>
+        <p className="academic-intro">A selection of university projects covering agentic AI, compiler design and predictive maintenance for solar power plants.</p>
         <div className="academic-grid">
           {academicProjects.map(project=><article className="academic-card" key={project.title}>
             <span className="academic-course">{project.tag}</span>
             <h3>{project.title}</h3>
             <p className="academic-desc">{project.desc}</p>
-            <p className="academic-contribution"><strong>My contribution:</strong> {project.contribution.replace("My contribution: ","")}</p>
             <p className="academic-stack"><strong>Technologies:</strong> {project.stack.replaceAll(" · ", ", ")}</p>
             <p className="academic-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>
             <div className="academic-links">
@@ -197,7 +193,6 @@ function App(){
             </div>
           </article>)}
         </div>
-        <p className="academic-footnote">Team contributions are credited as described in the project reports and repositories. SolarTwin AI is a Phase-1 prototype.</p>
       </section>
 
       <section className="play-section" id="play">
