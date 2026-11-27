@@ -19,7 +19,7 @@ const academicProjects = [
     contribution:"My contribution: Streamlit interface, Graphviz visualisation support, screenshots, README and project documentation.",
     stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
     href:"https://github.com/abhitiwari12/thescientist",
-    report:"/reports/MiniProject_Report_DG_AgenticAI.pdf",
+    report:"/reports/MiniProject_Report_D&G_AgenticAI(1).pdf",
     meta:"Karnavati University · Guided by Ms Vaishnavi Chauhan"
   },
   {
@@ -30,7 +30,7 @@ const academicProjects = [
     stack:"Python · Streamlit · Graphviz · Git · GitHub",
     href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
     live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
-    report:"/reports/Compiler_Design_Mini_Project_Report.pdf",
+    report:"/reports/23BTAI62_TiwariAbhi_MiniProjectReport(1).pdf",
     meta:"Karnavati University · Guided by Ms Neha Minocha"
   },
   {
@@ -40,7 +40,7 @@ const academicProjects = [
     contribution:"Individual project covering system architecture, implementation, automated testing and the associated software project-management plan.",
     stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
     href:null,
-    report:"/reports/SolarTwin_AI_SPM_Report.pdf",
+    report:"/reports/AbhiTiwari_120(1).pdf",
     meta:"Karnavati University · Guided by Dr Sohil Shah",
     status:"Phase-1 prototype"
   }
