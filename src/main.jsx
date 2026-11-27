@@ -17,6 +17,7 @@ const academicProjects = [
     title:"theScientist — Multi-Agent AI Scientist",
     desc:"A multi-agent research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes testable hypotheses, reviews them adversarially and generates a structured research manuscript.",
     stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
+    flow:["PAPER SEARCH","KNOWLEDGE GRAPH","HYPOTHESES"],
     href:"https://github.com/abhitiwari12/thescientist",
     report:"/MiniProject_Report_D&G_AgenticAI.pdf",
     meta:"Karnavati University · Guided by Ms Vaishnavi Chauhan"
@@ -26,6 +27,7 @@ const academicProjects = [
     title:"End-to-End Mini Compiler with Phase Visualisation",
     desc:"A hand-written compiler for a small C-like language. It demonstrates lexical, syntax and semantic analysis, parse-tree visualisation, Three Address Code, quadruples, triples and code optimisation.",
     stack:"Python · Streamlit · Graphviz · Git · GitHub",
+    flow:["LEXER","PARSER","TAC","OPTIMISER"],
     href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
     live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
     report:"/23BTAI62_TiwariAbhi_MiniProjectReport.pdf",
@@ -36,6 +38,7 @@ const academicProjects = [
     title:"SolarTwin AI — Digital Twin for Solar PV Plants",
     desc:"A Phase-1 prototype for solar photovoltaic predictive maintenance, combining a physics-based PV reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
     stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
+    flow:["PV MODEL","PREDICTIVE ML","MAINTENANCE"],
     href:null,
     report:"/AbhiTiwari_120.pdf",
     meta:"Karnavati University · Guided by Dr Sohil Shah",
@@ -180,16 +183,20 @@ function App(){
         </div>
         <p className="academic-intro">A selection of university projects covering agentic AI, compiler design and predictive maintenance for solar power plants.</p>
         <div className="academic-grid">
-          {academicProjects.map(project=><article className="academic-card" key={project.title}>
+          {academicProjects.map((project,i)=><article className={`academic-card academic-card-${i+1}`} key={project.title}>
+            <div className="academic-visual">
+              <div className="academic-visual-label"><span>PROJECT 0{i+1}</span><span>{project.status || (i===0 ? "AGENTIC RESEARCH" : "COMPILER DESIGN")}</span></div>
+              <div className="academic-flow">{project.flow.map((step,j)=><React.Fragment key={step}>{j>0 && <span className="academic-flow-arrow">→</span>}<span className="academic-flow-step">{step}</span></React.Fragment>)}</div>
+            </div>
             <span className="academic-course">{project.tag}</span>
             <h3>{project.title}</h3>
             <p className="academic-desc">{project.desc}</p>
-            <p className="academic-stack"><strong>Technologies:</strong> {project.stack.replaceAll(" · ", ", ")}</p>
+            <p className="academic-stack"><strong>Technologies</strong><span>{project.stack.replaceAll(" · ", " / ")}</span></p>
             <p className="academic-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>
             <div className="academic-links">
-              {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub</a>}
-              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo</a>}
-              <a href={project.report} target="_blank" rel="noreferrer">Read report</a>
+              {project.href && <a href={project.href} target="_blank" rel="noreferrer">View GitHub <ArrowUpRight size={14}/></a>}
+              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
+              <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>
             </div>
           </article>)}
         </div>
