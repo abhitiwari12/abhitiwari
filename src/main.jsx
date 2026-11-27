@@ -46,6 +46,22 @@ const academicProjects = [
   }
 ];
 
+const allProjects = [
+  ...projects.map(project => ({ ...project, kind:"personal" })),
+  ...academicProjects.map(project => ({ ...project, kind:"academic" })),
+  {
+    kind:"independent research",
+    tag:"CYBERSECURITY · RED/BLUE RESEARCH",
+    title:"CyberRanger — Red/Blue Cybersecurity Research Platform",
+    desc:"A local red/blue research loop built around an intentionally vulnerable DVWA lab. It generates bounded test candidates, evaluates real responses with a blue-side detector, records evidence for human triage and tracks experiments through a mission-control dashboard.",
+    stack:"Python · FastAPI · Docker Compose · Laya · Gemini API",
+    flow:["DVWA LAB","RED/BLUE LOOP","TRIAGE & METRICS"],
+    href:"https://github.com/abhitiwari12/cyberranger",
+    meta:"Independent research project · Controlled local lab",
+    status:"Research prototype"
+  }
+];
+
 const journey = [
   { year:"2023 — NOW", title:"Karnavati University", label:"THE COLLEGE CHAPTER", text:"B.Tech in Computer Science, specialising in AI & Machine Learning. Learning, building, meeting people and collecting stories along the way.", icon:GraduationCap },
   { year:"2025 — NOW", title:"AAYAM · Student Committee", label:"LEADERSHIP", text:"Discipline Vice Chairperson — a chance to take responsibility, work with people and help make campus life happen.", icon:Sparkles },
@@ -65,7 +81,7 @@ function App(){
     updateProgress();
     return ()=>window.removeEventListener("scroll",updateProgress);
   },[]);
-  const nav=[["The journey","#journey"],["Experience","#experience"],["Things I made","#projects"],["Academic work","#academics"],["GEORUSH","#play"]];
+  const nav=[["The journey","#journey"],["Experience","#experience"],["Things I made","#projects"],["GEORUSH","#play"]];
   return <div className="site-shell">
     <div className="reading-progress" style={{width:scrollProgress+"%"}}></div>
     <div className="grain"></div>
@@ -170,36 +186,32 @@ function App(){
       </section>
 
       <section className="section projects-section" id="projects">
-        <div className="section-head"><div><span className="eyebrow">AFTER A LOT OF TABS AND COFFEE</span><h2>Things I've <em>made.</em></h2></div><p>Little experiments, college work<br/>and ideas I wanted to try.</p></div>
-        <div className="project-grid">{projects.map((p,i)=><a className={"project-card "+p.tone} href={p.href} target="_blank" rel="noreferrer" key={p.title}><div className="project-art"><span className="art-index">PROJECT 0{i+1}</span><div className="art-shape">{i===0?"⌁":i===1?"Aa":"↗"}</div><span className="art-caption">{p.stat}</span></div><div className="project-info"><span className="card-kicker">{p.tag}</span><h3>{p.title}</h3><p>{p.desc}</p><span className="project-open">Take a look <ArrowUpRight size={15}/></span></div></a>)}</div>
-        <div className="github-line"><span>More experiments live in my GitHub.</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={15}/></a></div>
-      </section>
-
-
-      <section className="section academics-section" id="academics">
         <div className="section-head">
-          <div><span className="eyebrow">UNIVERSITY WORK & MINI PROJECTS</span><h2>What I explored <em>at college.</em></h2></div>
-          <p>Team projects, individual work<br/>and coursework from university.</p>
+          <div><span className="eyebrow">PROJECTS, EXPERIMENTS & COURSEWORK</span><h2>Things I've <em>made.</em></h2></div>
+          <p>Personal builds, university projects<br/>and ideas I wanted to try.</p>
         </div>
-        <p className="academic-intro">A selection of university projects covering agentic AI, compiler design and predictive maintenance for solar power plants.</p>
-        <div className="academic-grid">
-          {academicProjects.map((project,i)=><article className={`academic-card academic-card-${i+1}`} key={project.title}>
-            <div className="academic-visual">
-              <div className="academic-visual-label"><span>PROJECT 0{i+1}</span><span>{project.status || (i===0 ? "AGENTIC RESEARCH" : "COMPILER DESIGN")}</span></div>
-              <div className="academic-flow">{project.flow.map((step,j)=><React.Fragment key={step}>{j>0 && <span className="academic-flow-arrow">→</span>}<span className="academic-flow-step">{step}</span></React.Fragment>)}</div>
+        <p className="work-intro">A mix of things I've worked on inside and outside college — from small experiments to larger research prototypes.</p>
+        <div className="work-grid">
+          {allProjects.map((project,i)=><article className={`work-card work-card-${i+1}`} key={project.title}>
+            <div className="work-visual">
+              <div className="work-visual-top"><span>PROJECT 0{i+1}</span><span>{project.kind === "academic" ? "UNIVERSITY" : project.kind === "independent research" ? "INDEPENDENT" : "PERSONAL BUILD"}</span></div>
+              {project.flow ? <div className="work-flow">{project.flow.map((step,j)=><React.Fragment key={step}>{j>0 && <span className="work-flow-arrow">→</span>}<span className="work-flow-step">{step}</span></React.Fragment>)}</div> : <div className="work-stat">{project.stat || project.tag}</div>}
             </div>
-            <span className="academic-course">{project.tag}</span>
-            <h3>{project.title}</h3>
-            <p className="academic-desc">{project.desc}</p>
-            <p className="academic-stack"><strong>Technologies</strong><span>{project.stack.replaceAll(" · ", " / ")}</span></p>
-            <p className="academic-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>
-            <div className="academic-links">
-              {project.href && <a href={project.href} target="_blank" rel="noreferrer">View GitHub <ArrowUpRight size={14}/></a>}
-              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
-              <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>
+            <div className="work-body">
+              <span className="work-category">{project.tag}</span>
+              <h3>{project.title}</h3>
+              <p className="work-desc">{project.desc}</p>
+              {project.stack && <div className="work-stack"><strong>Technologies</strong><span>{project.stack.replaceAll(" · ", " / ")}</span></div>}
+              <p className="work-meta">{project.meta || "Personal project"}{project.status ? " · "+project.status : ""}</p>
+              <div className="work-links">
+                {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14}/></a>}
+                {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
+                {project.report && <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>}
+              </div>
             </div>
           </article>)}
         </div>
+        <div className="github-line"><span>More experiments and source code live on GitHub.</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={15}/></a></div>
       </section>
 
       <section className="play-section" id="play">
