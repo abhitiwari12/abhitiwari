@@ -528,3 +528,183 @@ html{scroll-padding-top:82px}
   .academic-desc { font-size: 14px; }
   .academic-contribution { font-size: 13px; }
 }
+
+
+/* Refined academic project cards */
+.academic-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
+.academic-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  min-height:100%;
+  padding:16px;
+  overflow:hidden;
+  background:#f0e9da;
+  color:#244633;
+  border:1px solid #d8cfbd;
+  border-radius:12px;
+  box-shadow:0 5px 18px rgba(2,27,18,.12);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.academic-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 27px rgba(2,27,18,.2);
+}
+.academic-visual{
+  min-height:112px;
+  padding:15px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  gap:15px;
+  background:#123f2d;
+  border-radius:8px;
+  color:#f3ead7;
+  margin-bottom:18px;
+}
+.academic-card-2 .academic-visual{background:#244b3a}
+.academic-card-3 .academic-visual{background:#173b31}
+.academic-visual-label{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  color:#d5bd81;
+  font:9px/1.4 "DM Mono",monospace;
+  letter-spacing:1px;
+}
+.academic-flow{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:6px;
+}
+.academic-flow-step{
+  padding:7px 9px;
+  border:1px solid rgba(235,229,208,.35);
+  border-radius:5px;
+  color:#f0e9d9;
+  font:9px/1.2 "DM Mono",monospace;
+  letter-spacing:.25px;
+}
+.academic-flow-arrow{
+  color:#e1b65b;
+  font-size:12px;
+}
+.academic-course{
+  display:block;
+  margin-bottom:8px;
+  color:#95623b;
+  font:9px/1.55 "DM Mono",monospace;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+.academic-card h3{
+  margin:0 0 10px;
+  color:#173e2d;
+  font:700 23px/1.25 "Playfair Display",Georgia,serif;
+}
+.academic-desc{
+  color:#485b4e;
+  font-size:13px;
+  line-height:1.75;
+  margin:0 0 15px;
+}
+.academic-stack{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  margin:0 0 12px;
+  padding:10px 11px;
+  background:#e5dece;
+  border-radius:6px;
+  color:#5d6b60;
+  font:10px/1.65 "DM Mono",monospace;
+}
+.academic-stack strong{
+  color:#31543d;
+  font:700 9px/1.4 "DM Mono",monospace;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+.academic-meta{
+  margin-top:auto;
+  padding-top:10px;
+  color:#788174;
+  font:9px/1.6 "DM Mono",monospace;
+}
+.academic-links{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid #d4cbb9;
+}
+.academic-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:8px 10px;
+  border:1px solid #b8aa91;
+  border-radius:6px;
+  color:#6e4a31;
+  background:transparent;
+  text-decoration:none;
+  font:10px/1.2 "DM Mono",monospace;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.academic-links a:hover{
+  background:#174631;
+  border-color:#174631;
+  color:#f3ead7;
+}
+.academic-card-3{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
+  column-gap:26px;
+  align-content:start;
+}
+.academic-card-3 .academic-visual,
+.academic-card-3 .academic-course,
+.academic-card-3 h3,
+.academic-card-3 .academic-meta,
+.academic-card-3 .academic-links{
+  grid-column:1/-1;
+}
+.academic-card-3 .academic-desc{grid-column:1;margin-bottom:0}
+.academic-card-3 .academic-stack{grid-column:2;align-self:start}
+.academic-card-3 .academic-meta{margin-top:14px}
+.academic-footnote{display:none}
+@media(max-width:760px){
+  .academic-grid{grid-template-columns:1fr;gap:15px}
+  .academic-card,.academic-card-1,.academic-card-2,.academic-card-3{
+    grid-column:auto;
+    display:flex;
+    padding:13px;
+  }
+  .academic-card-3 .academic-visual,
+  .academic-card-3 .academic-course,
+  .academic-card-3 h3,
+  .academic-card-3 .academic-meta,
+  .academic-card-3 .academic-links,
+  .academic-card-3 .academic-desc,
+  .academic-card-3 .academic-stack{grid-column:auto}
+  .academic-card h3{font-size:22px}
+  .academic-visual{min-height:100px;padding:13px}
+  .academic-desc{font-size:13px}
+  .academic-stack{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  .academic-card{transition:none}
+  .academic-card:hover{transform:none}
+}
