@@ -407,3 +407,122 @@ html{scroll-padding-top:82px}
 .academic-card-3 .academic-links a:hover{background:#efbd57;color:#173e2d}
 .academic-footnote{font-size:11px;line-height:1.8;color:#9fb3a1;margin:18px 0 0}
 @media(max-width:760px){.academic-intro{align-items:flex-start;flex-direction:column;gap:15px;padding:19px 20px}.academic-intro p{font-size:16px}.academic-grid{grid-template-columns:1fr}.academic-card-3{grid-column:auto}.academic-card{padding:22px;min-height:0}.academic-card h3{font-size:25px}.academic-card-3 h3{font-size:28px}.academic-desc{font-size:14px}.academic-card-3 .academic-desc{font-size:14px}.academic-links a{font-size:10px}}
+
+
+/* Simple academic projects layout */
+.academics-section { padding-top: 8px; }
+.academic-intro {
+  margin: -4px 0 22px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: #dfe8dc;
+  font: 15px/1.7 inherit;
+  max-width: 740px;
+}
+.academic-stamp, .academic-number { display: none !important; }
+.academic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.academic-card,
+.academic-card-1,
+.academic-card-2,
+.academic-card-3 {
+  min-height: 0;
+  padding: 23px 24px;
+  background: #eee7d7;
+  color: #244633;
+  border: 1px solid #d4cbb7;
+  border-radius: 7px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+.academic-card::after { display: none !important; }
+.academic-course {
+  color: #8e5b36;
+  font: 10px/1.5 "DM Mono", monospace;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+.academic-card h3 {
+  margin: 14px 0 10px;
+  color: #173e2d;
+  font: 700 24px/1.3 "Playfair Display", Georgia, serif;
+}
+.academic-desc {
+  margin: 0 0 13px;
+  color: #45594a;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.academic-contribution {
+  margin: 0 0 10px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #45594a;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.academic-contribution strong,
+.academic-stack strong {
+  color: #234b35;
+  font-weight: 700;
+}
+.academic-stack {
+  display: block;
+  margin: 0 0 12px;
+  padding: 0;
+  color: #617064;
+  font: 11px/1.7 "DM Mono", monospace;
+}
+.academic-meta {
+  margin-top: auto;
+  padding-top: 11px;
+  color: #718071;
+  font: 10px/1.6 "DM Mono", monospace;
+}
+.academic-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 11px;
+  border-top: 1px solid #cfc6b2;
+}
+.academic-links a,
+.academic-card-3 .academic-links a {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #87512e;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font: 12px/1.5 "DM Mono", monospace;
+}
+.academic-links a:hover,
+.academic-card-3 .academic-links a:hover {
+  background: transparent;
+  color: #244633;
+}
+.academic-footnote {
+  margin-top: 13px;
+  color: #b8c9b8;
+  font-size: 11px;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .academic-grid { grid-template-columns: 1fr; gap: 12px; }
+  .academic-card,
+  .academic-card-1,
+  .academic-card-2,
+  .academic-card-3 { padding: 19px; }
+  .academic-card h3 { font-size: 22px; }
+  .academic-desc { font-size: 14px; }
+  .academic-contribution { font-size: 13px; }
+}
