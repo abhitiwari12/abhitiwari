@@ -23,9 +23,9 @@ A responsive, one-page React + Vite personal portfolio with a Hinge-inspired pro
 - **SolarTwin AI — Digital Twin for Solar PV Plants** (Software Project Management, Semester VII, individual project). Reported as a Phase-1 prototype.
 
 Academic report PDFs are referenced by the portfolio at `public/reports/`. Add the three report files to that folder before publishing the matching report links:
-- `MiniProject_Report_DG_AgenticAI.pdf`
-- `Compiler_Design_Mini_Project_Report.pdf`
-- `SolarTwin_AI_SPM_Report.pdf`
+- `MiniProject_Report_D&G_AgenticAI(1).pdf`
+- `23BTAI62_TiwariAbhi_MiniProjectReport(1).pdf`
+- `AbhiTiwari_120(1).pdf`
 
 ## GEORUSH game
 The GEORUSH v1.3 game is included at `public/games/georush/` and opens from the Games section at `/games/georush/index.html`. It is a static HTML game and its Leaflet library is bundled locally. India/world boundary GeoJSON is fetched from public GitHub URLs, so those map boundaries require an internet connection on first load.
