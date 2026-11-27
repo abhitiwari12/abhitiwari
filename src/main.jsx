@@ -9,6 +9,43 @@ const projects = [
   { tag:"BUILD / DATA", title:"AI Investment Planner", desc:"A data-led experiment using historical trends to generate investment insights.", tone:"limecard", stat:"Predictive modelling", href:"https://github.com/abhitiwari12" }
 ];
 
+
+
+const academicProjects = [
+  {
+    tag:"AGENTIC AI · SEMESTER VI · TEAM PROJECT",
+    title:"theScientist — Multi-Agent AI Scientist",
+    desc:"A multi-agent research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes testable hypotheses, reviews them adversarially and generates a structured research manuscript.",
+    contribution:"My contribution: Streamlit interface, Graphviz visualisation support, screenshots, README and project documentation.",
+    stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
+    href:"https://github.com/abhitiwari12/thescientist",
+    report:"/reports/MiniProject_Report_DG_AgenticAI.pdf",
+    meta:"Karnavati University · Guided by Ms Vaishnavi Chauhan"
+  },
+  {
+    tag:"COMPILER DESIGN · SEMESTER VII · TEAM PROJECT",
+    title:"End-to-End Mini Compiler with Phase Visualisation",
+    desc:"A hand-written compiler for a small C-like language. It demonstrates lexical, syntax and semantic analysis, parse-tree visualisation, Three Address Code, quadruples, triples and code optimisation.",
+    contribution:"My contribution: Streamlit user interface, Graphviz visualisation support, screenshots, README and project report. Core compiler and optimiser modules were developed by teammates.",
+    stack:"Python · Streamlit · Graphviz · Git · GitHub",
+    href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
+    live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
+    report:"/reports/Compiler_Design_Mini_Project_Report.pdf",
+    meta:"Karnavati University · Guided by Ms Neha Minocha"
+  },
+  {
+    tag:"SOFTWARE PROJECT MANAGEMENT · SEMESTER VII · INDIVIDUAL PROJECT",
+    title:"SolarTwin AI — Digital Twin for Solar PV Plants",
+    desc:"A Phase-1 prototype for solar photovoltaic predictive maintenance, combining a physics-based PV reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
+    contribution:"Individual project covering system architecture, implementation, automated testing and the associated software project-management plan.",
+    stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
+    href:null,
+    report:"/reports/SolarTwin_AI_SPM_Report.pdf",
+    meta:"Karnavati University · Guided by Dr Sohil Shah",
+    status:"Phase-1 prototype"
+  }
+];
+
 const journey = [
   { year:"2023 — NOW", title:"Karnavati University", label:"THE COLLEGE CHAPTER", text:"B.Tech in Computer Science, specialising in AI & Machine Learning. Learning, building, meeting people and collecting stories along the way.", icon:GraduationCap },
   { year:"2025 — NOW", title:"AAYAM · Student Committee", label:"LEADERSHIP", text:"Discipline Vice Chairperson — a chance to take responsibility, work with people and help make campus life happen.", icon:Sparkles },
@@ -28,7 +65,7 @@ function App(){
     updateProgress();
     return ()=>window.removeEventListener("scroll",updateProgress);
   },[]);
-  const nav=[["The journey","#journey"],["Experience","#experience"],["Things I made","#projects"],["GEORUSH","#play"]];
+  const nav=[["The journey","#journey"],["Experience","#experience"],["Things I made","#projects"],["Academic work","#academics"],["GEORUSH","#play"]];
   return <div className="site-shell">
     <div className="reading-progress" style={{width:scrollProgress+"%"}}></div>
     <div className="grain"></div>
@@ -136,6 +173,31 @@ function App(){
         <div className="section-head"><div><span className="eyebrow">AFTER A LOT OF TABS AND COFFEE</span><h2>Things I've <em>made.</em></h2></div><p>Little experiments, college work<br/>and ideas I wanted to try.</p></div>
         <div className="project-grid">{projects.map((p,i)=><a className={"project-card "+p.tone} href={p.href} target="_blank" rel="noreferrer" key={p.title}><div className="project-art"><span className="art-index">PROJECT 0{i+1}</span><div className="art-shape">{i===0?"⌁":i===1?"Aa":"↗"}</div><span className="art-caption">{p.stat}</span></div><div className="project-info"><span className="card-kicker">{p.tag}</span><h3>{p.title}</h3><p>{p.desc}</p><span className="project-open">Take a look <ArrowUpRight size={15}/></span></div></a>)}</div>
         <div className="github-line"><span>More experiments live in my GitHub.</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={15}/></a></div>
+      </section>
+
+
+      <section className="section academics-section" id="academics">
+        <div className="section-head"><div><span className="eyebrow">UNIVERSITY WORK & MINI PROJECTS</span><h2>What I explored <em>at college.</em></h2></div><p>Team projects, individual work<br/>and the reports behind them.</p></div>
+        <div className="academic-intro">
+          <span className="academic-stamp">THE ACADEMIC FOLDER</span>
+          <p>Not everything starts as a startup idea. Some of these began as coursework, some became working prototypes, and all of them taught me something useful.</p>
+        </div>
+        <div className="academic-grid">
+          {academicProjects.map((project,i)=><article className={"academic-card academic-card-"+(i+1)} key={project.title}>
+            <div className="academic-card-top"><span className="card-kicker">{project.tag}</span><span className="academic-number">0{i+1}</span></div>
+            <h3>{project.title}</h3>
+            <p className="academic-desc">{project.desc}</p>
+            <div className="academic-contribution"><span>MY PART</span><p>{project.contribution}</p></div>
+            <div className="academic-stack">{project.stack.split(" · ").map(t=><span key={t}>{t}</span>)}</div>
+            <div className="academic-meta">{project.meta} {project.status ? "· "+project.status : ""}</div>
+            <div className="academic-links">
+              {project.href && <a href={project.href} target="_blank" rel="noreferrer">Source code <Github size={14}/></a>}
+              {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
+              <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>
+            </div>
+          </article>)}
+        </div>
+        <p className="academic-footnote">Team contributions are credited as described in the submitted reports and project repositories. SolarTwin AI is presented as a Phase-1 prototype, not as a fully deployed solar-plant system.</p>
       </section>
 
       <section className="play-section" id="play">
