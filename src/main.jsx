@@ -23,7 +23,7 @@ const experiences = [
  {date:"MAY — JUL 2026",role:"AI / ML Intern",company:"Microweb Solutions",place:"Ahmedabad",text:"Worked on practical machine-learning workflows using Python and Scikit-learn — from data preprocessing and exploratory analysis to feature engineering and model evaluation.",tags:["Python","Scikit-learn","Data Analysis"]},
  {date:"JUN — JUL 2024",role:"Social Media Intern",company:"Karma Foundation",place:"Ahmedabad",text:"Managed content across LinkedIn, Instagram and Facebook, and worked on improving audience engagement through data-informed content strategies.",tags:["Content","Social Media","Engagement"]}
 ];
-const chapters=[{number:"01",label:"About",id:"origin"},{number:"02",label:"Beyond campus",id:"formation"},{number:"03",label:"Projects",id:"work"},{number:"04",label:"Experience",id:"field"},{number:"05",label:"Contact",id:"horizon"}];
+const chapters=[{number:"01",label:"About",id:"origin"},{number:"02",label:"Beyond campus",id:"formation"},{number:"03",label:"Volunteering",id:"volunteering"},{number:"04",label:"Projects",id:"work"},{number:"05",label:"Experience",id:"field"},{number:"06",label:"Contact",id:"horizon"}];
 
 function ProjectCard({project,index}) {
  return <article className={"project-card reveal "+(project.featured?"project-card-featured ":"")+(project.closing?"project-card-closing":"")} style={{"--reveal-delay":(index%2)*90+"ms"}}><div className="project-art"><img className="project-thumbnail" src={project.thumbnail} alt={project.title+" project preview"} loading="lazy"/><span className="project-number">{project.number} / 09</span>{project.featured&&<span className="project-featured-tag"><Zap size={12}/> SIGNATURE BUILD</span>}</div><div className="project-details"><div className="project-meta"><span>{project.category}</span><span>BUILD LOG / {project.number}</span></div><h3>{project.title}</h3><div className="project-subtitle">{project.subtitle}</div><p>{project.description}</p><div className="project-stack">{project.stack.map(item=><span key={item}>{item}</span>)}</div>{(project.proof||project.context)&&<div className="project-context">{project.proof||project.context}</div>}{project.context&&project.proof&&<div className="project-context project-context-extra">{project.context}</div>}<div className="project-actions">{project.github&&<a href={project.github} target="_blank" rel="noreferrer">SOURCE CODE <ArrowUpRight size={13}/></a>}{project.live&&<a href={project.live} target="_blank" rel="noreferrer">LIVE DEMO <ArrowUpRight size={13}/></a>}{project.report&&<a href={project.report} target="_blank" rel="noreferrer">PROJECT REPORT <ArrowUpRight size={13}/></a>}</div></div></article>;
@@ -142,8 +142,52 @@ function App() {
     </div>
    </div></section>
 
+   <section className="volunteer-section chapter-section" id="volunteering"><div className="volunteer-inner section-wrap">
+    <div className="chapter-index reveal"><span>03</span><i/><span>VOLUNTEERING & EVENT CREW</span></div>
+    <div className="volunteer-heading reveal"><div><h2>Being part of<br/>something <em>bigger.</em></h2></div><p>A few university and conference events where I volunteered in different capacities and got to work as part of a team.</p></div>
+    <div className="volunteer-grid">
+      <article className="volunteer-card reveal">
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/security-team.webp" alt="Karnavati University Student Security Council Team Security badge, Freshers 2K25" loading="lazy"/></div>
+        <div className="volunteer-card-body">
+          <div className="volunteer-meta"><span>FRESHERS 2K25</span><span>01 / 04</span></div>
+          <h3>Team Security</h3>
+          <p>Karnavati University · Student Security Council</p>
+          <span className="volunteer-role">TEAM SECURITY</span>
+        </div>
+      </article>
+      <article className="volunteer-card reveal">
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/aria-ro-crew.webp" alt="AriaRo4.0 National Level Technical Symposium crew badge" loading="lazy"/></div>
+        <div className="volunteer-card-body">
+          <div className="volunteer-meta"><span>TECHNICAL SYMPOSIUM</span><span>02 / 04</span></div>
+          <h3>AriaRo 4.0</h3>
+          <p>A National Level Technical Symposium</p>
+          <span className="volunteer-role">CREW</span>
+        </div>
+      </article>
+      <article className="volunteer-card reveal">
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/garba-access.webp" alt="Karnavati University Garba Mahotsav all area access badge, 27 to 30 September 2025" loading="lazy"/></div>
+        <div className="volunteer-card-body">
+          <div className="volunteer-meta"><span>27–30 SEPTEMBER 2025</span><span>03 / 04</span></div>
+          <h3>Garba Mahotsav</h3>
+          <p>Karnavati University</p>
+          <span className="volunteer-role">ALL AREA ACCESS</span>
+        </div>
+      </article>
+      <article className="volunteer-card reveal">
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/isppd-conference.webp" alt="Ahmedabad 44th ISPPD National Conference 2023 IT badge" loading="lazy"/></div>
+        <div className="volunteer-card-body">
+          <div className="volunteer-meta"><span>AHMEDABAD · 2023</span><span>04 / 04</span></div>
+          <h3>44th ISPPD</h3>
+          <p>ISPPD National Conference</p>
+          <span className="volunteer-role">IT</span>
+        </div>
+      </article>
+    </div>
+   </div></section>
+
+
    <section className="build-section chapter-section" id="work"><div className="section-wrap">
-    <div className="chapter-index reveal"><span>03</span><i/><span>PROJECTS</span></div><div className="build-heading reveal"><div><h2>A few things<br/>I've <em>built.</em></h2></div><p>Here are some projects I've worked on during university and in my own time. Each one taught me something different.</p></div>
+    <div className="chapter-index reveal"><span>04</span><i/><span>PROJECTS</span></div><div className="build-heading reveal"><div><h2>A few things<br/>I've <em>built.</em></h2></div><p>Here are some projects I've worked on during university and in my own time. Each one taught me something different.</p></div>
     <div className="build-countline reveal"><span><b>{String(projects.length).padStart(2,"0")}</b> PROJECTS</span><span>SELECT A SIGNAL TO FILTER <ArrowDown size={13}/></span></div>
     <div className="project-filters reveal" role="group" aria-label="Filter projects">{["All","Research","Automation","AI / ML","Finance / Data","University"].map(item=><button type="button" key={item} aria-pressed={filter===item} className={filter===item?"filter-active":""} onClick={()=>setFilter(item)}>{item}</button>)}<span className="filter-results">{String(filteredProjects.length).padStart(2,"0")} RESULTS</span></div>
     <div className="journey-project-grid">{filteredProjects.map((project,i)=><ProjectCard key={project.number} project={project} index={i}/>)}</div>
@@ -151,7 +195,7 @@ function App() {
    </div></section>
 
    <section className="field-section" id="field"><div className="field-inner section-wrap">
-    <div className="chapter-index chapter-index-light reveal"><span>04</span><i/><span>EXPERIENCE</span></div><div className="field-heading reveal"><h2>Learning by<br/><em>doing the work.</em></h2><p>A couple of opportunities that helped me take what I was learning and apply it with real teams.</p></div>
+    <div className="chapter-index chapter-index-light reveal"><span>05</span><i/><span>EXPERIENCE</span></div><div className="field-heading reveal"><h2>Learning by<br/><em>doing the work.</em></h2><p>A couple of opportunities that helped me take what I was learning and apply it with real teams.</p></div>
     <div className="field-timeline">{experiences.map((item,i)=><article className="field-entry reveal" key={item.company}><div className="field-date"><span>0{i+1}</span><b>{item.date}</b></div><div className="field-node"><i/></div><div className="field-entry-content"><div className="field-company">{item.company}<span> / {item.place}</span></div><h3 className="field-role-title">{item.role}</h3><p>{item.text}</p><div className="field-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div></article>)}<article className="field-entry field-education reveal"><div className="field-date"><span>NOW</span><b>2023 — 2027</b></div><div className="field-node"><i/></div><div className="field-entry-content"><div className="field-company">THE FOUNDATION</div><h3>Karnavati University</h3><p>B.Tech Computer Science · Artificial Intelligence & Machine Learning.</p><div className="field-tags"><span>LEARNING</span><span>EXPERIMENTING</span><span>GROWING</span></div></div></article></div>
    </div></section>
 
@@ -159,7 +203,7 @@ function App() {
 
    <section className="inspiration-chapter section-wrap reveal"><div className="inspiration-visual"><div className="inspiration-halo"/><span className="inspiration-18">18</span><img src="/assets/virat-kohli-user-photo.png" alt="Virat Kohli celebrating for India" loading="lazy"/><span className="inspiration-tag">INDIA / THE STANDARD</span></div><div className="inspiration-text"><div className="chapter-index"><span>ONE OF MY INSPIRATIONS</span><i/><span>CRICKET</span></div><h2>Always inspired<br/>by <em>the game.</em></h2><p>I've always admired Virat Kohli — not just for his cricket, but for the consistency and work ethic behind it. Cricket is a big part of my life, and that mindset is something I try to carry into everything else.</p><div className="inspiration-values"><span>01 / DISCIPLINE</span><span>02 / SELF-BELIEF</span><span>03 / CONSISTENCY</span></div></div></section>
 
-   <section className="horizon-section" id="horizon"><div className="horizon-stars" aria-hidden="true"/><div className="horizon-content section-wrap"><div className="chapter-index chapter-index-light reveal"><span>05</span><i/><span>GET IN TOUCH</span></div><div className="horizon-orbit reveal"><div className="horizon-core">NEXT<br/><span>CHAPTER</span></div><i className="horizon-orbit-one"/><i className="horizon-orbit-two"/><i className="horizon-orbit-three"/><span className="horizon-spark">✳</span></div><div className="horizon-copy reveal"><span className="horizon-overline">THANKS FOR MAKING IT THIS FAR</span><h2>Have something<br/>in <em>mind?</em></h2><p>I'm always happy to meet people, hear about interesting projects and explore opportunities where I can learn and contribute.</p><a href="mailto:tiwariabhi1211@gmail.com" className="horizon-contact"><Mail size={16}/> GET IN TOUCH <ArrowUpRight size={16}/></a></div></div>
+   <section className="horizon-section" id="horizon"><div className="horizon-stars" aria-hidden="true"/><div className="horizon-content section-wrap"><div className="chapter-index chapter-index-light reveal"><span>06</span><i/><span>GET IN TOUCH</span></div><div className="horizon-orbit reveal"><div className="horizon-core">NEXT<br/><span>CHAPTER</span></div><i className="horizon-orbit-one"/><i className="horizon-orbit-two"/><i className="horizon-orbit-three"/><span className="horizon-spark">✳</span></div><div className="horizon-copy reveal"><span className="horizon-overline">THANKS FOR MAKING IT THIS FAR</span><h2>Have something<br/>in <em>mind?</em></h2><p>I'm always happy to meet people, hear about interesting projects and explore opportunities where I can learn and contribute.</p><a href="mailto:tiwariabhi1211@gmail.com" className="horizon-contact"><Mail size={16}/> GET IN TOUCH <ArrowUpRight size={16}/></a></div></div>
     <footer className="journey-footer section-wrap"><a className="footer-logo" href="#top">AT<span>_</span></a><div className="footer-socials"><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer"><Github size={15}/> GITHUB</a><a href="https://www.linkedin.com/in/abhi-tiwari-18715727b/" target="_blank" rel="noreferrer"><Linkedin size={15}/> LINKEDIN</a><a href="/Abhi-Tiwari-CV.pdf" target="_blank" rel="noreferrer"><Download size={15}/> RÉSUMÉ</a></div><span className="footer-credit">© {new Date().getFullYear()} ABHI TIWARI </span><a className="back-top" href="#top">BACK TO TOP ↑</a></footer>
    </section>
   </main>
