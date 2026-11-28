@@ -1894,3 +1894,129 @@ a:focus-visible,button:focus-visible { outline:2px solid #4775ed; outline-offset
     min-height:205px;
   }
 }
+
+
+/* ── Volunteer experience cards ── */
+.volunteer-section {
+  padding:100px 0 106px;
+  background:#eaf0fa;
+  color:#0b1b38;
+}
+.volunteer-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:40px;
+  margin:30px 0 34px;
+}
+.volunteer-heading h2 {
+  margin:0;
+  color:#0b1b38;
+  font:800 clamp(42px,4.8vw,62px)/.98 var(--display);
+  letter-spacing:-2.8px;
+}
+.volunteer-heading h2 em { color:#4775ed; font-style:normal; }
+.volunteer-heading>p {
+  max-width:390px;
+  margin:0 0 5px;
+  color:#596b87;
+  font:400 13px/1.85 var(--body);
+}
+.volunteer-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  align-items:stretch;
+}
+.volunteer-card {
+  min-width:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid #d7e1f1;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(9,28,62,.055);
+  transition:transform .24s,border-color .24s,box-shadow .24s;
+}
+.volunteer-card:hover {
+  transform:translateY(-4px);
+  border-color:#9bb5f7;
+  box-shadow:0 16px 34px rgba(9,35,90,.11);
+}
+.volunteer-badge-frame {
+  height:252px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  padding:9px;
+  background:linear-gradient(145deg,#dce7f8,#f7f9ff);
+  border-bottom:1px solid #dfe7f3;
+}
+.volunteer-badge-frame img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  border-radius:3px;
+}
+.volunteer-card-body {
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:16px 16px 17px;
+}
+.volunteer-meta {
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  color:#6480b8;
+  font:700 8px var(--body);
+  letter-spacing:.55px;
+}
+.volunteer-meta span:last-child {
+  flex:0 0 auto;
+  color:#9aa9c2;
+}
+.volunteer-card h3 {
+  margin:13px 0 5px;
+  color:#10254a;
+  font:800 21px/1.1 var(--display);
+  letter-spacing:-.5px;
+}
+.volunteer-card p {
+  margin:0;
+  color:#61718a;
+  font:400 10px/1.65 var(--body);
+}
+.volunteer-role {
+  margin-top:auto;
+  padding:6px 8px;
+  border:1px solid #d4e0f5;
+  border-radius:3px;
+  background:#f0f5ff;
+  color:#315fc9;
+  font:700 8px var(--body);
+  letter-spacing:.45px;
+}
+@media(max-width:1050px) {
+  .volunteer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .volunteer-badge-frame { height:270px; }
+}
+@media(max-width:720px) {
+  .volunteer-section { padding:72px 0; }
+  .volunteer-heading { display:block; margin:22px 0 24px; }
+  .volunteer-heading h2 { font-size:42px; }
+  .volunteer-heading>p { margin-top:14px; font-size:12px; }
+  .volunteer-grid { grid-template-columns:1fr; gap:12px; }
+  .volunteer-card { display:grid; grid-template-columns:112px minmax(0,1fr); }
+  .volunteer-badge-frame { height:156px; padding:6px; border:0; border-right:1px solid #dfe7f3; }
+  .volunteer-card-body { padding:12px; }
+  .volunteer-card h3 { margin:9px 0 4px; font-size:18px; }
+  .volunteer-card p { font-size:9px; }
+  .volunteer-meta { font-size:7px; }
+  .volunteer-role { margin-top:8px; font-size:7px; }
+}
