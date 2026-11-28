@@ -109,7 +109,22 @@ function App() {
     <div className="chapter-index chapter-index-light reveal"><span>02</span><i/><span>BEYOND THE CLASSROOM</span></div><div className="formation-heading reveal"><div><h2>Some things<br/>you learn <em>outside.</em></h2></div><p>Sport, NCC and student leadership have shaped my university experience just as much as my coursework.</p></div>
     <article className="ncc-journey-card reveal"><div className="ncc-scene"><div className="ncc-rings"/><div className="ncc-letters">NCC</div><div className="ncc-seal"><b>C</b><small>CADET<br/>CERTIFICATE</small></div><span className="ncc-scene-label">NATIONAL CADET CORPS</span><span className="ncc-coordinate">DISCIPLINE / 02</span></div><div className="ncc-story"><div className="ncc-kicker"><ShieldCheck size={15}/> NATIONAL CADET CORPS</div><h3>NCC has taught me<br/><em>discipline and teamwork.</em></h3><p>I'm an NCC cadet and hold a C Certificate. I've also attended two CATC camps. The experience has helped me build confidence, work as part of a team and take responsibility.</p><div className="ncc-achievements"><div className="ncc-achievement"><b>C</b><span>C CERTIFICATE</span></div><div className="ncc-achievement"><b>02</b><span>CATC CAMPS</span></div><div className="ncc-traits"><span>DISCIPLINE</span><i/><span>TEAMWORK</span><i/><span>COMMITMENT</span></div></div></div></article>
     <div className="formation-side-grid">
-     <article className="formation-tile leadership-tile formation-role-featured reveal"><div className="tile-overline"><Flag size={18}/><span>STUDENT LEADERSHIP</span></div><div className="position-label">MY ROLE AT AAYAM</div><h3><span>Discipline Vice</span><em>Chairperson</em></h3><div className="position-organisation">AAYAM <i/> UIT STUDENT COMMITTEE</div><p>As Discipline Vice Chairperson, I support the student committee in maintaining discipline and coordinating campus activities.</p><div className="tile-bottom"><span>STUDENT LEADERSHIP / KARNAVATI UNIVERSITY</span><span>↗</span></div><div className="tile-watermark">LEAD</div></article>
+     <article className="formation-tile leadership-tile formation-role-featured reveal">
+       <div className="tile-overline"><Flag size={18}/><span>STUDENT LEADERSHIP</span></div>
+       <div className="position-label">ROLE · 2025 — PRESENT</div>
+       <h3><span>Discipline Vice</span><em>Chairperson</em></h3>
+       <a className="position-organisation aayam-organisation" href="https://aayam.online/" target="_blank" rel="noreferrer" aria-label="AAYAM official UIT Students' Committee website">
+         <span className="aayam-script">आयाम</span>
+         <span className="aayam-name"><strong>AAYAM</strong><small>Official UIT Students' Committee</small></span>
+         <ArrowUpRight size={14}/>
+       </a>
+       <p>As Discipline Vice Chairperson, I help manage discipline and coordination during college events and activities, working with the committee to support smooth event execution.</p>
+       <div className="tile-bottom">
+         <span>KARNAVATI UNIVERSITY · UIT</span>
+         <a href="https://aayam.online/team" target="_blank" rel="noreferrer">VIEW TEAM <ArrowUpRight size={13}/></a>
+       </div>
+       <div className="tile-watermark">LEAD</div>
+     </article>
      <article className="formation-tile sports-tile reveal"><div className="tile-overline"><Trophy size={17}/><span>02 / SPORTS</span></div><h3>University<br/><em>Cricket & Kabaddi.</em></h3><p>Part of KU’s main sports teams. Represented the university in All India University Kabaddi and won an inter-university tournament.</p><div className="tile-bottom"><span>KU MAIN TEAM</span><span>↗</span></div><div className="tile-watermark">SPORT</div></article>
      <article className="formation-tile curiosity-tile reveal"><div className="tile-overline"><Sparkles size={17}/><span>03 / THE MINDSET</span></div><h3>Ideas don't<br/><em>sit still.</em></h3><p>AI, products, startups, random questions and the satisfaction of turning a rough thought into something real.</p><div className="tile-bottom"><span>ALWAYS EXPLORING</span><span>↗</span></div><div className="tile-watermark">IDEAS</div></article>
     </div>
