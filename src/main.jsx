@@ -144,7 +144,7 @@ function App() {
 
    <section className="volunteer-section chapter-section" id="volunteering"><div className="volunteer-inner section-wrap">
     <div className="chapter-index reveal"><span>03</span><i/><span>VOLUNTEERING & EVENT CREW</span></div>
-    <div className="volunteer-heading reveal"><div><h2>Being part of<br/>something <em>bigger.</em></h2></div><p>A few university and conference events where I volunteered in different capacities and got to work as part of a team.</p></div>
+    
     <div className="volunteer-grid">
       <article className="volunteer-card reveal">
         <div className="volunteer-badge-frame"><img src="/assets/volunteering/security-team.webp" alt="Karnavati University Student Security Council Team Security badge, Freshers 2K25" loading="lazy"/></div>
