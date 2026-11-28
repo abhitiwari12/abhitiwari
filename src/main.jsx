@@ -90,6 +90,23 @@ function App() {
 
    <section className="chapter-section origin-section" id="origin">
     <div className="chapter-index reveal"><span>01</span><i/><span>A LITTLE ABOUT ME</span></div><div className="origin-grid"><div className="origin-heading reveal"><h2>Still learning.<br/>Always <em>trying.</em></h2><p>I like understanding how things work, then seeing whether I can make something useful out of what I've learned.</p></div><div className="origin-story reveal"><div className="story-marker"><span>2023</span><i/></div><div className="story-content"><span className="story-label">EDUCATION</span><h3>Karnavati University</h3><p>I'm pursuing a B.Tech in Computer Science with a specialisation in Artificial Intelligence & Machine Learning. University has given me room to experiment, work with different people and learn from projects that don't always go to plan.</p><div className="story-tags"><span>COMPUTER SCIENCE</span><span>AI & MACHINE LEARNING</span><span>2023 — 2027</span></div></div><div className="story-next"><span>WHAT I DO OUTSIDE CLASS</span><ArrowDown size={16}/></div></div></div>
+    <div className="ku-profile reveal">
+      <div className="ku-profile-head">
+        <a className="ku-brand" href="https://karnavatiuniversity.edu.in/" target="_blank" rel="noreferrer" aria-label="Karnavati University official website">
+          <img src="https://karnavatiuniversity.edu.in/wp-content/uploads/2024/03/KU-Emblem-Apr23-1024x1024.png" alt="Karnavati University emblem" loading="lazy"/>
+          <span><strong>Karnavati University</strong><small>Uvarsad · Gandhinagar, Gujarat</small></span>
+        </a>
+        <div className="ku-grade"><span>NAAC GRADE</span><b>A+</b><small>ACCREDITED UNIVERSITY</small></div>
+      </div>
+      <div className="ku-profile-divider"></div>
+      <div className="ku-stats" aria-label="Karnavati University at a glance">
+        <div><b>8,000+</b><span>STUDENTS</span></div>
+        <div><b>400+</b><span>FACULTY MEMBERS</span></div>
+        <div><b>45+</b><span>LABS & WORKSHOPS</span></div>
+        <div><b>800+</b><span>RECRUITERS</span></div>
+      </div>
+      <a className="ku-profile-source" href="https://karnavatiuniversity.edu.in/" target="_blank" rel="noreferrer">University at a glance <ArrowUpRight size={13}/></a>
+    </div>
     <div className="origin-foot reveal"><span>RIGHT NOW</span><b>Studying, building and playing.</b><span>AHMEDABAD, INDIA <i/></span></div>
    </section>
 
