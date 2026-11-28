@@ -882,3 +882,284 @@ html{scroll-padding-top:82px}
   .work-card{transition:none}
   .work-card:hover{transform:none}
 }
+
+
+/* Project cards — visual-first editorial layout */
+.work-intro{
+  max-width:720px;
+  margin:-2px 0 25px;
+  color:#dfe8dc;
+  font-size:15px;
+  line-height:1.8;
+}
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
+.work-card{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  padding:0;
+  background:#f1eadc;
+  color:#244633;
+  border:1px solid rgba(230,220,196,.75);
+  border-radius:13px;
+  box-shadow:0 8px 24px rgba(0,24,15,.16);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.work-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 30px rgba(0,24,15,.23);
+}
+.work-card-art{
+  position:relative;
+  min-height:172px;
+  padding:15px 18px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  color:#f3ead7;
+  background:#153f2e;
+}
+.work-card-art:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  right:-120px;top:-120px;
+  border:1px solid rgba(244,235,214,.13);
+  border-radius:50%;
+  box-shadow:0 0 0 22px rgba(244,235,214,.035),0 0 0 44px rgba(244,235,214,.025);
+  pointer-events:none;
+}
+.work-card-art-head{
+  position:relative;z-index:2;
+  display:flex;justify-content:space-between;gap:12px;
+  color:rgba(246,237,215,.76);
+  font:9px/1.4 "DM Mono",monospace;
+  letter-spacing:1.05px;
+}
+.art-cyber{background:#103d2e}
+.art-fraud{background:#e5d3b4;color:#214a35}
+.art-misinfo{background:#d7e1d0;color:#244936}
+.art-investment{background:#d9e1d1;color:#1f4c39}
+.art-scientist{background:#e8dfc9;color:#254a35}
+.art-compiler{background:#d3ded6;color:#264c3b}
+.art-solar{background:#e8dec2;color:#234b35}
+.art-fraud:after,.art-misinfo:after,.art-investment:after,.art-scientist:after,.art-compiler:after,.art-solar:after{
+  border-color:rgba(34,74,51,.16);
+  box-shadow:0 0 0 22px rgba(34,74,51,.035),0 0 0 44px rgba(34,74,51,.025);
+}
+.work-card-content{
+  flex:1;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  padding:19px 20px 18px;
+}
+.work-category{
+  color:#98633a;
+  font:9px/1.55 "DM Mono",monospace;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.work-card-content h3{
+  color:#173e2d;
+  font:700 24px/1.22 "Playfair Display",Georgia,serif;
+  margin:0 0 10px;
+}
+.work-desc{
+  color:#4c5f50;
+  font-size:13px;
+  line-height:1.8;
+  margin:0 0 16px;
+}
+.work-techs{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+  margin:0 0 14px;
+}
+.work-techs span{
+  display:inline-flex;
+  align-items:center;
+  padding:6px 9px;
+  color:#3e6048;
+  background:#e4e7d9;
+  border:1px solid #d1d8c7;
+  border-radius:30px;
+  font:9px/1.2 "DM Mono",monospace;
+}
+.work-techs small{
+  color:#7c806f;
+  font:9px/1.2 "DM Mono",monospace;
+  padding:4px 3px;
+}
+.work-stat-note{
+  align-self:flex-start;
+  color:#875a32;
+  font:italic 13px "Playfair Display",Georgia,serif;
+  margin:0 0 12px;
+}
+.work-card-footer{margin-top:auto}
+.work-meta{
+  color:#778071;
+  font:9px/1.6 "DM Mono",monospace;
+  margin:0 0 11px;
+}
+.work-links{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+  border-top:1px solid #d8cfbd;
+  padding-top:12px;
+}
+.work-links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:8px 10px;
+  color:#6f4d32;
+  border:1px solid #c8b89a;
+  border-radius:6px;
+  background:transparent;
+  text-decoration:none;
+  font:10px/1.2 "DM Mono",monospace;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.work-links a:hover{
+  background:#174631;
+  border-color:#174631;
+  color:#f4ead6;
+}
+/* CyberRanger is the featured project; other six cards use a balanced grid. */
+.work-card-featured{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+}
+.work-card-featured .work-card-art{
+  min-height:100%;
+  padding:18px 20px;
+}
+.work-card-featured .work-card-content{
+  padding:24px 26px 21px;
+}
+.work-card-featured .work-card-content h3{font-size:29px}
+.work-card-featured .work-desc{max-width:650px;font-size:14px}
+.work-card-featured .work-card-art-head{margin-bottom:8px}
+
+/* CyberRanger: a restrained terminal illustration */
+.art-terminal{
+  position:relative;z-index:1;
+  width:min(100%,390px);
+  margin:auto;
+  padding:0 13px 11px;
+  background:#092d22;
+  border:1px solid rgba(226,213,177,.35);
+  border-radius:8px;
+  box-shadow:0 12px 22px rgba(0,0,0,.17);
+}
+.terminal-bar{
+  display:flex;align-items:center;gap:5px;
+  height:27px;border-bottom:1px solid rgba(226,213,177,.18);
+  color:#9fb79f;
+  font:8px "DM Mono",monospace;
+}
+.terminal-bar i{width:6px;height:6px;border-radius:50%;background:#d9b76c}
+.terminal-bar i:nth-child(2){background:#88a98a}
+.terminal-bar i:nth-child(3){background:#a7b1a1}
+.terminal-bar span{margin-left:7px;letter-spacing:.8px}
+.terminal-body{padding:8px 0 5px}
+.terminal-body p{display:grid;grid-template-columns:58px 1fr 14px;gap:6px;margin:7px 0;font:9px "DM Mono",monospace;color:#bfd0bf}
+.terminal-body b{color:#e4c477;font-weight:500}
+.terminal-body em{color:#c5d59c;font-style:normal}
+.terminal-foot{display:flex;justify-content:space-between;color:#90ad91;border-top:1px solid rgba(226,213,177,.15);padding-top:8px;font:8px "DM Mono",monospace;letter-spacing:.6px}
+
+/* Fraud detection: transaction review panel */
+.art-fraud{display:flex;align-items:center;justify-content:center;gap:22px;position:relative;z-index:1;flex:1}
+.fraud-ticket{position:relative;z-index:1;width:190px;padding:13px 15px;background:#f5eddc;color:#234b35;border-radius:7px;box-shadow:0 9px 17px rgba(66,54,31,.13);display:flex;flex-direction:column;gap:5px}
+.fraud-ticket span{font:8px "DM Mono";letter-spacing:.8px;color:#8c6841}
+.fraud-ticket strong{font:700 25px "Playfair Display",Georgia,serif}
+.fraud-ticket small{font:9px "DM Mono";color:#6d7465}
+.fraud-ticket b{align-self:flex-start;margin-top:3px;padding:4px 7px;background:#f0d7b4;color:#97562f;border-radius:3px;font:8px "DM Mono";letter-spacing:.7px}
+.fraud-orbit{width:82px;height:82px;border:1px solid rgba(37,77,52,.35);border-radius:50%;position:relative}
+.fraud-orbit:before,.fraud-orbit:after{content:"";position:absolute;border:1px solid rgba(37,77,52,.25);border-radius:50%;inset:12px}
+.fraud-orbit:after{inset:25px}
+.fraud-orbit i{position:absolute;width:6px;height:6px;background:#a66d3e;border-radius:50%;top:3px;left:37px}
+.fraud-orbit i:nth-child(2){top:58px;left:9px;background:#315b42}
+.fraud-orbit i:nth-child(3){top:53px;left:64px;background:#d59b43}
+.fraud-orbit span{position:absolute;width:13px;height:13px;top:34px;left:34px;background:#315b42;border-radius:50%}
+
+/* Misinformation detector: source/claim card */
+.art-misinfo{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;flex:1}
+.misinfo-paper{width:min(78%,270px);padding:13px 15px;background:#f3efe4;border:1px solid #cbd5c7;border-radius:5px;box-shadow:0 9px 17px rgba(38,66,45,.12);color:#294d39;transform:rotate(-2deg)}
+.misinfo-paper>span{font:8px "DM Mono";letter-spacing:1px;color:#9a6840}
+.misinfo-paper>strong{display:block;margin:10px 0;font:700 16px/1.25 "Playfair Display",Georgia,serif}
+.misinfo-lines{display:flex;flex-direction:column;gap:5px}
+.misinfo-lines i{display:block;height:4px;width:100%;background:#d7ddcf;border-radius:4px}
+.misinfo-lines i:nth-child(2){width:83%}.misinfo-lines i:nth-child(3){width:62%}
+.misinfo-paper>b{display:flex;align-items:center;gap:7px;margin-top:12px;color:#466b4d;font:8px "DM Mono";letter-spacing:.7px}
+.misinfo-paper>b span{display:grid;place-items:center;width:16px;height:16px;background:#dbe6d3;border-radius:50%;font-size:10px}
+.misinfo-mark{position:absolute;right:10%;top:14%;color:#a66b3b;font:italic 43px "Playfair Display"}
+
+/* Investment planner: clean trend graphic */
+.art-investment{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;flex:1;max-width:420px;width:100%;margin:auto}
+.investment-label,.investment-periods{display:flex;justify-content:space-between;color:#577a60;font:8px "DM Mono";letter-spacing:.8px}
+.investment-label b{font:18px Georgia;color:#a7753f}
+.art-investment svg{width:100%;height:95px;overflow:visible;color:#397451;margin:6px 0}
+.investment-periods{color:#788b76}
+
+/* Scientist: research knowledge graph */
+.art-scientist{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1}
+.art-scientist svg{width:min(100%,340px);height:118px;overflow:visible;color:#416b4d}
+.art-scientist>span{font:8px "DM Mono";letter-spacing:1px;color:#8c6946}
+
+/* Compiler: source code through compilation */
+.art-compiler{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:12px;flex:1}
+.compiler-code,.compiler-output{display:flex;flex-direction:column;gap:7px;padding:10px 12px;background:#f0efe5;border:1px solid #c6d3c6;border-radius:5px;box-shadow:0 7px 14px rgba(39,65,47,.08)}
+.compiler-code{width:88px}
+.compiler-code span,.compiler-output>span{font:8px "DM Mono";color:#9b7145}
+.compiler-code i{display:block;height:4px;border-radius:4px;background:#8eae8b;width:85%}
+.compiler-code i:nth-child(3){width:65%}.compiler-code i:nth-child(4){width:95%}.compiler-code i:nth-child(5){width:55%}
+.compiler-stages{display:flex;flex-direction:column;align-items:center;gap:3px;color:#446a50;font:8px "DM Mono"}
+.compiler-stages b{font-weight:500;border:1px solid #9fb5a0;padding:5px 7px;border-radius:3px;background:#e8eee3}
+.compiler-stages em{font-style:normal;color:#b17b45}
+.compiler-output{background:#173f2e;color:#e9e4d3;border-color:#476b53}
+.compiler-output strong{font:8px "DM Mono";font-weight:400;white-space:nowrap}
+
+/* SolarTwin: solar panel and telemetry */
+.art-solar{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:20px;flex:1}
+.solar-sun{width:43px;height:43px;border-radius:50%;background:#d4a957;box-shadow:0 0 0 10px rgba(212,169,87,.14),0 0 25px rgba(212,169,87,.22)}
+.solar-panel{display:grid;grid-template-columns:repeat(3,22px);gap:3px;transform:skewY(-8deg);filter:drop-shadow(0 8px 7px rgba(40,70,48,.15))}
+.solar-panel i{width:22px;height:17px;background:#416c56;border:1px solid #a9c0a5}
+.solar-reading{display:flex;flex-direction:column;gap:6px;color:#6d7a64;font:8px "DM Mono"}
+.solar-reading strong{color:#9a693d;font-size:9px}
+
+/* Keep the rest of the section consistent with the existing site */
+@media(max-width:760px){
+  .work-grid{grid-template-columns:1fr;gap:15px}
+  .work-card-featured{grid-column:auto;display:flex}
+  .work-card-featured .work-card-art{min-height:170px}
+  .work-card-featured .work-card-content{padding:19px 18px 17px}
+  .work-card-featured .work-card-content h3{font-size:24px}
+  .work-card-art{min-height:160px;padding:13px 14px}
+  .work-card-content{padding:17px 18px}
+  .work-card-content h3{font-size:22px}
+  .work-desc{font-size:13px}
+  .art-fraud{gap:16px}
+  .fraud-ticket{width:175px}
+  .work-techs span{font-size:9px}
+}
+@media(prefers-reduced-motion:reduce){
+  .work-card{transition:none}
+  .work-card:hover{transform:none}
+}
