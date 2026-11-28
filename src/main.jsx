@@ -113,10 +113,11 @@ function App() {
        <div className="tile-overline"><Flag size={18}/><span>STUDENT LEADERSHIP</span></div>
        <div className="position-label">STUDENT LEADERSHIP · AAYAM / UIT</div>
        <h3><span>Discipline Vice</span><em>Chairperson</em></h3>
-       <div className="position-organisation aayam-organisation" aria-label="AAYAM — UIT Students' Committee">
-         <span className="aayam-script">आयाम</span>
+       <a className="position-organisation aayam-organisation" href="https://aayam.online/team" target="_blank" rel="noreferrer" aria-label="Visit the AAYAM team page">
+         <img className="aayam-logo" src="/assets/aayam-logo.svg" alt="AAYAM logo" loading="lazy"/>
          <span className="aayam-name"><strong>AAYAM</strong><small>UIT Students' Committee</small></span>
-       </div>
+         <span className="aayam-card-link">VIEW TEAM <ArrowUpRight size={12}/></span>
+       </a>
        <p>As Discipline Vice Chairperson, I help manage discipline and coordination during college events and activities, working with the committee to support smooth event execution.</p>
        <div className="tile-bottom">
          <span>KARNAVATI UNIVERSITY · UIT</span>
