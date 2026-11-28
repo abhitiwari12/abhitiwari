@@ -22,7 +22,7 @@ const experiences = [
  {date:"MAY — JUL 2026",role:"AI / ML Intern",company:"Microweb Solutions",place:"Ahmedabad",text:"Worked on practical machine-learning workflows using Python and Scikit-learn — from data preprocessing and exploratory analysis to feature engineering and model evaluation.",tags:["Python","Scikit-learn","Data Analysis"]},
  {date:"JUN — JUL 2024",role:"Social Media Intern",company:"Karma Foundation",place:"Ahmedabad",text:"Managed content across LinkedIn, Instagram and Facebook, and worked on improving audience engagement through data-informed content strategies.",tags:["Content","Social Media","Engagement"]}
 ];
-const chapters=[{number:"01",label:"The beginning",id:"beginning"},{number:"02",label:"What shaped me",id:"formation"},{number:"03",label:"What I build",id:"work"},{number:"04",label:"Out in the world",id:"field"},{number:"05",label:"What’s next",id:"horizon"}];
+const chapters=[{number:"01",label:"The beginning",id:"origin"},{number:"02",label:"What shaped me",id:"formation"},{number:"03",label:"What I build",id:"work"},{number:"04",label:"Out in the world",id:"field"},{number:"05",label:"What’s next",id:"horizon"}];
 
 function ProjectVisual({type}) {
  if(type==="cyber") return <div className="project-visual visual-cyber"><div className="visual-windowbar"><span className="window-dots"><i/><i/><i/></span><span>CYBERRANGER / LOCAL LAB</span><span>SYS 01</span></div><div className="cyber-console"><p><b>RED</b><span>candidate generated</span><em>›</em></p><p><b>BLUE</b><span>response evaluated</span><em>✓</em></p><p><b>REVIEW</b><span>evidence queued</span><em>+</em></p><div className="console-rule"/><div className="console-foot"><span>DVWA SANDBOX</span><span>● ISOLATED ENVIRONMENT</span></div></div><span className="visual-corner">INDEPENDENT RESEARCH / 01</span></div>;
@@ -42,7 +42,7 @@ function ProjectCard({project,index}) {
 function App() {
  const [menuOpen,setMenuOpen]=useState(false);
  const [filter,setFilter]=useState("All");
- const [activeChapter,setActiveChapter]=useState("beginning");
+ const [activeChapter,setActiveChapter]=useState("origin");
  const [progress,setProgress]=useState(0);
  const filteredProjects=useMemo(()=>projects.filter(p=>filter==="All"||p.category===filter),[filter]);
 
