@@ -111,13 +111,12 @@ function App() {
     <div className="formation-side-grid">
      <article className="formation-tile leadership-tile formation-role-featured reveal">
        <div className="tile-overline"><Flag size={18}/><span>STUDENT LEADERSHIP</span></div>
-       <div className="position-label">ROLE · 2025 — PRESENT</div>
+       <div className="position-label">STUDENT LEADERSHIP · AAYAM / UIT</div>
        <h3><span>Discipline Vice</span><em>Chairperson</em></h3>
-       <a className="position-organisation aayam-organisation" href="https://aayam.online/" target="_blank" rel="noreferrer" aria-label="AAYAM official UIT Students' Committee website">
+       <div className="position-organisation aayam-organisation" aria-label="AAYAM — UIT Students' Committee">
          <span className="aayam-script">आयाम</span>
-         <span className="aayam-name"><strong>AAYAM</strong><small>Official UIT Students' Committee</small></span>
-         <ArrowUpRight size={14}/>
-       </a>
+         <span className="aayam-name"><strong>AAYAM</strong><small>UIT Students' Committee</small></span>
+       </div>
        <p>As Discipline Vice Chairperson, I help manage discipline and coordination during college events and activities, working with the committee to support smooth event execution.</p>
        <div className="tile-bottom">
          <span>KARNAVATI UNIVERSITY · UIT</span>
