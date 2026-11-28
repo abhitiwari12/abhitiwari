@@ -1319,3 +1319,36 @@ html { scrollbar-color:#748b66 #f4f1e8; }
   .project-card { background:#fffdf7; }
   .horizon-section { background:#294432; }
 }
+
+
+/* AAYAM identity card — official team link and Hindi wordmark mark */
+.formation-role-featured .position-organisation.aayam-organisation {
+  gap:11px;
+  min-height:64px;
+  text-decoration:none;
+}
+.aayam-logo {
+  width:48px;
+  height:48px;
+  flex:0 0 48px;
+  display:block;
+  object-fit:contain;
+  border-radius:3px;
+}
+.aayam-card-link {
+  margin-left:10px;
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  color:#496a43;
+  font:700 8px var(--body);
+  letter-spacing:.25px;
+  white-space:nowrap;
+}
+.aayam-organisation:hover .aayam-card-link {
+  color:#294432;
+}
+@media(max-width:720px) {
+  .aayam-logo { width:42px; height:42px; flex-basis:42px; }
+  .aayam-card-link { margin-left:auto; font-size:7px; }
+}
