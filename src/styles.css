@@ -2020,3 +2020,39 @@ a:focus-visible,button:focus-visible { outline:2px solid #4775ed; outline-offset
   .volunteer-meta { font-size:7px; }
   .volunteer-role { margin-top:8px; font-size:7px; }
 }
+
+
+/* Volunteer badges: edge-to-edge original crops, no role chips */
+.volunteer-badge-frame {
+  height:auto;
+  aspect-ratio:0.70;
+  padding:0;
+  display:block;
+  overflow:hidden;
+  background:#fff;
+  border:0;
+}
+.volunteer-badge-frame img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  border-radius:0;
+}
+.volunteer-card-body { padding:16px 16px 18px; }
+.volunteer-role { display:none !important; }
+@media(max-width:1050px) {
+  .volunteer-badge-frame { height:auto; aspect-ratio:0.70; }
+}
+@media(max-width:720px) {
+  .volunteer-card { grid-template-columns:112px minmax(0,1fr); }
+  .volunteer-badge-frame {
+    height:auto;
+    aspect-ratio:0.70;
+    padding:0;
+    border:0;
+    border-right:1px solid #dfe7f3;
+  }
+  .volunteer-card-body { padding:12px; }
+}
