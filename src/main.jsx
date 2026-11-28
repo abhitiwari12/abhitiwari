@@ -163,7 +163,7 @@ function App() {
     
     <div className="volunteer-grid">
       <article className="volunteer-card reveal">
-        <div className="volunteer-badge-frame"><img src="/assets/volunteering/security-team.webp" alt="Karnavati University Student Security Council Team Security badge, Freshers 2K25" loading="lazy"/></div>
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/Karnavati Security Team Badge.png" alt="Karnavati University Student Security Council Team Security badge, Freshers 2K25" loading="lazy"/></div>
         <div className="volunteer-card-body">
           <div className="volunteer-meta"><span>FRESHERS 2K25</span><span>01 / 04</span></div>
           <h3>Team Security</h3>
@@ -171,7 +171,7 @@ function App() {
         </div>
       </article>
       <article className="volunteer-card reveal">
-        <div className="volunteer-badge-frame"><img src="/assets/volunteering/aria-ro-crew.webp" alt="AriaRo4.0 National Level Technical Symposium crew badge" loading="lazy"/></div>
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/AriaRo4.0 Crew Badge – Abhi Tiwari.png" alt="AriaRo4.0 National Level Technical Symposium crew badge" loading="lazy"/></div>
         <div className="volunteer-card-body">
           <div className="volunteer-meta"><span>TECHNICAL SYMPOSIUM</span><span>02 / 04</span></div>
           <h3>AriaRo 4.0</h3>
@@ -179,7 +179,7 @@ function App() {
         </div>
       </article>
       <article className="volunteer-card reveal">
-        <div className="volunteer-badge-frame"><img src="/assets/volunteering/garba-access.webp" alt="Karnavati University Garba Mahotsav all area access badge, 27 to 30 September 2025" loading="lazy"/></div>
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/Karnavati Garba All Area Access Badge.png" alt="Karnavati University Garba Mahotsav all area access badge, 27 to 30 September 2025" loading="lazy"/></div>
         <div className="volunteer-card-body">
           <div className="volunteer-meta"><span>27–30 SEPTEMBER 2025</span><span>03 / 04</span></div>
           <h3>Garba Mahotsav</h3>
@@ -187,7 +187,7 @@ function App() {
         </div>
       </article>
       <article className="volunteer-card reveal">
-        <div className="volunteer-badge-frame"><img src="/assets/volunteering/isppd-conference.webp" alt="Ahmedabad 44th ISPPD National Conference 2023 IT badge" loading="lazy"/></div>
+        <div className="volunteer-badge-frame"><img src="/assets/volunteering/Ahmedabad ISPPD 2023 Conference Badge.png" alt="Ahmedabad 44th ISPPD National Conference 2023 IT badge" loading="lazy"/></div>
         <div className="volunteer-card-body">
           <div className="volunteer-meta"><span>AHMEDABAD · 2023</span><span>04 / 04</span></div>
           <h3>44th ISPPD</h3>
