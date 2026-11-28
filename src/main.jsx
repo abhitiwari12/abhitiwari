@@ -137,6 +137,19 @@ function ProjectVisual({ type }) {
       <div className="visual-index">01 / INDEPENDENT RESEARCH</div>
     </div>
   );
+  if (type === "trading") return (
+    <div className="visual-trading">
+      <div className="trading-top"><span>FUTURES / TESTNET</span><span className="trading-live"><i/> SANDBOX CONNECTED</span></div>
+      <div className="trading-symbol">BTC<span>USDT</span></div>
+      <div className="trading-grid">
+        <div><small>ORDER TYPE</small><b>LIMIT</b></div>
+        <div><small>SIDE</small><b className="buy-side">BUY ↗</b></div>
+        <div><small>QUANTITY</small><b>0.001 BTC</b></div>
+      </div>
+      <div className="trading-orders"><span>MARKET</span><span>LIMIT</span><span>STOP</span></div>
+      <div className="trading-caption">PYTHON CLI / ORDER EXECUTION</div>
+    </div>
+  );
   if (type === "fraud") return (
     <div className="visual-fraud">
       <div className="fraud-top"><span>TRANSACTION REVIEW</span><span>LIVE MODEL</span></div>
