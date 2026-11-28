@@ -1104,3 +1104,91 @@ body { background:#f3f1e9; color:#26372c; font-family:var(--body); font-size:16p
   .education-university img { width:50px; height:50px; }
   .education-university-name h3 { font-size:23px; }
 }
+
+
+/* AAYAM role identity — link the position to the official team */
+.formation-role-featured .position-organisation.aayam-organisation {
+  grid-column:2;
+  grid-row:2;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:11px;
+  width:max-content;
+  max-width:100%;
+  padding:10px 12px 10px 9px;
+  border:1px solid rgba(49,79,46,.18);
+  background:rgba(255,255,255,.42);
+  border-radius:3px;
+  color:#29472f;
+  text-decoration:none;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.aayam-organisation:hover {
+  background:rgba(255,255,255,.8);
+  border-color:#a8ba9e;
+  transform:translateY(-2px);
+}
+.aayam-script {
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  background:#36563a;
+  color:#f4f1e6;
+  border-radius:2px;
+  font:600 20px/1 var(--body);
+}
+.aayam-name {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.aayam-name strong {
+  color:#2b4830;
+  font:700 13px var(--body);
+  letter-spacing:.8px;
+}
+.aayam-name small {
+  color:#697d61;
+  font:500 9px var(--body);
+  white-space:nowrap;
+}
+.aayam-organisation>svg { color:#668352; flex:0 0 auto; }
+.formation-role-featured .tile-bottom a {
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#365b37;
+  font:700 8px var(--body);
+  letter-spacing:.3px;
+  text-decoration:none;
+  transition:gap .2s,color .2s;
+}
+.formation-role-featured .tile-bottom a:hover {
+  color:#1d3b23;
+  gap:10px;
+}
+@media(max-width:1050px) {
+  .formation-role-featured .position-organisation.aayam-organisation {
+    grid-column:2;
+    grid-row:2;
+    width:max-content;
+  }
+}
+@media(max-width:720px) {
+  .formation-role-featured .position-organisation.aayam-organisation {
+    grid-column:auto;
+    grid-row:auto;
+    width:100%;
+    max-width:100%;
+    margin-top:4px;
+    padding:9px;
+  }
+  .aayam-script { width:40px; height:40px; font-size:19px; }
+  .aayam-name strong { font-size:12px; }
+  .aayam-name small { font-size:8px; white-space:normal; }
+  .formation-role-featured .tile-bottom a { font-size:7px; }
+}
