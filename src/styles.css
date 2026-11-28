@@ -197,3 +197,6 @@ button { color: inherit; }
 @media (max-width: 390px) {
   .hero h1 { font-size: 54px; }.header-contact { letter-spacing: .5px; }.portrait-frame { width: 72%; }.portrait-float { padding: 9px 10px; font-size: 8px; }.fact-card { min-height: 230px; }.game-title { font-size: 88px; }
 }
+
+.project-reveal-featured { grid-column: 1 / -1; }
+@media (max-width: 720px) { .project-reveal-featured { grid-column: auto; } }
