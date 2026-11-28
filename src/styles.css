@@ -1018,3 +1018,20 @@ body { background:#f3f1e9; color:#26372c; font-family:var(--body); font-size:16p
   .project-actions a { font-size:7px; padding:7px; }
   .footer-socials { gap:8px; }
 }
+
+.formation-note {
+  max-width:760px; margin:40px auto 0;
+  padding:18px 0 0; border-top:1px solid #d1d9cb;
+  display:flex; align-items:baseline; gap:18px;
+}
+.formation-note span { color:#55704b; font:600 11px var(--body); }
+.formation-note p { margin:0; color:#667363; font:400 12px/1.7 var(--body); }
+.journey-logo small { font-size:7px; font-weight:600; letter-spacing:.9px; }
+.hero-role-strip span { text-transform:none; }
+.position-label { text-transform:none; }
+.story-label { text-transform:none; }
+.footer-socials a { text-transform:none; }
+@media(max-width:720px) {
+ .formation-note { display:block; margin-top:30px; }
+ .formation-note p { margin-top:7px; }
+}
