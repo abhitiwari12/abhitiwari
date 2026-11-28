@@ -100,7 +100,8 @@ const projects = [
     stack: ["Python", "FastAPI", "React", "XGBoost", "MQTT"],
     meta: "Semester VII · Software Project Management · Individual project",
     report: "/AbhiTiwari_120.pdf",
-    status: "Phase-1 prototype"
+    status: "Phase-1 prototype",
+    closing: true
   }
 ];
 
@@ -210,7 +211,7 @@ function ProjectVisual({ type }) {
 
 function ProjectCard({ project }) {
   return (
-    <article className={"project-card project-" + project.type + (project.featured ? " project-featured" : "")}>
+    <article className={"project-card project-" + project.type + (project.featured ? " project-featured" : "") + (project.closing ? " project-closing" : "")}>
       <div className="project-art">
         <ProjectVisual type={project.type}/>
         {project.featured && <span className="featured-label"><Zap size={12}/> FEATURED BUILD</span>}
@@ -236,6 +237,8 @@ function ProjectCard({ project }) {
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [filter, setFilter] = useState("All");
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
   const nav = [["Work", "#work"], ["About", "#about"], ["Experience", "#experience"], ["Play", "#play"]];
   const visibleProjects = projects.filter(project => filter === "All" || project.category === filter);
 
@@ -252,15 +255,29 @@ function App() {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
-    nodes.forEach(node => observer.observe(node));
+    }, { threshold: 0.08, rootMargin: "0px 0px -36px 0px" });
+    nodes.forEach(node => {
+      if (!node.classList.contains("is-visible")) observer.observe(node);
+    });
     return () => observer.disconnect();
+  }, [filter]);
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0);
+      setIsScrolled(window.scrollY > 14);
+    };
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    updateScrollState();
+    return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
 
   return (
     <div className="site-shell" id="top">
+      <div className="scroll-progress" style={{ width: scrollProgress + "%" }} aria-hidden="true"/>
       <div className="site-noise" aria-hidden="true"/>
-      <header className="header">
+      <header className={isScrolled ? "header header-scrolled" : "header"}>
         <a className="wordmark" href="#top" aria-label="Abhi Tiwari home">AT<span>.</span></a>
         <nav className={menuOpen ? "main-nav nav-open" : "main-nav"}>
           {nav.map(([label, href])=><a key={label} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
@@ -314,11 +331,11 @@ function App() {
             <p className="section-aside">A collection of experiments, builds and university projects. Some are polished. Some are still teaching me things.</p>
           </div>
           <div className="filter-bar reveal" role="group" aria-label="Filter projects">
-            {["All", "Research", "Automation", "AI / ML", "Finance / Data", "University"].map(item=><button key={item} className={filter===item ? "filter-button active" : "filter-button"} onClick={()=>setFilter(item)}>{item}</button>)}
+            {["All", "Research", "Automation", "AI / ML", "Finance / Data", "University"].map(item=><button key={item} type="button" aria-pressed={filter===item} className={filter===item ? "filter-button active" : "filter-button"} onClick={()=>setFilter(item)}>{item}</button>)}
             <span className="filter-count">{String(visibleProjects.length).padStart(2,"0")} PROJECTS</span>
           </div>
           <div className="projects-grid">
-            {visibleProjects.map((project,i)=><div className={"project-reveal reveal" + (project.featured ? " project-reveal-featured" : "")} key={project.number} style={{transitionDelay:(i%3)*70+"ms"}}><ProjectCard project={project}/></div>)}
+            {visibleProjects.map((project,i)=><div className={"project-reveal reveal" + (project.featured ? " project-reveal-featured" : "") + (project.closing ? " project-reveal-closing" : "")} key={project.number} style={{transitionDelay:(i%3)*70+"ms"}}><ProjectCard project={project}/></div>)}
           </div>
           <div className="all-work-link reveal"><span>MORE CODE, EXPERIMENTS & HALF-FORMED IDEAS</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Find me on GitHub <ArrowUpRight size={15}/></a></div>
         </section>
