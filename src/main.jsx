@@ -282,7 +282,7 @@ function App(){
 
       <footer className="footer">
         <div><span className="eyebrow light">THAT'S THE TOUR</span><h2>Have a good one.<br/><em>And say hello.</em></h2></div>
-        <div className="footer-right"><a className="mail-button" href="mailto:tiwariabhi1211@gmail.com"><Mail size={17}/> tiwariabhi1211@gmail.com <ArrowUpRight size={15}/></a><div className="socials"><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer"><Github size={17}/> GitHub</a><a href="https://www.linkedin.com/in/abhitiwari-18715727b/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a></div></div>
+        <div className="footer-right"><a className="mail-button" href="mailto:tiwariabhi1211@gmail.com"><Mail size={17}/> tiwariabhi1211@gmail.com <ArrowUpRight size={15}/></a><div className="socials"><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer"><Github size={17}/> GitHub</a><a href="https://www.linkedin.com/in/abhi-tiwari-18715727b/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a></div></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Abhi Tiwari</span><span>Made with curiosity, somewhere in Ahmedabad.</span><a href="#top">Back to top ↑</a></div>
       </footer>
     </main>
