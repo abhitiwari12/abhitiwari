@@ -1352,3 +1352,324 @@ html { scrollbar-color:#748b66 #f4f1e8; }
   .aayam-logo { width:42px; height:42px; flex-basis:42px; }
   .aayam-card-link { margin-left:auto; font-size:7px; }
 }
+
+
+/* ── Bold modern direction: deep navy + vivid blue ── */
+:root {
+  --void:#08142b;
+  --deep:#0b1b38;
+  --panel:#ffffff;
+  --panel-soft:#eaf0fa;
+  --paper:#f4f7fc;
+  --paper-ink:#0b1b38;
+  --white:#f7faff;
+  --muted:#61708a;
+  --muted-dark:#aab7cd;
+  --line:rgba(20,48,91,.16);
+  --acid:#5b85ff;
+}
+html,body,.journey-site { background:#f4f7fc; color:#0b1b38; }
+html { scrollbar-color:#4775ed #e9eff9; }
+::selection { background:#cbd9ff; color:#091832; }
+a:focus-visible,button:focus-visible { outline:2px solid #4775ed; outline-offset:4px; }
+
+/* Header and opening */
+.journey-header {
+  background:rgba(8,20,43,.96);
+  border-bottom-color:rgba(190,209,244,.15);
+}
+.journey-logo,.footer-logo { color:#f7faff; }
+.journey-logo span,.footer-logo span { color:#6b91ff; }
+.journey-logo small { color:#a6b6d2; }
+.journey-nav a { color:#b6c4dc; }
+.journey-nav a span { color:#7d91b4; }
+.journey-nav a:hover,.journey-nav a.nav-active { color:#7ea0ff; }
+.journey-nav a.nav-active span { color:#7ea0ff; }
+.header-hello { border-color:#567ce5; color:#e2eaff; }
+.header-hello:hover { background:#4775ed; border-color:#4775ed; color:#fff; }
+.journey-menu { color:#f7faff; }
+.global-progress { background:#5b85ff; }
+.journey-hero {
+  background:
+    radial-gradient(ellipse at 78% 44%,rgba(47,96,220,.22),transparent 42%),
+    linear-gradient(135deg,#08142b 0%,#0b1b38 64%,#102750 100%);
+  color:#f7faff;
+}
+.journey-hero:before {
+  background:radial-gradient(circle,rgba(76,123,255,.24),rgba(76,123,255,.07) 45%,transparent 70%);
+}
+.hero-coordinate { color:#92a8d0; }
+.hero-eyebrow,.chapter-index { color:#7296ff; }
+.hero-greeting { color:#c0cce1; }
+.hero-copy h1,.hero-copy h1 span { color:#f7faff; }
+.hero-copy h1 em { color:#7ea0ff; }
+.hero-lede { color:#c0cce1; }
+.hero-role-strip span { color:#d8e2f5; }
+.hero-role-strip span:first-child { color:#83a2ff; }
+.hero-role-strip i { background:#6b82b1; }
+.journey-primary { background:#4775ed; color:#fff; }
+.journey-primary:hover { background:#2f60d9; }
+.journey-secondary { border-color:rgba(208,222,249,.4); color:#e5edff; }
+.journey-secondary:hover { border-color:#7ea0ff; color:#9eb6ff; }
+.hero-bottom-note,.hero-scroll-number { color:#8da2c7; }
+.hero-scroll-number span { color:#7ea0ff; }
+.scene-photo {
+  background:#10254b;
+  border-color:rgba(126,160,255,.65);
+  box-shadow:19px 23px 0 rgba(2,9,25,.3),0 30px 85px rgba(2,9,25,.34);
+}
+.scene-photo:after { border-color:rgba(223,233,255,.24); }
+.photo-caption { background:rgba(7,18,40,.84); color:#f1f5ff; }
+.photo-caption small { color:#afc0e1; }
+.scene-orbit { border-color:rgba(126,160,255,.35); }
+.signal-marquee { background:#1d4ed8; border-color:#3567e4; }
+.signal-track { color:#f4f7ff; }
+.signal-track i { color:#b8ccff; }
+
+/* Education / origin chapter */
+.origin-section,.build-section {
+  background:#f4f7fc;
+  color:#0b1b38;
+}
+.chapter-index { color:#4775ed; }
+.chapter-index i { background:#b5c6e8; }
+.chapter-index-light { color:#b9cbff; }
+.chapter-index-light i { background:rgba(151,179,255,.55); }
+.origin-heading h2 { color:#0b1b38; }
+.origin-heading h2 em { color:#4775ed; }
+.origin-heading p { color:#596b88; }
+.origin-story { border-left-color:#c3d0e5; }
+.story-marker { color:#4775ed; }
+.story-marker i { background:#4775ed; border-color:#e7edfa; box-shadow:0 0 0 1px #4775ed; }
+.story-label { color:#5873a6; }
+.education-university img { border-color:#dce5f3; background:#fff; }
+.education-university-name h3 { color:#0b1b38; }
+.education-accreditation { border-color:#d6e1f4; background:#eaf0fb; color:#315cbf; }
+.education-accreditation:before { background:#4775ed; }
+.education-degree { color:#315cbf; }
+.story-content p { color:#5c6c86; }
+.story-tags span { border-color:#dce5f1; color:#61738f; background:#f9fbff; }
+.story-next { color:#5874aa; }
+.origin-foot { border-color:#d9e2f0; color:#7788a4; }
+.origin-foot b { color:#10254a; }
+.origin-foot i { background:#4775ed; }
+
+/* Leadership and NCC chapter */
+.formation-section {
+  background:
+    radial-gradient(ellipse at 86% 22%,rgba(49,99,221,.22),transparent 36%),
+    linear-gradient(135deg,#0b1b38 0%,#0a1934 57%,#071329 100%);
+}
+.formation-section:before {
+  opacity:.16;
+  background-image:linear-gradient(rgba(169,194,245,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(169,194,245,.08) 1px,transparent 1px);
+}
+.formation-heading h2 { color:#f4f7ff; }
+.formation-heading h2 em { color:#82a2ff; }
+.formation-heading>p { color:#b7c5df; }
+.ncc-journey-card {
+  border-color:rgba(123,158,255,.28);
+  background:linear-gradient(115deg,#142b53,#102449 58%,#0d1d3c);
+  box-shadow:0 20px 55px rgba(0,0,0,.2);
+}
+.ncc-scene {
+  background:
+    radial-gradient(circle at 50% 45%,rgba(91,133,255,.26),transparent 45%),
+    linear-gradient(145deg,#2753a8,#10264d 82%);
+  border-right-color:rgba(210,225,255,.16);
+}
+.ncc-scene:before {
+  background-image:linear-gradient(rgba(202,218,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(202,218,255,.14) 1px,transparent 1px);
+}
+.ncc-rings { border-color:rgba(160,188,255,.4); box-shadow:0 0 0 20px rgba(110,151,255,.045); }
+.ncc-letters { color:#f4f7ff; }
+.ncc-seal { background:#eaf0ff; color:#173a82; border-color:#7599f7; }
+.ncc-scene-label,.ncc-coordinate { color:#d7e3ff; }
+.ncc-kicker { color:#6f95ff; }
+.ncc-kicker svg { color:#7ea0ff; }
+.ncc-story h3 { color:#f4f7ff; }
+.ncc-story h3 em { color:#83a3ff; }
+.ncc-story>p { color:#c0cce1; }
+.ncc-achievements { border-top-color:rgba(195,213,255,.18); }
+.ncc-achievement b { color:#83a3ff; }
+.ncc-achievement span { color:#b9c9e7; }
+.ncc-traits { color:#9aafd5; }
+.formation-role-featured {
+  background:linear-gradient(120deg,#e6edff,#dce7ff 56%,#edf2ff);
+  border-color:#c4d4f6;
+  border-left-color:#4775ed;
+  box-shadow:0 12px 30px rgba(2,16,44,.16);
+}
+.formation-role-featured:hover { background:linear-gradient(120deg,#edf2ff,#dce7ff); }
+.formation-role-featured .tile-overline,.formation-role-featured .tile-overline span { color:#315bb7; }
+.formation-role-featured h3 { color:#0b1b38; }
+.formation-role-featured h3 em { color:#3569e8; }
+.formation-role-featured p { color:#4f6282; }
+.formation-role-featured .tile-bottom { color:#64789c; border-color:#c7d5ee; }
+.formation-role-featured .tile-bottom span:last-child { color:#3569e8; }
+.formation-role-featured .tile-watermark { color:rgba(47,94,207,.07); }
+.formation-role-featured .position-organisation.aayam-organisation {
+  background:#f7f9ff;
+  border-color:#c9d7f2;
+}
+.aayam-logo { background:#0b1b38; }
+.aayam-name strong { color:#122b57; }
+.aayam-name small { color:#62769a; }
+.aayam-card-link { color:#315fc9; }
+.aayam-organisation:hover .aayam-card-link { color:#1748b6; }
+.formation-tile:not(.formation-role-featured) {
+  background:#12284b;
+  border-color:rgba(185,207,255,.16);
+}
+.formation-tile:not(.formation-role-featured):hover {
+  background:#17325d;
+  border-color:rgba(126,160,255,.5);
+}
+.formation-tile:not(.formation-role-featured) .tile-overline,
+.formation-tile:not(.formation-role-featured) .tile-overline span { color:#88a7ff; }
+.formation-tile:not(.formation-role-featured) h3 { color:#f2f6ff; }
+.formation-tile:not(.formation-role-featured) h3 em { color:#83a3ff; }
+.formation-tile:not(.formation-role-featured) p { color:#c0cce1; }
+.formation-tile:not(.formation-role-featured) .tile-bottom { border-color:rgba(194,213,255,.16); color:#9eb1d3; }
+.formation-tile:not(.formation-role-featured) .tile-bottom span:last-child { color:#83a3ff; }
+.formation-tile:not(.formation-role-featured) .tile-watermark { color:rgba(139,171,255,.06); }
+.formation-quote>span { color:#82a2ff; }
+.formation-quote p { color:#e4ecff; }
+.formation-quote small { color:#9eafd0; }
+.formation-note { border-top-color:rgba(194,213,255,.2); }
+.formation-note span { color:#91adff; }
+.formation-note p { color:#becae0; }
+
+/* Project chapter */
+.build-heading h2 { color:#0b1b38; }
+.build-heading h2 em { color:#4775ed; }
+.build-heading>p { color:#5d6e89; }
+.build-countline { border-color:#dce5f2; color:#7889a4; }
+.build-countline b { color:#214a9d; }
+.project-filters { border-color:#dce5f2; }
+.project-filters button { border-color:#cbd7e9; color:#596d8d; }
+.project-filters button:hover { border-color:#6e91ef; color:#244fae; }
+.project-filters button.filter-active { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+.filter-results { color:#7889a4; }
+.project-card { background:#fff; border-color:#dce5f2; box-shadow:0 8px 22px rgba(9,28,62,.045); }
+.project-card:hover { border-color:#9bb5f7; box-shadow:0 16px 34px rgba(9,35,90,.1); }
+.project-art { background:#10254a; }
+.visual-cyber { background:linear-gradient(145deg,#183b78,#0b1b38); }
+.visual-trading { background:linear-gradient(145deg,#2859a9,#10254a); }
+.visual-fraud { background:linear-gradient(145deg,#1f4b8e,#10254a); }
+.visual-misinfo { background:linear-gradient(145deg,#1d3e76,#0b1b38); }
+.visual-investment { background:linear-gradient(140deg,#2453a0,#10254a); }
+.visual-scientist { background:linear-gradient(145deg,#1d467f,#10254a); }
+.visual-compiler { background:#10254a; }
+.visual-solar { background:linear-gradient(145deg,#dce7fb,#b8caed); }
+.project-meta { color:#3569d8; }
+.project-meta span:last-child { color:#91a0b9; }
+.project-details h3 { color:#0b1b38; }
+.project-subtitle { color:#657795; }
+.project-details>p,.project-card-featured .project-details>p { color:#52627b; }
+.project-stack span { background:#f2f6fd; border-color:#dce6f5; color:#4c638c; }
+.project-context { color:#4168b5; }
+.project-context-extra { color:#8795ad; }
+.project-actions a { border-color:#afc2ed; color:#2854ad; }
+.project-actions a:hover { background:#1d4ed8; border-color:#1d4ed8; color:#fff; }
+.project-number { color:rgba(243,247,255,.78); }
+.project-featured-tag { background:#f4f7ff; color:#214da8; }
+.trading-tabs span:nth-child(2) { background:#dce7ff; border-color:#dce7ff; color:#183c82; }
+.console-rule { background:linear-gradient(90deg,#7fa4ff,transparent); }
+
+/* Experience chapter */
+.field-section {
+  background:
+    radial-gradient(ellipse at 88% 38%,rgba(63,108,219,.08),transparent 34%),
+    #eaf0fa;
+}
+.field-section:after { border-color:rgba(71,117,237,.13); box-shadow:0 0 0 35px rgba(71,117,237,.025),0 0 0 82px rgba(71,117,237,.015); }
+.field-heading h2 { color:#0b1b38; }
+.field-heading h2 em { color:#4775ed; }
+.field-heading>p { color:#596b87; }
+.field-timeline:before { background:linear-gradient(#4775ed,rgba(71,117,237,.08)); }
+.field-date { color:#7183a0; }
+.field-date span { color:#3569d8; }
+.field-date b { color:#7b8aa3; }
+.field-node i { border-color:#4775ed; background:#eaf0fa; box-shadow:0 0 0 5px rgba(71,117,237,.1); }
+.field-company { color:#315fca; }
+.field-company span { color:#8290a6; }
+.field-entry-content h3.field-role-title,.field-entry-content h3 { color:#10254a; }
+.field-entry-content p { color:#596b85; }
+.field-tags span { background:#f7f9fe; border-color:#d3def0; color:#5e7192; }
+.field-education .field-node i { background:#4775ed; }
+
+/* GEORUSH and inspiration */
+.sidequest-section { background:#dce7ff; color:#0b1b38; }
+.sidequest-copy .chapter-index { color:#315fca; }
+.sidequest-copy .chapter-index i { background:#a9bff0; }
+.sidequest-copy h2 { color:#0b1b38; }
+.sidequest-copy h2 em { color:#3569e8; }
+.sidequest-copy>p { color:#536787; }
+.sidequest-button { background:#1d4ed8; color:#fff; }
+.sidequest-button:hover { background:#153eae; }
+.georush-art {
+  background:linear-gradient(145deg,#102b5b,#081a39);
+  color:#8eacff;
+  box-shadow:17px 18px 0 rgba(25,65,156,.12);
+}
+.geo-grid { background-image:linear-gradient(rgba(134,166,255,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(134,166,255,.18) 1px,transparent 1px); }
+.geo-top span:last-child,.geo-bottom { color:#b3c7f4; }
+.geo-title em { color:#83a3ff; }
+.geo-pin { background:#83a3ff; box-shadow:0 0 0 7px rgba(131,163,255,.16); }
+.inspiration-visual {
+  background:radial-gradient(ellipse at 50% 37%,#2855a2,#0b1b38 76%);
+  border-color:rgba(71,117,237,.22);
+  box-shadow:15px 16px 0 rgba(71,117,237,.08);
+}
+.inspiration-visual:before { border-color:rgba(184,205,255,.25); }
+.inspiration-halo { border-color:rgba(146,177,255,.42); box-shadow:0 0 0 28px rgba(126,160,255,.035),0 0 0 60px rgba(126,160,255,.02); }
+.inspiration-18 { color:rgba(160,187,255,.2); }
+.inspiration-tag { color:#f2f6ff; }
+.inspiration-text .chapter-index { color:#4775ed; }
+.inspiration-text h2 { color:#0b1b38; }
+.inspiration-text h2 em { color:#4775ed; }
+.inspiration-text>p { color:#596b86; }
+.inspiration-values { border-color:#dce5f2; color:#647795; }
+
+/* Final contact chapter */
+.horizon-section {
+  background:
+    radial-gradient(ellipse at 50% 42%,#173a79 0%,#0b1b38 48%,#061127 88%);
+}
+.horizon-stars {
+  background-image:
+    radial-gradient(circle at 12% 20%,rgba(126,160,255,.8) 1px,transparent 1.5px),
+    radial-gradient(circle at 82% 18%,rgba(223,233,255,.65) 1px,transparent 1.5px),
+    radial-gradient(circle at 68% 72%,rgba(126,160,255,.55) 1px,transparent 1.5px),
+    radial-gradient(circle at 27% 78%,rgba(223,233,255,.55) 1px,transparent 1.5px),
+    radial-gradient(circle at 92% 53%,rgba(126,160,255,.65) 1px,transparent 1.5px);
+}
+.horizon-core { border-color:rgba(126,160,255,.62); color:#f4f7ff; background:radial-gradient(circle,rgba(91,133,255,.22),rgba(91,133,255,.035) 70%); box-shadow:0 0 0 16px rgba(91,133,255,.035),0 0 55px rgba(91,133,255,.14); }
+.horizon-core span { color:#91adff; }
+.horizon-orbit>i { border-color:rgba(126,160,255,.27); }
+.horizon-orbit-three { border-color:rgba(221,232,255,.22)!important; }
+.horizon-spark { color:#8eacff; }
+.horizon-overline { color:#b0c5f5; }
+.horizon-copy h2 { color:#f5f8ff; }
+.horizon-copy h2 em { color:#8eacff; }
+.horizon-copy>p { color:#c0cce3; }
+.horizon-contact { background:#4775ed; color:#fff; }
+.horizon-contact:hover { background:#2f60d9; }
+.journey-footer { border-color:rgba(207,222,255,.18); }
+.footer-socials a,.footer-credit { color:#c1cfe8; }
+.footer-socials a:hover,.back-top:hover { color:#91adff; }
+.back-top { color:#91adff; }
+
+/* Mobile surfaces and active states */
+@media(max-width:720px) {
+  .journey-header { background:rgba(8,20,43,.98); }
+  .journey-nav { background:#0b1b38; border-bottom-color:rgba(190,209,244,.18); }
+  .journey-nav a { color:#c1cfe8; border-bottom-color:rgba(190,209,244,.12); }
+  .journey-menu { color:#f7faff; }
+  .ncc-story { background:#102449; }
+  .formation-role-featured .position-organisation.aayam-organisation { background:#f7f9ff; }
+  .field-section { background:#eaf0fa; }
+  .project-card { background:#fff; }
+  .horizon-section { background:#0b1b38; }
+}
