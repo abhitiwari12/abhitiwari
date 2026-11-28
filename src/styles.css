@@ -1680,3 +1680,166 @@ a:focus-visible,button:focus-visible { outline:2px solid #4775ed; outline-offset
   .project-card { background:#fff; }
   .horizon-section { background:#0b1b38; }
 }
+
+
+/* ── Compact, aligned Beyond the Classroom cards ── */
+.formation-section {
+  padding:92px 0 96px;
+}
+.formation-heading {
+  margin:26px 0 32px;
+  align-items:end;
+}
+.formation-heading h2 {
+  font-size:clamp(40px,4.4vw,58px);
+  letter-spacing:-2.5px;
+}
+.formation-heading>p {
+  max-width:330px;
+  font-size:13px;
+  line-height:1.75;
+}
+.formation-card-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+.formation-card {
+  min-width:0;
+  min-height:270px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  padding:21px 19px 18px;
+  border:1px solid rgba(158,185,240,.2);
+  border-radius:7px;
+  background:linear-gradient(155deg,#122b53 0%,#102449 68%,#0d1f40 100%);
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.formation-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(126,160,255,.52);
+  box-shadow:0 18px 34px rgba(0,0,0,.18);
+}
+.formation-card-head {
+  min-height:55px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#83a3ff;
+}
+.formation-card-head svg {
+  flex:0 0 auto;
+  color:#83a3ff;
+}
+.formation-card-kicker {
+  color:#a9bde8;
+  font:700 9px var(--body);
+  letter-spacing:.8px;
+}
+.ncc-emblem {
+  width:42px;
+  height:52px;
+  display:block;
+  flex:0 0 auto;
+  object-fit:contain;
+  object-position:center;
+  padding:3px;
+  border-radius:4px;
+  background:#f8faff;
+}
+.formation-card h3 {
+  margin:17px 0 9px;
+  color:#f4f7ff;
+  font:700 22px/1.14 var(--display);
+  letter-spacing:-.65px;
+}
+.formation-card h3 em {
+  color:#8eacff;
+  font-style:normal;
+}
+.formation-card>p {
+  margin:0 0 17px;
+  color:#c0cce1;
+  font:400 11px/1.75 var(--body);
+}
+.formation-card-tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:auto;
+  padding-top:12px;
+}
+.formation-card-tags span {
+  display:inline-flex;
+  align-items:center;
+  padding:6px 8px;
+  border:1px solid rgba(169,193,241,.2);
+  border-radius:3px;
+  color:#b5c7e9;
+  background:rgba(7,18,40,.22);
+  font:600 8px var(--body);
+  letter-spacing:.25px;
+}
+.aayam-compact-link {
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  margin-top:auto;
+  padding:8px;
+  border:1px solid #cbd8f4;
+  border-radius:5px;
+  background:#f7f9ff;
+  color:#10254a;
+  text-decoration:none;
+  transition:background .2s,border-color .2s;
+}
+.aayam-compact-link:hover {
+  background:#eaf0ff;
+  border-color:#8eaaff;
+}
+.aayam-compact-link .aayam-logo {
+  width:35px;
+  height:35px;
+  flex:0 0 35px;
+}
+.aayam-compact-link .aayam-name {
+  gap:2px;
+  flex:1 1 auto;
+}
+.aayam-compact-link .aayam-name strong {
+  color:#122b57;
+  font:800 11px var(--body);
+}
+.aayam-compact-link .aayam-name small {
+  color:#62769a;
+  font:500 8px var(--body);
+  white-space:normal;
+  line-height:1.3;
+}
+.aayam-compact-link .aayam-card-link {
+  margin:0 0 0 auto;
+  gap:2px;
+  color:#315fc9;
+  font:700 7px var(--body);
+  letter-spacing:0;
+}
+@media(max-width:1050px) {
+  .formation-card-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .formation-card { min-height:245px; }
+}
+@media(max-width:640px) {
+  .formation-section { padding:70px 0; }
+  .formation-heading { display:block; margin:22px 0 24px; }
+  .formation-heading h2 { font-size:42px; }
+  .formation-heading>p { margin-top:15px; font-size:12px; }
+  .formation-card-grid { grid-template-columns:1fr; gap:10px; }
+  .formation-card { min-height:0; padding:18px; }
+  .formation-card h3 { margin:13px 0 7px; font-size:21px; }
+  .formation-card>p { margin-bottom:12px; }
+  .formation-card-tags { margin-top:3px; }
+  .aayam-compact-link { margin-top:4px; }
+}
