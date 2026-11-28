@@ -4,9 +4,9 @@ import { ArrowUpRight, Gamepad2, GraduationCap, Code2, Mail, Github, Linkedin, D
 import "./styles.css";
 
 const projects = [
-  { tag:"BUILD / AI", title:"Fraud Detection System", desc:"A machine-learning experiment that looks for suspicious patterns in transaction data.", tone:"paper", stat:"85% model accuracy", href:"https://github.com/abhitiwari12" },
-  { tag:"BUILD / NLP", title:"Misinformation Detector", desc:"Exploring how language models and NLP techniques can help identify misleading content.", tone:"darkcard", stat:"Text classification", href:"https://github.com/abhitiwari12" },
-  { tag:"BUILD / DATA", title:"AI Investment Planner", desc:"A data-led experiment using historical trends to generate investment insights.", tone:"limecard", stat:"Predictive modelling", href:"https://github.com/abhitiwari12" }
+  { tag:"BUILD / AI", title:"Fraud Detection System", desc:"A machine-learning experiment that looks for suspicious patterns in transaction data.", tone:"paper", stat:"85% model accuracy", visual:"fraud", href:"https://github.com/abhitiwari12" },
+  { tag:"BUILD / NLP", title:"Misinformation Detector", desc:"Exploring how language models and NLP techniques can help identify misleading content.", tone:"darkcard", stat:"Text classification", visual:"misinfo", href:"https://github.com/abhitiwari12" },
+  { tag:"BUILD / DATA", title:"AI Investment Planner", desc:"A data-led experiment using historical trends to generate investment insights.", tone:"limecard", stat:"Predictive modelling", visual:"investment", href:"https://github.com/abhitiwari12" }
 ];
 
 
@@ -17,7 +17,7 @@ const academicProjects = [
     title:"theScientist — Multi-Agent AI Scientist",
     desc:"A multi-agent research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes testable hypotheses, reviews them adversarially and generates a structured research manuscript.",
     stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
-    flow:["PAPER SEARCH","KNOWLEDGE GRAPH","HYPOTHESES"],
+    visual:"scientist",
     href:"https://github.com/abhitiwari12/thescientist",
     report:"/MiniProject_Report_D&G_AgenticAI.pdf",
     meta:"Karnavati University · Guided by Ms Vaishnavi Chauhan"
@@ -27,7 +27,7 @@ const academicProjects = [
     title:"End-to-End Mini Compiler with Phase Visualisation",
     desc:"A hand-written compiler for a small C-like language. It demonstrates lexical, syntax and semantic analysis, parse-tree visualisation, Three Address Code, quadruples, triples and code optimisation.",
     stack:"Python · Streamlit · Graphviz · Git · GitHub",
-    flow:["LEXER","PARSER","TAC","OPTIMISER"],
+    visual:"compiler",
     href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
     live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
     report:"/23BTAI62_TiwariAbhi_MiniProjectReport.pdf",
@@ -38,7 +38,7 @@ const academicProjects = [
     title:"SolarTwin AI — Digital Twin for Solar PV Plants",
     desc:"A Phase-1 prototype for solar photovoltaic predictive maintenance, combining a physics-based PV reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
     stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
-    flow:["PV MODEL","PREDICTIVE ML","MAINTENANCE"],
+    visual:"solar",
     href:null,
     report:"/AbhiTiwari_120.pdf",
     meta:"Karnavati University · Guided by Dr Sohil Shah",
@@ -47,19 +47,19 @@ const academicProjects = [
 ];
 
 const allProjects = [
-  ...projects.map(project => ({ ...project, kind:"personal" })),
-  ...academicProjects.map(project => ({ ...project, kind:"academic" })),
   {
     kind:"independent research",
     tag:"CYBERSECURITY · RED/BLUE RESEARCH",
     title:"CyberRanger — Red/Blue Cybersecurity Research Platform",
     desc:"A local red/blue research loop built around an intentionally vulnerable DVWA lab. It generates bounded test candidates, evaluates real responses with a blue-side detector, records evidence for human triage and tracks experiments through a mission-control dashboard.",
     stack:"Python · FastAPI · Docker Compose · Laya · Gemini API",
-    flow:["DVWA LAB","RED/BLUE LOOP","TRIAGE & METRICS"],
+    visual:"cyber",
     href:"https://github.com/abhitiwari12/cyberranger",
     meta:"Independent research project · Controlled local lab",
     status:"Research prototype"
-  }
+  },
+  ...projects.map(project => ({ ...project, kind:"personal" })),
+  ...academicProjects.map(project => ({ ...project, kind:"academic" }))
 ];
 
 const journey = [
@@ -68,6 +68,55 @@ const journey = [
   { year:"CAMPUS LIFE", title:"Sports, teams & NCC", label:"BEYOND THE CLASSROOM", text:"Part of the university sports community, a cricket and kabaddi player, and an NCC cadet. Some of the best lessons happen outside lectures.", icon:Heart },
   { year:"ALONG THE WAY", title:"Learning by doing", label:"SMALL STEPS, REAL LESSONS", text:"Taking ideas from class into projects, trying new responsibilities and learning from the people I get to work with.", icon:Code2 }
 ];
+
+function ProjectArtwork({type,stat}){
+  if(type==="cyber") return <div className="art-terminal">
+    <div className="terminal-bar"><i/><i/><i/><span>LOCAL LAB / CYBERRANGER</span></div>
+    <div className="terminal-body">
+      <p><b>RED</b><span>candidate generated</span><em>›</em></p>
+      <p><b>BLUE</b><span>response evaluated</span><em>✓</em></p>
+      <p><b>REVIEW</b><span>evidence queued</span><em>+</em></p>
+    </div>
+    <div className="terminal-foot"><span>DVWA SANDBOX</span><span>● ISOLATED</span></div>
+  </div>;
+  if(type==="fraud") return <div className="art-fraud">
+    <div className="fraud-ticket"><span>TRANSACTION REVIEW</span><strong>₹4,250</strong><small>Unusual activity detected</small><b>FLAGGED</b></div>
+    <div className="fraud-orbit"><i/><i/><i/><span/></div>
+  </div>;
+  if(type==="misinfo") return <div className="art-misinfo">
+    <div className="misinfo-paper"><span>CLAIM CHECK / 01</span><strong>Is this information reliable?</strong><div className="misinfo-lines"><i/><i/><i/></div><b><span>✓</span> CONTEXT REVIEW</b></div>
+    <div className="misinfo-mark">?</div>
+  </div>;
+  if(type==="investment") return <div className="art-investment">
+    <div className="investment-label"><span>MARKET TRENDS</span><b>↗</b></div>
+    <svg viewBox="0 0 320 112" role="img" aria-label="Illustrative investment trend">
+      <path d="M8 92 L56 78 L96 84 L140 52 L180 61 L224 30 L270 38 L312 10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8 92 L56 78 L96 84 L140 52 L180 61 L224 30 L270 38 L312 10 L312 108 L8 108Z" fill="currentColor" opacity=".10"/>
+      {[8,56,96,140,180,224,270,312].map((x,i)=><circle key={x} cx={x} cy={[92,78,84,52,61,30,38,10][i]} r="3.2" fill="currentColor"/>)}
+    </svg>
+    <div className="investment-periods"><span>PAST DATA</span><span>MODEL INSIGHTS</span></div>
+  </div>;
+  if(type==="scientist") return <div className="art-scientist">
+    <svg viewBox="0 0 320 135" role="img" aria-label="Research papers connected in a knowledge graph">
+      <g stroke="currentColor" strokeOpacity=".55" strokeWidth="1.5"><path d="M56 70 L137 34 L246 62 L166 108 L56 70 M137 34 L166 108 M246 62 L277 112 M56 70 L43 116 M137 34 L277 112"/></g>
+      <g fill="#e6c36c" stroke="#173f2e" strokeWidth="2"><circle cx="56" cy="70" r="8"/><circle cx="137" cy="34" r="10"/><circle cx="246" cy="62" r="9"/><circle cx="166" cy="108" r="8"/><circle cx="277" cy="112" r="6"/><circle cx="43" cy="116" r="5"/></g>
+      <circle cx="166" cy="68" r="17" fill="#f2ead9" stroke="#d9bf7f" strokeWidth="2"/>
+      <path d="M160 68h12M166 62v12" stroke="#1f4d37" strokeWidth="2" strokeLinecap="round"/>
+    </svg>
+    <span>RESEARCH PAPERS → CONNECTED IDEAS</span>
+  </div>;
+  if(type==="compiler") return <div className="art-compiler">
+    <div className="compiler-code"><span>01</span><i/><i/><i/><i/></div>
+    <div className="compiler-stages"><b>LEX</b><em>→</em><b>PARSE</b><em>→</em><b>CODE</b></div>
+    <div className="compiler-output"><span>OUTPUT</span><strong>t1 = a + b</strong><strong>t2 = t1 * c</strong></div>
+  </div>;
+  if(type==="solar") return <div className="art-solar">
+    <div className="solar-sun"/>
+    <div className="solar-panel"><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
+    <div className="solar-reading"><span>PV OUTPUT</span><strong>↗ OPTIMISE</strong></div>
+  </div>;
+  return <div className="art-general"><span>{stat || "PROJECT NOTES"}</span></div>;
+}
 
 function App(){
   const [menuOpen,setMenuOpen] = React.useState(false);
@@ -192,21 +241,30 @@ function App(){
         </div>
         <p className="work-intro">A mix of things I've worked on inside and outside college — from small experiments to larger research prototypes.</p>
         <div className="work-grid">
-          {allProjects.map((project,i)=><article className={`work-card work-card-${i+1}`} key={project.title}>
-            <div className="work-visual">
-              <div className="work-visual-top"><span>PROJECT 0{i+1}</span><span>{project.kind === "academic" ? "UNIVERSITY" : project.kind === "independent research" ? "INDEPENDENT" : "PERSONAL BUILD"}</span></div>
-              {project.flow ? <div className="work-flow">{project.flow.map((step,j)=><React.Fragment key={step}>{j>0 && <span className="work-flow-arrow">→</span>}<span className="work-flow-step">{step}</span></React.Fragment>)}</div> : <div className="work-stat">{project.stat || project.tag}</div>}
+          {allProjects.map((project,i)=><article className={`work-card ${i===0 ? "work-card-featured" : ""}`} key={project.title}>
+            <div className={`work-card-art art-${project.visual || "general"}`}>
+              <div className="work-card-art-head">
+                <span>{project.kind === "academic" ? "UNIVERSITY PROJECT" : project.kind === "independent research" ? "INDEPENDENT RESEARCH" : "PERSONAL PROJECT"}</span>
+                <span>0{i+1}</span>
+              </div>
+              <ProjectArtwork type={project.visual || "general"} stat={project.stat}/>
             </div>
-            <div className="work-body">
+            <div className="work-card-content">
               <span className="work-category">{project.tag}</span>
               <h3>{project.title}</h3>
               <p className="work-desc">{project.desc}</p>
-              {project.stack && <div className="work-stack"><strong>Technologies</strong><span>{project.stack.replaceAll(" · ", " / ")}</span></div>}
-              <p className="work-meta">{project.meta || "Personal project"}{project.status ? " · "+project.status : ""}</p>
-              <div className="work-links">
-                {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14}/></a>}
-                {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
-                {project.report && <a href={project.report} target="_blank" rel="noreferrer">Read report <ArrowUpRight size={14}/></a>}
+              {project.stack && <div className="work-techs">
+                {project.stack.split(" · ").slice(0,5).map(tech=><span key={tech}>{tech}</span>)}
+                {project.stack.split(" · ").length>5 && <small>+{project.stack.split(" · ").length-5} more</small>}
+              </div>}
+              {project.stat && <p className="work-stat-note">{project.stat}</p>}
+              <div className="work-card-footer">
+                {project.meta && <p className="work-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>}
+                <div className="work-links">
+                  {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14}/></a>}
+                  {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
+                  {project.report && <a href={project.report} target="_blank" rel="noreferrer">Report <ArrowUpRight size={14}/></a>}
+                </div>
               </div>
             </div>
           </article>)}
