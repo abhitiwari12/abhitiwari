@@ -1,291 +1,378 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { ArrowUpRight, Gamepad2, GraduationCap, Code2, Mail, Github, Linkedin, Download, Sparkles, MapPin, Menu, X, Coffee, Heart } from "lucide-react";
+import {
+  ArrowDown, ArrowRight, ArrowUpRight, Code2, Download, ExternalLink,
+  Github, Linkedin, Mail, MapPin, Menu, X, GraduationCap, Trophy,
+  Heart, Gamepad2, Sparkles, Zap, Terminal, Cpu, Activity
+} from "lucide-react";
 import "./styles.css";
 
 const projects = [
-  { tag:"BUILD / AI", title:"Fraud Detection System", desc:"A machine-learning experiment that looks for suspicious patterns in transaction data.", tone:"paper", stat:"85% model accuracy", visual:"fraud", href:"https://github.com/abhitiwari12" },
-  { tag:"BUILD / NLP", title:"Misinformation Detector", desc:"Exploring how language models and NLP techniques can help identify misleading content.", tone:"darkcard", stat:"Text classification", visual:"misinfo", href:"https://github.com/abhitiwari12" },
-  { tag:"BUILD / DATA", title:"AI Investment Planner", desc:"A data-led experiment using historical trends to generate investment insights.", tone:"limecard", stat:"Predictive modelling", visual:"investment", href:"https://github.com/abhitiwari12" }
-];
-
-
-
-const academicProjects = [
   {
-    tag:"AGENTIC AI · SEMESTER VI · TEAM PROJECT",
-    title:"theScientist — Multi-Agent AI Scientist",
-    desc:"A multi-agent research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes testable hypotheses, reviews them adversarially and generates a structured research manuscript.",
-    stack:"Python · CrewAI · LangChain · ChromaDB · NetworkX · ArXiv · Semantic Scholar",
-    visual:"scientist",
-    href:"https://github.com/abhitiwari12/thescientist",
-    report:"/MiniProject_Report_D&G_AgenticAI.pdf",
-    meta:"Karnavati University · Guided by Ms Vaishnavi Chauhan"
+    number: "01",
+    title: "CyberRanger",
+    subtitle: "Red / Blue Cybersecurity Research Platform",
+    category: "Research",
+    type: "cyber",
+    description: "A local red/blue research loop built around an intentionally vulnerable DVWA lab. It generates bounded test candidates, evaluates real responses with a blue-side detector, records evidence for human triage and tracks experiments through a mission-control dashboard.",
+    stack: ["Python", "FastAPI", "Docker Compose", "Laya", "Gemini API"],
+    status: "Research prototype",
+    meta: "Independent research · Controlled local lab",
+    github: "https://github.com/abhitiwari12/cyberranger",
+    featured: true
   },
   {
-    tag:"COMPILER DESIGN · SEMESTER VII · TEAM PROJECT",
-    title:"End-to-End Mini Compiler with Phase Visualisation",
-    desc:"A hand-written compiler for a small C-like language. It demonstrates lexical, syntax and semantic analysis, parse-tree visualisation, Three Address Code, quadruples, triples and code optimisation.",
-    stack:"Python · Streamlit · Graphviz · Git · GitHub",
-    visual:"compiler",
-    href:"https://github.com/TanishaMajmundar/mini-compiler-visualizer",
-    live:"https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
-    report:"/23BTAI62_TiwariAbhi_MiniProjectReport.pdf",
-    meta:"Karnavati University · Guided by Ms Neha Minocha"
+    number: "02",
+    title: "Fraud Detection System",
+    subtitle: "Machine learning · Classification",
+    category: "AI / ML",
+    type: "fraud",
+    description: "A machine-learning experiment that looks for suspicious patterns in transaction data and helps flag activity that deserves a closer look.",
+    stack: ["Python", "Machine Learning", "Data Analysis"],
+    metric: "85% model accuracy"
   },
   {
-    tag:"SOFTWARE PROJECT MANAGEMENT · SEMESTER VII · INDIVIDUAL PROJECT",
-    title:"SolarTwin AI — Digital Twin for Solar PV Plants",
-    desc:"A Phase-1 prototype for solar photovoltaic predictive maintenance, combining a physics-based PV reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
-    stack:"Python · FastAPI · React · TypeScript · XGBoost · LSTM Autoencoder · MQTT · SQLite",
-    visual:"solar",
-    href:null,
-    report:"/AbhiTiwari_120.pdf",
-    meta:"Karnavati University · Guided by Dr Sohil Shah",
-    status:"Phase-1 prototype"
+    number: "03",
+    title: "Misinformation Detector",
+    subtitle: "NLP · Language models",
+    category: "AI / ML",
+    type: "misinfo",
+    description: "Exploring how natural language processing and language models can help identify misleading content and bring more context to information online.",
+    stack: ["Python", "NLP", "Text Classification"]
+  },
+  {
+    number: "04",
+    title: "AI Investment Planner",
+    subtitle: "Data · Predictive modelling",
+    category: "AI / ML",
+    type: "investment",
+    description: "A data-led experiment using historical trends to generate investment insights and make financial information easier to explore.",
+    stack: ["Python", "Data Analysis", "Predictive Modelling"]
+  },
+  {
+    number: "05",
+    title: "theScientist",
+    subtitle: "Multi-agent AI research assistant",
+    category: "University",
+    type: "scientist",
+    description: "A team-built research assistant that retrieves academic papers, builds a knowledge graph, identifies research gaps, proposes hypotheses, reviews them adversarially and generates a structured manuscript.",
+    stack: ["Python", "CrewAI", "LangChain", "ChromaDB", "NetworkX"],
+    meta: "Semester VI · Agentic AI · Team project",
+    github: "https://github.com/abhitiwari12/thescientist",
+    report: "/MiniProject_Report_D&G_AgenticAI.pdf"
+  },
+  {
+    number: "06",
+    title: "Mini Compiler",
+    subtitle: "End-to-end compiler with visualisation",
+    category: "University",
+    type: "compiler",
+    description: "A hand-written compiler for a small C-like language, covering lexical, syntax and semantic analysis, parse-tree visualisation, intermediate code and optimisation.",
+    stack: ["Python", "Streamlit", "Graphviz"],
+    meta: "Semester VII · Compiler Design · Team project",
+    github: "https://github.com/TanishaMajmundar/mini-compiler-visualizer",
+    live: "https://mini-compiler-visualizer-otvezg8am6edqyyrjagaml.streamlit.app/",
+    report: "/23BTAI62_TiwariAbhi_MiniProjectReport.pdf"
+  },
+  {
+    number: "07",
+    title: "SolarTwin AI",
+    subtitle: "Digital twin for solar PV plants",
+    category: "University",
+    type: "solar",
+    description: "A Phase-1 prototype for solar PV predictive maintenance, combining a physics-based reference model, AI/ML prediction and anomaly detection, SCADA/MQTT telemetry, a FastAPI backend and a React dashboard.",
+    stack: ["Python", "FastAPI", "React", "XGBoost", "MQTT"],
+    meta: "Semester VII · Software Project Management · Individual project",
+    report: "/AbhiTiwari_120.pdf",
+    status: "Phase-1 prototype"
   }
 ];
 
-const allProjects = [
+const experiences = [
   {
-    kind:"independent research",
-    tag:"CYBERSECURITY · RED/BLUE RESEARCH",
-    title:"CyberRanger — Red/Blue Cybersecurity Research Platform",
-    desc:"A local red/blue research loop built around an intentionally vulnerable DVWA lab. It generates bounded test candidates, evaluates real responses with a blue-side detector, records evidence for human triage and tracks experiments through a mission-control dashboard.",
-    stack:"Python · FastAPI · Docker Compose · Laya · Gemini API",
-    visual:"cyber",
-    href:"https://github.com/abhitiwari12/cyberranger",
-    meta:"Independent research project · Controlled local lab",
-    status:"Research prototype"
+    date: "MAY — JUL 2026",
+    role: "AI / ML Intern",
+    company: "Microweb Solutions",
+    place: "Ahmedabad",
+    text: "Worked on practical machine-learning workflows using Python and Scikit-learn — from data preprocessing and exploratory analysis to feature engineering and model evaluation.",
+    tags: ["Python", "Scikit-learn", "Data Analysis"]
   },
-  ...projects.map(project => ({ ...project, kind:"personal" })),
-  ...academicProjects.map(project => ({ ...project, kind:"academic" }))
+  {
+    date: "JUN — JUL 2024",
+    role: "Social Media Intern",
+    company: "Karma Foundation",
+    place: "Ahmedabad",
+    text: "Managed content across LinkedIn, Instagram and Facebook, and worked on improving audience engagement through data-informed content strategies.",
+    tags: ["Content", "Social Media", "Engagement"]
+  }
 ];
 
-const journey = [
-  { year:"2023 — NOW", title:"Karnavati University", label:"THE COLLEGE CHAPTER", text:"B.Tech in Computer Science, specialising in AI & Machine Learning. Learning, building, meeting people and collecting stories along the way.", icon:GraduationCap },
-  { year:"2025 — NOW", title:"AAYAM · Student Committee", label:"LEADERSHIP", text:"Discipline Vice Chairperson — a chance to take responsibility, work with people and help make campus life happen.", icon:Sparkles },
-  { year:"CAMPUS LIFE", title:"Sports, teams & NCC", label:"BEYOND THE CLASSROOM", text:"Part of the university sports community, a cricket and kabaddi player, and an NCC cadet. Some of the best lessons happen outside lectures.", icon:Heart },
-  { year:"ALONG THE WAY", title:"Learning by doing", label:"SMALL STEPS, REAL LESSONS", text:"Taking ideas from class into projects, trying new responsibilities and learning from the people I get to work with.", icon:Code2 }
-];
-
-function ProjectArtwork({type,stat}){
-  if(type==="cyber") return <div className="art-terminal">
-    <div className="terminal-bar"><i/><i/><i/><span>LOCAL LAB / CYBERRANGER</span></div>
-    <div className="terminal-body">
-      <p><b>RED</b><span>candidate generated</span><em>›</em></p>
-      <p><b>BLUE</b><span>response evaluated</span><em>✓</em></p>
-      <p><b>REVIEW</b><span>evidence queued</span><em>+</em></p>
+function ProjectVisual({ type }) {
+  if (type === "cyber") return (
+    <div className="visual-cyber">
+      <div className="terminal-top"><span className="terminal-lights"><i/><i/><i/></span><span>CYBERRANGER / LOCAL LAB</span><span>SYS 01</span></div>
+      <div className="terminal-content">
+        <div className="terminal-line"><b>RED</b><span>candidate generated</span><em>›</em></div>
+        <div className="terminal-line"><b>BLUE</b><span>response evaluated</span><em>✓</em></div>
+        <div className="terminal-line"><b>REVIEW</b><span>evidence queued</span><em>+</em></div>
+        <div className="terminal-rule"></div>
+        <div className="terminal-meta"><span>DVWA SANDBOX</span><span><i/> ISOLATED ENVIRONMENT</span></div>
+      </div>
+      <div className="visual-index">01 / INDEPENDENT RESEARCH</div>
     </div>
-    <div className="terminal-foot"><span>DVWA SANDBOX</span><span>● ISOLATED</span></div>
-  </div>;
-  if(type==="fraud") return <div className="art-fraud">
-    <div className="fraud-ticket"><span>TRANSACTION REVIEW</span><strong>₹4,250</strong><small>Unusual activity detected</small><b>FLAGGED</b></div>
-    <div className="fraud-orbit"><i/><i/><i/><span/></div>
-  </div>;
-  if(type==="misinfo") return <div className="art-misinfo">
-    <div className="misinfo-paper"><span>CLAIM CHECK / 01</span><strong>Is this information reliable?</strong><div className="misinfo-lines"><i/><i/><i/></div><b><span>✓</span> CONTEXT REVIEW</b></div>
-    <div className="misinfo-mark">?</div>
-  </div>;
-  if(type==="investment") return <div className="art-investment">
-    <div className="investment-label"><span>MARKET TRENDS</span><b>↗</b></div>
-    <svg viewBox="0 0 320 112" role="img" aria-label="Illustrative investment trend">
-      <path d="M8 92 L56 78 L96 84 L140 52 L180 61 L224 30 L270 38 L312 10" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 92 L56 78 L96 84 L140 52 L180 61 L224 30 L270 38 L312 10 L312 108 L8 108Z" fill="currentColor" opacity=".10"/>
-      {[8,56,96,140,180,224,270,312].map((x,i)=><circle key={x} cx={x} cy={[92,78,84,52,61,30,38,10][i]} r="3.2" fill="currentColor"/>)}
-    </svg>
-    <div className="investment-periods"><span>PAST DATA</span><span>MODEL INSIGHTS</span></div>
-  </div>;
-  if(type==="scientist") return <div className="art-scientist">
-    <svg viewBox="0 0 320 135" role="img" aria-label="Research papers connected in a knowledge graph">
-      <g stroke="currentColor" strokeOpacity=".55" strokeWidth="1.5"><path d="M56 70 L137 34 L246 62 L166 108 L56 70 M137 34 L166 108 M246 62 L277 112 M56 70 L43 116 M137 34 L277 112"/></g>
-      <g fill="#e6c36c" stroke="#173f2e" strokeWidth="2"><circle cx="56" cy="70" r="8"/><circle cx="137" cy="34" r="10"/><circle cx="246" cy="62" r="9"/><circle cx="166" cy="108" r="8"/><circle cx="277" cy="112" r="6"/><circle cx="43" cy="116" r="5"/></g>
-      <circle cx="166" cy="68" r="17" fill="#f2ead9" stroke="#d9bf7f" strokeWidth="2"/>
-      <path d="M160 68h12M166 62v12" stroke="#1f4d37" strokeWidth="2" strokeLinecap="round"/>
-    </svg>
-    <span>RESEARCH PAPERS → CONNECTED IDEAS</span>
-  </div>;
-  if(type==="compiler") return <div className="art-compiler">
-    <div className="compiler-code"><span>01</span><i/><i/><i/><i/></div>
-    <div className="compiler-stages"><b>LEX</b><em>→</em><b>PARSE</b><em>→</em><b>CODE</b></div>
-    <div className="compiler-output"><span>OUTPUT</span><strong>t1 = a + b</strong><strong>t2 = t1 * c</strong></div>
-  </div>;
-  if(type==="solar") return <div className="art-solar">
-    <div className="solar-sun"/>
-    <div className="solar-panel"><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
-    <div className="solar-reading"><span>PV OUTPUT</span><strong>↗ OPTIMISE</strong></div>
-  </div>;
-  return <div className="art-general"><span>{stat || "PROJECT NOTES"}</span></div>;
+  );
+  if (type === "fraud") return (
+    <div className="visual-fraud">
+      <div className="fraud-top"><span>TRANSACTION REVIEW</span><span>LIVE MODEL</span></div>
+      <div className="fraud-amount">₹4,250</div>
+      <div className="fraud-caption">Unusual activity detected</div>
+      <div className="fraud-status"><span>●</span> FLAGGED FOR REVIEW</div>
+      <div className="fraud-bars"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
+    </div>
+  );
+  if (type === "misinfo") return (
+    <div className="visual-misinfo">
+      <div className="misinfo-sheet">
+        <span>CLAIM CHECK / 01</span>
+        <strong>Is this information reliable?</strong>
+        <i/><i/><i/>
+        <div className="misinfo-check"><b>✓</b> CONTEXT REVIEW</div>
+      </div>
+      <div className="misinfo-orbit">?</div>
+    </div>
+  );
+  if (type === "investment") return (
+    <div className="visual-investment">
+      <div className="investment-top"><span>MARKET TRENDS</span><b>↗</b></div>
+      <svg viewBox="0 0 420 170" role="img" aria-label="Illustrative market trend line">
+        <path d="M8 140 L64 116 L112 128 L166 78 L218 92 L274 42 L328 58 L410 12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M8 140 L64 116 L112 128 L166 78 L218 92 L274 42 L328 58 L410 12 L410 165 L8 165Z" fill="currentColor" opacity=".10"/>
+        {[8,64,112,166,218,274,328,410].map((x,i)=><circle key={x} cx={x} cy={[140,116,128,78,92,42,58,12][i]} r="4" fill="currentColor"/>)}
+      </svg>
+      <div className="investment-bottom"><span>HISTORICAL DATA</span><span>MODEL INSIGHTS</span></div>
+    </div>
+  );
+  if (type === "scientist") return (
+    <div className="visual-scientist">
+      <svg viewBox="0 0 420 190" role="img" aria-label="Research papers connected in a knowledge graph">
+        <g stroke="currentColor" strokeOpacity=".55" strokeWidth="1.5"><path d="M54 94 L151 40 L285 75 L188 152 L54 94 M151 40 L188 152 M285 75 L357 145 M54 94 L42 157 M151 40 L357 145 M285 75 L188 152"/></g>
+        <g fill="#c9f36a" stroke="#17221d" strokeWidth="2"><circle cx="54" cy="94" r="9"/><circle cx="151" cy="40" r="12"/><circle cx="285" cy="75" r="10"/><circle cx="188" cy="152" r="9"/><circle cx="357" cy="145" r="7"/><circle cx="42" cy="157" r="6"/></g>
+        <circle cx="218" cy="91" r="21" fill="#f3f0e7" stroke="#c9f36a" strokeWidth="3"/>
+        <path d="M209 91h18M218 82v18" stroke="#17221d" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+      <span>RESEARCH PAPERS → CONNECTED IDEAS</span>
+    </div>
+  );
+  if (type === "compiler") return (
+    <div className="visual-compiler">
+      <div className="code-window"><span>main.py</span><i/><i/><i/><i/><i/></div>
+      <div className="compiler-flow"><b>LEX</b><em>→</em><b>PARSE</b><em>→</em><b>CODE</b></div>
+      <div className="compiler-result"><span>INTERMEDIATE OUTPUT</span><strong>t1 = a + b</strong><strong>t2 = t1 * c</strong></div>
+    </div>
+  );
+  return (
+    <div className="visual-solar">
+      <div className="solar-sun"/>
+      <div className="solar-panels">{Array.from({length:12},(_,i)=><i key={i}/>)}</div>
+      <div className="solar-label"><span>PV OUTPUT</span><b>OPTIMISE ↗</b></div>
+    </div>
+  );
 }
 
-function App(){
-  const [menuOpen,setMenuOpen] = React.useState(false);
-  const [scrollProgress,setScrollProgress] = React.useState(0);
-  React.useEffect(()=>{
-    const updateProgress=()=>{
-      const scrollable=document.documentElement.scrollHeight-window.innerHeight;
-      setScrollProgress(scrollable>0 ? (window.scrollY/scrollable)*100 : 0);
-    };
-    window.addEventListener("scroll",updateProgress,{passive:true});
-    updateProgress();
-    return ()=>window.removeEventListener("scroll",updateProgress);
-  },[]);
-  const nav=[["The journey","#journey"],["Experience","#experience"],["Things I made","#projects"],["GEORUSH","#play"]];
-  return <div className="site-shell">
-    <div className="reading-progress" style={{width:scrollProgress+"%"}}></div>
-    <div className="grain"></div>
-    <header className="topbar">
-      <a className="brand" href="#top">abhi<span>tiwari</span><b>.online</b></a>
-      <nav className={menuOpen?"nav open":"nav"}>{nav.map(([n,h])=><a key={h} href={h} onClick={()=>setMenuOpen(false)}>{n}</a>)}</nav>
-      <div className="top-actions"><a className="tiny-pill" href="mailto:tiwariabhi1211@gmail.com"><Coffee size={13}/> Say hello</a><button className="menu-btn" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen?<X/>:<Menu/>}</button></div>
-    </header>
-
-    <main id="top">
-      <section className="hero hinge-hero">
-        <div className="hero-copy hinge-profile-copy">
-          <div className="eyebrow"><span className="live-dot"></span> A LITTLE MORE ABOUT ME</div>
-          <div className="profile-kicker">THE PERSON, NOT JUST THE PORTFOLIO</div>
-          <h1>Abhi Tiwari<span className="profile-age">21</span></h1>
-          <div className="profile-details"><span><MapPin size={14}/> Ahmedabad, India</span><span><GraduationCap size={14}/> Karnavati University</span><span><Code2 size={14}/> AI &amp; ML</span></div>
-          <p className="hero-lede">Curious by nature. Usually building something, following cricket, playing a sport or saying yes to an idea that sounds interesting. This is my little corner — a mix of work, people, passions and everything in between.</p>
-          <div className="profile-interest-tags"><span>Cricket 🏏</span><span>AI &amp; Tech</span><span>Kabaddi</span><span>Startups</span><span>Learning new things</span></div>
-          <div className="hero-cta"><a className="btn primary" href="#prompts">Get to know me <ArrowUpRight size={16}/></a><a className="text-link" href="#projects">Things I've made <span>↗</span></a></div>
-          <div className="profile-presence"><span className="live-dot"></span> Currently studying, building &amp; figuring it out</div>
+function ProjectCard({ project }) {
+  return (
+    <article className={"project-card project-" + project.type + (project.featured ? " project-featured" : "")}>
+      <div className="project-art">
+        <ProjectVisual type={project.type}/>
+        {project.featured && <span className="featured-label"><Zap size={12}/> FEATURED BUILD</span>}
+      </div>
+      <div className="project-copy">
+        <div className="project-meta"><span>{project.category}</span><span>{project.number} / 07</span></div>
+        <h3>{project.title}</h3>
+        <p className="project-subtitle">{project.subtitle}</p>
+        <p className="project-description">{project.description}</p>
+        <div className="project-tags">{project.stack.map(tag=><span key={tag}>{tag}</span>)}</div>
+        {(project.metric || project.status) && <div className="project-proof">{project.metric || project.status}</div>}
+        {project.meta && <p className="project-context">{project.meta}</p>}
+        <div className="project-links">
+          {project.github && <a href={project.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14}/></a>}
+          {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
+          {project.report && <a href={project.report} target="_blank" rel="noreferrer">Project report <ArrowUpRight size={14}/></a>}
         </div>
-        <div className="hero-visual hinge-photo-visual">
-          <div className="photo-frame">
-            <div className="photo-placeholder personal-photo"><img className="profile-photo" src="/assets/abhi-portrait.jpg" alt="Abhi Tiwari" /><div className="photo-stamp">THAT'S ME</div><div className="photo-note">ABHI · THE HUMAN BEHIND THE CODE<br/><small>Curious by nature · Building as I go</small></div></div>
-            <div className="tape"></div>
-          </div>
-          <div className="floating-note note-one">Probably thinking of an idea <span>✳</span></div>
-          <div className="floating-note note-two">Cricket · Kabaddi · NCC</div>
-          <div className="scribble">nice to meet you!</div>
-        </div>
-      </section>
-
-      <section className="intro-strip">
-        <div><span className="strip-label">THE SHORT VERSION</span><p>Computer Science student at <strong>Karnavati University</strong>, specialising in AI & ML. I like building useful things, trying weird ideas and saying yes to new experiences.</p></div>
-        <a href="/Abhi-Tiwari-CV.pdf" className="cv-link" target="_blank"><Download size={15}/> My résumé <ArrowUpRight size={14}/></a>
-      </section>
-
-      <section className="section prompts-section" id="prompts">
-        <div className="section-head"><div><span className="eyebrow">A FEW PROMPTS, HINGE-STYLE</span><h2>Get to know <em>me.</em></h2></div><p>Not a résumé section.<br/>Just the bits that make me, me.</p></div>
-        <div className="prompt-grid">
-          <article className="prompt-card prompt-wide"><span className="prompt-label">MY SIMPLE PLEASURES</span><h3>Cricket that goes down to the last over, good conversations, discovering a new idea and the feeling of finally getting something to work.</h3><span className="prompt-doodle">✳</span></article>
-          <article className="prompt-card prompt-photo-card"><span className="prompt-label">I GEEK OUT ON…</span><h3>AI, startups, SaaS ideas and how everyday things could be made a little smarter.</h3><span className="prompt-sticker">CURIOUS<br/>BY DEFAULT</span></article>
-          <article className="prompt-card prompt-light"><span className="prompt-label">A RANDOM FACT ABOUT ME</span><h3>I'm equally happy discussing a machine-learning model, a cricket match or a completely random business idea.</h3></article>
-          <article className="prompt-card prompt-green"><span className="prompt-label">THE WAY TO WIN ME OVER</span><h3>Be genuine. Match the energy. Have a sense of humour. And please, bring good stories.</h3><span className="prompt-heart">♡</span></article>
-        </div>
-        <div className="profile-interests"><span className="interests-heading">A FEW THINGS I LOVE</span><span>🏏 Cricket</span><span>🏆 Kabaddi</span><span>💻 Building things</span><span>🤖 AI &amp; ML</span><span>🇮🇳 Team India</span><span>✨ New experiences</span></div>
-      </section>
-
-      <section className="kohli-feature" id="my-inspiration">
-        <div className="kohli-paper-edge" aria-hidden="true"></div>
-        <div className="kohli-portrait-panel">
-          <span className="kohli-side-note">MY ALL-TIME FAVOURITE</span>
-          <div className="kohli-portrait-halo"></div>
-          <div className="kohli-big-18">18</div>
-          <img className="kohli-cutout" src="/assets/virat-kohli-user-photo.png" alt="Virat Kohli celebrating in India whites" loading="lazy" />
-          <div className="kohli-photo-caption"><span>INDIA</span><strong>VIRAT KOHLI</strong><small>THE ONE AND ONLY · 18</small></div>
-          <span className="kohli-crown" aria-hidden="true">♛</span>
-        </div>
-        <div className="kohli-copy">
-          <span className="eyebrow">THE BIGGEST GREEN FLAG IN MY CRICKET FEED</span>
-          <h2>Virat<br/><em>Kohli.</em></h2>
-          <p className="kohli-intro">Some people make you fall in love with a sport. For me, he's one of them.</p>
-          <p className="kohli-body">I've followed Virat for the cricket, but what stays with me is the intensity, discipline and belief he brings to the game. The standards he sets for himself remind me to keep working, keep learning and give my best — whether it's on the field, in college or while building something new.</p>
-          <div className="kohli-values">
-            <span><b>01</b> Discipline</span><span><b>02</b> Self-belief</span><span><b>03</b> Consistency</span>
-          </div>
-          <div className="kohli-footer-row">
-            <span className="kohli-fan-note">Match day mood: emotionally invested. 🇮🇳</span>
-            <a className="kohli-link" href="https://www.bcci.tv/" target="_blank" rel="noreferrer">Follow Indian cricket <ArrowUpRight size={14}/></a>
-          </div>
-        </div>
-      </section>
-      <section className="section journey-section" id="journey">
-        <div className="section-head"><div><span className="eyebrow">A FEW CHAPTERS</span><h2>How I got <em>here.</em></h2></div><p>Still a work in progress.<br/>These are a few stops along the way.</p></div>
-        <div className="journey-list">{journey.map((item,i)=>{const Icon=item.icon;return <article className="journey-item" key={item.title}><div className="journey-year">{item.year}</div><div className="journey-pin"><Icon size={17}/></div><div className="journey-content"><span className="card-kicker">{item.label}</span><h3>{item.title}</h3><p>{item.text}</p></div><span className="chapter-no">0{i+1}</span></article>})}</div>
-      </section>
-
-      <section className="section experience-section" id="experience">
-        <div className="section-head"><div><span className="eyebrow">WORK & REAL-WORLD LEARNING</span><h2>Places I've <em>worked.</em></h2></div><p>A couple of roles that gave me a taste<br/>of working with real teams and goals.</p></div>
-        <div className="experience-list">
-          <article className="experience-card experience-ai">
-            <div className="experience-top"><span className="card-kicker">AI / MACHINE LEARNING</span><span className="experience-date">MAY — JUL 2026</span></div>
-            <h3>AI/ML Intern</h3>
-            <div className="experience-company">Microweb Solutions <span>· Ahmedabad</span></div>
-            <p>Worked on practical machine-learning workflows using Python and Scikit-learn — from data preprocessing and exploratory analysis to feature engineering and model evaluation.</p>
-            <div className="experience-tags"><span>Python</span><span>Scikit-learn</span><span>Data Analysis</span><span>Feature Engineering</span></div>
-          </article>
-          <article className="experience-card experience-social">
-            <div className="experience-top"><span className="card-kicker">CONTENT & COMMUNICATION</span><span className="experience-date">JUN — JUL 2024</span></div>
-            <h3>Social Media Intern</h3>
-            <div className="experience-company">Karma Foundation <span>· Ahmedabad</span></div>
-            <p>Managed content across LinkedIn, Instagram and Facebook, and worked on improving audience engagement through data-informed content strategies.</p>
-            <div className="experience-tags"><span>Social Media</span><span>Content</span><span>Engagement</span></div>
-          </article>
-        </div>
-      </section>
-
-      <section className="journal-note">
-        <span className="note-pin">✳ A LITTLE ABOUT ME</span>
-        <p>If it's interesting, I'm probably curious about it. If it's challenging, I'm probably trying it.</p>
-        <span className="note-sign">— Abhi</span>
-      </section>
-
-      <section className="section projects-section" id="projects">
-        <div className="section-head">
-          <div><span className="eyebrow">PROJECTS, EXPERIMENTS & COURSEWORK</span><h2>Things I've <em>made.</em></h2></div>
-          <p>Personal builds, university projects<br/>and ideas I wanted to try.</p>
-        </div>
-        <p className="work-intro">A mix of things I've worked on inside and outside college — from small experiments to larger research prototypes.</p>
-        <div className="work-grid">
-          {allProjects.map((project,i)=><article className={`work-card ${i===0 ? "work-card-featured" : ""}`} key={project.title}>
-            <div className={`work-card-art art-${project.visual || "general"}`}>
-              <div className="work-card-art-head">
-                <span>{project.kind === "academic" ? "UNIVERSITY PROJECT" : project.kind === "independent research" ? "INDEPENDENT RESEARCH" : "PERSONAL PROJECT"}</span>
-                <span>0{i+1}</span>
-              </div>
-              <ProjectArtwork type={project.visual || "general"} stat={project.stat}/>
-            </div>
-            <div className="work-card-content">
-              <span className="work-category">{project.tag}</span>
-              <h3>{project.title}</h3>
-              <p className="work-desc">{project.desc}</p>
-              {project.stack && <div className="work-techs">
-                {project.stack.split(" · ").slice(0,5).map(tech=><span key={tech}>{tech}</span>)}
-                {project.stack.split(" · ").length>5 && <small>+{project.stack.split(" · ").length-5} more</small>}
-              </div>}
-              {project.stat && <p className="work-stat-note">{project.stat}</p>}
-              <div className="work-card-footer">
-                {project.meta && <p className="work-meta">{project.meta}{project.status ? " · "+project.status : ""}</p>}
-                <div className="work-links">
-                  {project.href && <a href={project.href} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14}/></a>}
-                  {project.live && <a href={project.live} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={14}/></a>}
-                  {project.report && <a href={project.report} target="_blank" rel="noreferrer">Report <ArrowUpRight size={14}/></a>}
-                </div>
-              </div>
-            </div>
-          </article>)}
-        </div>
-        <div className="github-line"><span>More experiments and source code live on GitHub.</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Explore GitHub <ArrowUpRight size={15}/></a></div>
-      </section>
-
-      <section className="play-section" id="play">
-        <div className="play-inner"><div><span className="eyebrow light">OFF THE CLOCK</span><h2>Not everything<br/>has to be <em>productive.</em></h2><p>Some things are made just for the fun of it. GEORUSH is one of those — a city-distance guessing game I built, with quick rounds, maps and a little friendly competition.</p><a className="btn cream" href="/games/georush/index.html" target="_blank" rel="noreferrer">Play GEORUSH <ArrowUpRight size={16}/></a></div><div className="play-doodle"><Gamepad2 size={94} strokeWidth={1}/><span className="doodle-star">✳</span><span className="doodle-caption">PLAY / MAKE / REPEAT</span></div></div>
-        <div className="game-feature">
-          <div className="game-feature-art"><span className="game-stamp">ABHI'S GAME CORNER</span><div className="game-map-doodle">↗</div><span className="game-art-title">GEO<br/>RUSH</span><span className="game-art-sub">HOW WELL DO YOU KNOW YOUR DISTANCES?</span></div>
-          <div className="game-feature-copy"><span className="card-kicker">MY GAME · V1.3</span><h3>GEORUSH</h3><p>Five rounds. Twenty seconds each. Guess the distance between two cities, lock in your answer and see how close you got.</p><div className="game-tags"><span>India</span><span>World</span><span>Mixed</span><span>Map-based</span></div><div className="game-feature-bottom"><span>Best possible score: 5,000</span><a href="/games/georush/index.html" target="_blank" rel="noreferrer">Play the game <ArrowUpRight size={15}/></a></div></div>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <div><span className="eyebrow light">THAT'S THE TOUR</span><h2>Have a good one.<br/><em>And say hello.</em></h2></div>
-        <div className="footer-right"><a className="mail-button" href="mailto:tiwariabhi1211@gmail.com"><Mail size={17}/> tiwariabhi1211@gmail.com <ArrowUpRight size={15}/></a><div className="socials"><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer"><Github size={17}/> GitHub</a><a href="https://www.linkedin.com/in/abhi-tiwari-18715727b/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn</a></div></div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} Abhi Tiwari</span><span>Made with curiosity, somewhere in Ahmedabad.</span><a href="#top">Back to top ↑</a></div>
-      </footer>
-    </main>
-  </div>
+      </div>
+    </article>
+  );
 }
+
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [filter, setFilter] = useState("All");
+  const nav = [["Work", "#work"], ["About", "#about"], ["Experience", "#experience"], ["Play", "#play"]];
+  const visibleProjects = projects.filter(project => filter === "All" || project.category === filter);
+
+  useEffect(() => {
+    const nodes = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      nodes.forEach(node => node.classList.add("is-visible"));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    nodes.forEach(node => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div className="site-shell" id="top">
+      <div className="site-noise" aria-hidden="true"/>
+      <header className="header">
+        <a className="wordmark" href="#top" aria-label="Abhi Tiwari home">AT<span>.</span></a>
+        <nav className={menuOpen ? "main-nav nav-open" : "main-nav"}>
+          {nav.map(([label, href])=><a key={label} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
+        </nav>
+        <div className="header-right">
+          <span className="header-location"><span/> AHMEDABAD, IN</span>
+          <a className="header-contact" href="mailto:tiwariabhi1211@gmail.com">LET'S TALK <ArrowUpRight size={14}/></a>
+          <button className="menu-toggle" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X/> : <Menu/>}</button>
+        </div>
+      </header>
+
+      <main>
+        <section className="hero">
+          <div className="hero-grid-mark" aria-hidden="true"/>
+          <div className="hero-copy">
+            <div className="hero-kicker"><span className="availability-dot"/> COMPUTER SCIENCE · AI & MACHINE LEARNING</div>
+            <p className="hero-intro">Hey, I'm Abhi Tiwari.</p>
+            <h1>Curiosity<br/><span>looks good</span><br/>in <em>progress.</em></h1>
+            <p className="hero-description">I build with AI, explore ideas that might become something bigger, and learn by doing. Currently studying Computer Science at Karnavati University.</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#work">Explore my work <ArrowDown size={15}/></a>
+              <a className="button button-quiet" href="/Abhi-Tiwari-CV.pdf" target="_blank" rel="noreferrer"><Download size={15}/> View résumé</a>
+            </div>
+            <div className="hero-bottomline"><span>SCROLL TO EXPLORE</span><span className="hero-line"/></div>
+          </div>
+          <div className="hero-portrait-wrap">
+            <div className="portrait-halo"/>
+            <div className="portrait-frame">
+              <img src="/assets/abhi-portrait.jpg" alt="Abhi Tiwari" className="portrait-image"/>
+              <div className="portrait-index">FIG. 01 — THE HUMAN</div>
+            </div>
+            <div className="portrait-float portrait-float-top"><Cpu size={15}/> AI / ML BUILDER</div>
+            <div className="portrait-float portrait-float-bottom"><MapPin size={14}/> AHMEDABAD, INDIA</div>
+            <div className="portrait-asterisk">✳</div>
+            <div className="portrait-side-note">A LITTLE BIT OF EVERYTHING <span>↙</span></div>
+          </div>
+          <div className="hero-coordinate">23°01' N&nbsp; 72°34' E</div>
+          <div className="hero-number">01</div>
+        </section>
+
+        <section className="marquee-strip" aria-label="Interests">
+          <div className="marquee-track">
+            <span>ARTIFICIAL INTELLIGENCE</span><i>✳</i><span>BUILDING THINGS</span><i>✳</i><span>CRICKET</span><i>✳</i><span>STARTUP IDEAS</span><i>✳</i><span>KABADDI</span><i>✳</i><span>NEW EXPERIENCES</span><i>✳</i>
+            <span>ARTIFICIAL INTELLIGENCE</span><i>✳</i><span>BUILDING THINGS</span><i>✳</i><span>CRICKET</span><i>✳</i><span>STARTUP IDEAS</span><i>✳</i><span>KABADDI</span><i>✳</i><span>NEW EXPERIENCES</span><i>✳</i>
+          </div>
+        </section>
+
+        <section className="work-section section-wrap" id="work">
+          <div className="section-top reveal">
+            <div><span className="section-index">01 / SELECTED WORK</span><h2>Things I’ve<br/><em>put into motion.</em></h2></div>
+            <p className="section-aside">A collection of experiments, builds and university projects. Some are polished. Some are still teaching me things.</p>
+          </div>
+          <div className="filter-bar reveal" role="group" aria-label="Filter projects">
+            {["All", "Research", "AI / ML", "University"].map(item=><button key={item} className={filter===item ? "filter-button active" : "filter-button"} onClick={()=>setFilter(item)}>{item}</button>)}
+            <span className="filter-count">{String(visibleProjects.length).padStart(2,"0")} PROJECTS</span>
+          </div>
+          <div className="projects-grid">
+            {visibleProjects.map((project,i)=><div className="project-reveal reveal" key={project.number} style={{transitionDelay:(i%3)*70+"ms"}}><ProjectCard project={project}/></div>)}
+          </div>
+          <div className="all-work-link reveal"><span>MORE CODE, EXPERIMENTS & HALF-FORMED IDEAS</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Find me on GitHub <ArrowUpRight size={15}/></a></div>
+        </section>
+
+        <section className="about-section" id="about">
+          <div className="about-inner section-wrap">
+            <div className="about-intro reveal">
+              <span className="section-index">02 / BEYOND THE SCREEN</span>
+              <h2>More than<br/><em>just code.</em></h2>
+              <p>I like the mix of technology, people and the unexpected things you learn when you step outside your comfort zone. College has been as much about teams and experiences as it has been about code.</p>
+              <a className="inline-link" href="mailto:tiwariabhi1211@gmail.com">Say hello sometime <ArrowUpRight size={15}/></a>
+            </div>
+            <div className="about-facts">
+              <article className="fact-card fact-sport reveal"><Trophy size={21}/><span>SPORTS</span><h3>Cricket &<br/>Kabaddi.</h3><p>Part of the university sports community; represented the university in All India University Kabaddi and won an inter-university tournament.</p></article>
+              <article className="fact-card fact-lead reveal"><Sparkles size={21}/><span>LEADERSHIP</span><h3>Show up.<br/>Take charge.</h3><p>Discipline Vice Chairperson, AAYAM — the UIT Student Committee.</p></article>
+              <article className="fact-card fact-ncc reveal"><Heart size={21}/><span>NCC</span><h3>Discipline<br/>beyond campus.</h3><p>NCC cadet with a C Certificate and experience at two CATC camps.</p></article>
+              <article className="fact-card fact-ideas reveal"><Zap size={21}/><span>ALWAYS CURIOUS</span><h3>Ideas don't<br/>sit still.</h3><p>Interested in AI, products, startups and finding useful ways to connect the dots.</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section className="inspiration-section section-wrap reveal" id="inspiration">
+          <div className="inspiration-art">
+            <div className="inspiration-number">18</div>
+            <img src="/assets/virat-kohli-user-photo.png" alt="Virat Kohli celebrating for India" loading="lazy"/>
+            <span className="inspiration-caption">THE STANDARD / INDIA</span>
+          </div>
+          <div className="inspiration-copy">
+            <span className="section-index">A LITTLE PERSONAL INSPIRATION</span>
+            <h2>Play with<br/><em>intent.</em></h2>
+            <p>Virat Kohli is one of the reasons I fell deeper in love with cricket. Beyond the shots and the celebrations, it’s the discipline, intensity and belief that stay with me. A reminder to bring the same energy to whatever I choose to do.</p>
+            <div className="inspiration-values"><span>01 / DISCIPLINE</span><span>02 / SELF-BELIEF</span><span>03 / CONSISTENCY</span></div>
+          </div>
+        </section>
+
+        <section className="experience-section section-wrap" id="experience">
+          <div className="section-top reveal">
+            <div><span className="section-index">03 / EXPERIENCE</span><h2>Where I’ve<br/><em>shown up.</em></h2></div>
+            <p className="section-aside">Learning how ideas move from a screen into real teams, real work and real people.</p>
+          </div>
+          <div className="experience-list">
+            {experiences.map((item,i)=><article className="experience-row reveal" key={item.company}>
+              <div className="experience-date">{item.date}</div>
+              <div className="experience-main"><h3>{item.role}</h3><div className="experience-company">{item.company}<span> / {item.place}</span></div><p>{item.text}</p><div className="experience-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div>
+              <span className="experience-number">0{i+1}</span>
+            </article>)}
+          </div>
+          <div className="education-line reveal"><GraduationCap size={19}/><span>2023 — 2027</span><strong>B.Tech Computer Science · AI & Machine Learning</strong><small>Karnavati University</small></div>
+        </section>
+
+        <section className="play-section" id="play">
+          <div className="play-inner section-wrap">
+            <div className="play-copy reveal">
+              <span className="section-index">04 / SIDE QUEST</span>
+              <h2>Sometimes,<br/>you just make<br/><em>a game.</em></h2>
+              <p>GEORUSH is a geography guessing game I built for the joy of building. Five rounds, a ticking clock and one question: how well do you know your distances?</p>
+              <a className="button button-lime" href="/games/georush/index.html" target="_blank" rel="noreferrer">Play GEORUSH <ArrowUpRight size={16}/></a>
+            </div>
+            <div className="game-art reveal">
+              <div className="game-grid-lines"/>
+              <span className="game-kicker">ABHI'S GAME CORNER / V1.3</span>
+              <div className="game-orbit"><span className="game-pin pin-one"/><span className="game-pin pin-two"/><span className="game-route"/></div>
+              <div className="game-title">GEO<br/><em>RUSH</em></div>
+              <div className="game-bottom"><span>INDIA · WORLD · MIXED</span><Gamepad2 size={19}/></div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="footer">
+          <div className="footer-top section-wrap">
+            <div className="footer-copy reveal"><span className="section-index">05 / YOUR TURN</span><h2>Got an idea?<br/><em>Let's talk.</em></h2><p>For collaborations, opportunities, interesting conversations or just to say hello.</p></div>
+            <div className="footer-links reveal">
+              <a className="footer-email" href="mailto:tiwariabhi1211@gmail.com"><Mail size={18}/> tiwariabhi1211@gmail.com <ArrowUpRight size={16}/></a>
+              <a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer"><Github size={17}/> GitHub <ExternalLink size={13}/></a>
+              <a href="https://www.linkedin.com/in/abhi-tiwari-18715727b/" target="_blank" rel="noreferrer"><Linkedin size={17}/> LinkedIn <ExternalLink size={13}/></a>
+              <a href="/Abhi-Tiwari-CV.pdf" target="_blank" rel="noreferrer"><Download size={17}/> Résumé <ExternalLink size={13}/></a>
+            </div>
+          </div>
+          <div className="footer-bottom section-wrap"><span>© {new Date().getFullYear()} ABHI TIWARI</span><span>MADE WITH CURIOSITY · AHMEDABAD, INDIA</span><a href="#top">BACK TO TOP ↑</a></div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
 createRoot(document.getElementById("root")).render(<App/>);
