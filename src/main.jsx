@@ -279,13 +279,13 @@ function App() {
       <div className="site-noise" aria-hidden="true"/>
       <header className={isScrolled ? "header header-scrolled" : "header"}>
         <a className="wordmark" href="#top" aria-label="Abhi Tiwari home">AT<span>.</span></a>
-        <nav className={menuOpen ? "main-nav nav-open" : "main-nav"}>
+        <nav id="primary-navigation" className={menuOpen ? "main-nav nav-open" : "main-nav"}>
           {nav.map(([label, href])=><a key={label} href={href} onClick={()=>setMenuOpen(false)}>{label}</a>)}
         </nav>
         <div className="header-right">
           <span className="header-location"><span/> AHMEDABAD, IN</span>
           <a className="header-contact" href="mailto:tiwariabhi1211@gmail.com">LET'S TALK <ArrowUpRight size={14}/></a>
-          <button className="menu-toggle" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X/> : <Menu/>}</button>
+          <button className="menu-toggle" type="button" onClick={()=>setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-controls="primary-navigation" aria-expanded={menuOpen}>{menuOpen ? <X/> : <Menu/>}</button>
         </div>
       </header>
 
