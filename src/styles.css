@@ -327,3 +327,14 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--acid); outline-of
 @media(max-width:390px) {
   .hero-copy h1 { font-size:53px; }.scene-photo { width:64%; }.scene-float { font-size:5px; }.ncc-story { padding-inline:16px; }.ncc-achievement { min-width:70px; }.project-actions { gap:5px; }.project-actions a { padding:7px 6px; font-size:5.5px; }.footer-socials { gap:9px; }
 }
+
+
+/* Preserve hover motion after reveal animations complete */
+.project-card.reveal.is-visible:hover { transform:translateY(-5px); }
+.ncc-journey-card.reveal.is-visible:hover { transform:translateY(-4px); }
+.formation-tile.reveal.is-visible:hover { transform:translateY(-5px); }
+.georush-art.reveal.is-visible:hover { transform:rotate(0) translateY(-4px); }
+@media (hover:none) {
+  .project-card.reveal.is-visible:hover,.ncc-journey-card.reveal.is-visible:hover,
+  .formation-tile.reveal.is-visible:hover,.georush-art.reveal.is-visible:hover { transform:none; }
+}
