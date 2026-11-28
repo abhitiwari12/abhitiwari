@@ -23,7 +23,7 @@ const experiences = [
  {date:"MAY — JUL 2026",role:"AI / ML Intern",company:"Microweb Solutions",place:"Ahmedabad",text:"Worked on practical machine-learning workflows using Python and Scikit-learn — from data preprocessing and exploratory analysis to feature engineering and model evaluation.",tags:["Python","Scikit-learn","Data Analysis"]},
  {date:"JUN — JUL 2024",role:"Social Media Intern",company:"Karma Foundation",place:"Ahmedabad",text:"Managed content across LinkedIn, Instagram and Facebook, and worked on improving audience engagement through data-informed content strategies.",tags:["Content","Social Media","Engagement"]}
 ];
-const chapters=[{number:"01",label:"About",id:"origin"},{number:"02",label:"Beyond campus",id:"formation"},{number:"03",label:"Volunteering",id:"volunteering"},{number:"04",label:"Projects",id:"work"},{number:"05",label:"Experience",id:"field"},{number:"06",label:"Contact",id:"horizon"}];
+const chapters=[{number:"01",label:"About",id:"origin"},{number:"02",label:"Beyond campus",id:"formation"},{number:"03",label:"Projects",id:"work"},{number:"04",label:"Experience",id:"field"},{number:"05",label:"Volunteering",id:"volunteering"},{number:"06",label:"Contact",id:"horizon"}];
 
 function ProjectCard({project,index}) {
  return <article className={"project-card reveal "+(project.featured?"project-card-featured ":"")+(project.closing?"project-card-closing":"")} style={{"--reveal-delay":(index%2)*90+"ms"}}><div className="project-art"><img className="project-thumbnail" src={project.thumbnail} alt={project.title+" project preview"} loading="lazy"/><span className="project-number">{project.number} / 09</span>{project.featured&&<span className="project-featured-tag"><Zap size={12}/> SIGNATURE BUILD</span>}</div><div className="project-details"><div className="project-meta"><span>{project.category}</span><span>BUILD LOG / {project.number}</span></div><h3>{project.title}</h3><div className="project-subtitle">{project.subtitle}</div><p>{project.description}</p><div className="project-stack">{project.stack.map(item=><span key={item}>{item}</span>)}</div>{(project.proof||project.context)&&<div className="project-context">{project.proof||project.context}</div>}{project.context&&project.proof&&<div className="project-context project-context-extra">{project.context}</div>}<div className="project-actions">{project.github&&<a href={project.github} target="_blank" rel="noreferrer">SOURCE CODE <ArrowUpRight size={13}/></a>}{project.live&&<a href={project.live} target="_blank" rel="noreferrer">LIVE DEMO <ArrowUpRight size={13}/></a>}{project.report&&<a href={project.report} target="_blank" rel="noreferrer">PROJECT REPORT <ArrowUpRight size={13}/></a>}</div></div></article>;
@@ -142,8 +142,24 @@ function App() {
     </div>
    </div></section>
 
+   
+
+
+   <section className="build-section chapter-section" id="work"><div className="section-wrap">
+    <div className="chapter-index reveal"><span>03</span><i/><span>PROJECTS</span></div><div className="build-heading reveal"><div><h2>A few things<br/>I've <em>built.</em></h2></div><p>Here are some projects I've worked on during university and in my own time. Each one taught me something different.</p></div>
+    <div className="build-countline reveal"><span><b>{String(projects.length).padStart(2,"0")}</b> PROJECTS</span><span>SELECT A SIGNAL TO FILTER <ArrowDown size={13}/></span></div>
+    <div className="project-filters reveal" role="group" aria-label="Filter projects">{["All","Research","Automation","AI / ML","Finance / Data","University"].map(item=><button type="button" key={item} aria-pressed={filter===item} className={filter===item?"filter-active":""} onClick={()=>setFilter(item)}>{item}</button>)}<span className="filter-results">{String(filteredProjects.length).padStart(2,"0")} RESULTS</span></div>
+    <div className="journey-project-grid">{filteredProjects.map((project,i)=><ProjectCard key={project.number} project={project} index={i}/>)}</div>
+    <div className="build-end reveal"><span>THERE'S ALWAYS ANOTHER IDEA</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">FOLLOW THE CODE <ArrowUpRight size={14}/></a></div>
+   </div></section>
+
+   <section className="field-section" id="field"><div className="field-inner section-wrap">
+    <div className="chapter-index chapter-index-light reveal"><span>04</span><i/><span>EXPERIENCE</span></div><div className="field-heading reveal"><h2>Learning by<br/><em>doing the work.</em></h2><p>A couple of opportunities that helped me take what I was learning and apply it with real teams.</p></div>
+    <div className="field-timeline">{experiences.map((item,i)=><article className="field-entry reveal" key={item.company}><div className="field-date"><span>0{i+1}</span><b>{item.date}</b></div><div className="field-node"><i/></div><div className="field-entry-content"><div className="field-company">{item.company}<span> / {item.place}</span></div><h3 className="field-role-title">{item.role}</h3><p>{item.text}</p><div className="field-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div></article>)}</div>
+   </div></section>
+
    <section className="volunteer-section chapter-section" id="volunteering"><div className="volunteer-inner section-wrap">
-    <div className="chapter-index reveal"><span>03</span><i/><span>VOLUNTEERING & EVENT CREW</span></div>
+    <div className="chapter-index reveal"><span>05</span><i/><span>VOLUNTEERING & EVENT CREW</span></div>
     
     <div className="volunteer-grid">
       <article className="volunteer-card reveal">
@@ -179,20 +195,6 @@ function App() {
         </div>
       </article>
     </div>
-   </div></section>
-
-
-   <section className="build-section chapter-section" id="work"><div className="section-wrap">
-    <div className="chapter-index reveal"><span>04</span><i/><span>PROJECTS</span></div><div className="build-heading reveal"><div><h2>A few things<br/>I've <em>built.</em></h2></div><p>Here are some projects I've worked on during university and in my own time. Each one taught me something different.</p></div>
-    <div className="build-countline reveal"><span><b>{String(projects.length).padStart(2,"0")}</b> PROJECTS</span><span>SELECT A SIGNAL TO FILTER <ArrowDown size={13}/></span></div>
-    <div className="project-filters reveal" role="group" aria-label="Filter projects">{["All","Research","Automation","AI / ML","Finance / Data","University"].map(item=><button type="button" key={item} aria-pressed={filter===item} className={filter===item?"filter-active":""} onClick={()=>setFilter(item)}>{item}</button>)}<span className="filter-results">{String(filteredProjects.length).padStart(2,"0")} RESULTS</span></div>
-    <div className="journey-project-grid">{filteredProjects.map((project,i)=><ProjectCard key={project.number} project={project} index={i}/>)}</div>
-    <div className="build-end reveal"><span>THERE'S ALWAYS ANOTHER IDEA</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">FOLLOW THE CODE <ArrowUpRight size={14}/></a></div>
-   </div></section>
-
-   <section className="field-section" id="field"><div className="field-inner section-wrap">
-    <div className="chapter-index chapter-index-light reveal"><span>05</span><i/><span>EXPERIENCE</span></div><div className="field-heading reveal"><h2>Learning by<br/><em>doing the work.</em></h2><p>A couple of opportunities that helped me take what I was learning and apply it with real teams.</p></div>
-    <div className="field-timeline">{experiences.map((item,i)=><article className="field-entry reveal" key={item.company}><div className="field-date"><span>0{i+1}</span><b>{item.date}</b></div><div className="field-node"><i/></div><div className="field-entry-content"><div className="field-company">{item.company}<span> / {item.place}</span></div><h3 className="field-role-title">{item.role}</h3><p>{item.text}</p><div className="field-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div></div></article>)}<article className="field-entry field-education reveal"><div className="field-date"><span>NOW</span><b>2023 — 2027</b></div><div className="field-node"><i/></div><div className="field-entry-content"><div className="field-company">THE FOUNDATION</div><h3>Karnavati University</h3><p>B.Tech Computer Science · Artificial Intelligence & Machine Learning.</p><div className="field-tags"><span>LEARNING</span><span>EXPERIMENTING</span><span>GROWING</span></div></div></article></div>
    </div></section>
 
    <section className="sidequest-section"><div className="sidequest-inner section-wrap"><div className="sidequest-copy reveal"><div className="chapter-index"><span>A SIDE PROJECT</span><i/><span>MADE FOR FUN</span></div><h2>A little game<br/>I made: <em>GEORUSH.</em></h2><p>GEORUSH is a geography guessing game I built for fun. It brings together maps, quick decisions and a bit of friendly competition. Give it a try.</p><a className="sidequest-button" href="/games/georush/index.html" target="_blank" rel="noreferrer">ENTER GEORUSH <ArrowUpRight size={15}/></a></div><div className="georush-art reveal"><div className="geo-grid"/><div className="geo-top"><span>ABHI'S GAME CORNER</span><span>V1.3 / PLAYABLE</span></div><div className="geo-routes"><i/><i/><i/></div><div className="geo-pin geo-pin-a"/><div className="geo-pin geo-pin-b"/><div className="geo-title">GEO<br/><em>RUSH</em></div><div className="geo-bottom"><span>INDIA / WORLD / MIXED</span><Gamepad2 size={19}/></div></div></div></section>
