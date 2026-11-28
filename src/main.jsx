@@ -152,7 +152,6 @@ function App() {
           <div className="volunteer-meta"><span>FRESHERS 2K25</span><span>01 / 04</span></div>
           <h3>Team Security</h3>
           <p>Karnavati University · Student Security Council</p>
-          <span className="volunteer-role">TEAM SECURITY</span>
         </div>
       </article>
       <article className="volunteer-card reveal">
@@ -161,7 +160,6 @@ function App() {
           <div className="volunteer-meta"><span>TECHNICAL SYMPOSIUM</span><span>02 / 04</span></div>
           <h3>AriaRo 4.0</h3>
           <p>A National Level Technical Symposium</p>
-          <span className="volunteer-role">CREW</span>
         </div>
       </article>
       <article className="volunteer-card reveal">
@@ -170,7 +168,6 @@ function App() {
           <div className="volunteer-meta"><span>27–30 SEPTEMBER 2025</span><span>03 / 04</span></div>
           <h3>Garba Mahotsav</h3>
           <p>Karnavati University</p>
-          <span className="volunteer-role">ALL AREA ACCESS</span>
         </div>
       </article>
       <article className="volunteer-card reveal">
@@ -179,7 +176,6 @@ function App() {
           <div className="volunteer-meta"><span>AHMEDABAD · 2023</span><span>04 / 04</span></div>
           <h3>44th ISPPD</h3>
           <p>ISPPD National Conference</p>
-          <span className="volunteer-role">IT</span>
         </div>
       </article>
     </div>
