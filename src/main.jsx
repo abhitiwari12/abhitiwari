@@ -23,34 +23,50 @@ const projects = [
   },
   {
     number: "02",
-    title: "Fraud Detection System",
-    subtitle: "Machine learning · Classification",
-    category: "AI / ML",
-    type: "fraud",
-    description: "A machine-learning experiment that looks for suspicious patterns in transaction data and helps flag activity that deserves a closer look.",
-    stack: ["Python", "Machine Learning", "Data Analysis"],
-    metric: "85% model accuracy"
+    title: "Binance Futures Trading Bot",
+    subtitle: "Python CLI · Exchange API integration",
+    category: "Automation",
+    type: "trading",
+    description: "A modular command-line trading bot built to understand exchange API workflows. It supports MARKET, LIMIT and STOP orders, BUY and SELL sides, input validation and request/error logging. The README documents use with the Binance Futures Testnet.",
+    stack: ["Python", "python-binance", "argparse", "Logging"],
+    meta: "Testnet project · No real-money execution",
+    github: "https://github.com/abhitiwari12/binance-trading-bot"
   },
   {
     number: "03",
-    title: "Misinformation Detector",
-    subtitle: "NLP · Language models",
+    title: "Fraud Detection Dashboard",
+    subtitle: "Financial transactions · Machine learning",
     category: "AI / ML",
-    type: "misinfo",
-    description: "Exploring how natural language processing and language models can help identify misleading content and bring more context to information online.",
-    stack: ["Python", "NLP", "Text Classification"]
+    type: "fraud",
+    description: "A Streamlit dashboard for analysing transaction data with a saved machine-learning model. Upload a CSV, use demo data or enter a transaction manually, then inspect fraud predictions, confidence scores and visual summaries.",
+    stack: ["Python", "Scikit-learn", "Streamlit", "Pandas", "Plotly"],
+    meta: "Random Forest model · SMOTE used in training workflow",
+    github: "https://github.com/abhitiwari12/fraud-detection"
   },
   {
     number: "04",
-    title: "AI Investment Planner",
-    subtitle: "Data · Predictive modelling",
+    title: "MisinfoScan",
+    subtitle: "Misinformation signal analysis prototype",
     category: "AI / ML",
-    type: "investment",
-    description: "A data-led experiment using historical trends to generate investment insights and make financial information easier to explore.",
-    stack: ["Python", "Data Analysis", "Predictive Modelling"]
+    type: "misinfo",
+    description: "A Flask web app that analyses submitted news text or URLs for possible misinformation signals. Its heuristic checks look at sensational phrases, capitalisation, punctuation and source-domain signals. It is a screening prototype, not an independent fact-checking system.",
+    stack: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+    meta: "Hackathon demo · Heuristic signal analysis",
+    github: "https://github.com/abhitiwari12/misinfo-detector"
   },
   {
     number: "05",
+    title: "Smart Investment Planner",
+    subtitle: "Interactive investment recommendation dashboard",
+    category: "Finance / Data",
+    type: "investment",
+    description: "A Streamlit dashboard that scores investment options against a selected risk profile, age group, time horizon and financial goal. It includes compound-growth and SIP calculations, Monte Carlo scenarios, inflation-adjusted projections and Excel export.",
+    stack: ["Python", "Streamlit", "Pandas", "NumPy", "Plotly"],
+    meta: "Exploratory finance tool · Uses configurable assumptions",
+    github: "https://github.com/abhitiwari12/investment-planner"
+  },
+  {
+    number: "06",
     title: "theScientist",
     subtitle: "Multi-agent AI research assistant",
     category: "University",
@@ -62,7 +78,7 @@ const projects = [
     report: "/MiniProject_Report_D&G_AgenticAI.pdf"
   },
   {
-    number: "06",
+    number: "07",
     title: "Mini Compiler",
     subtitle: "End-to-end compiler with visualisation",
     category: "University",
@@ -75,7 +91,7 @@ const projects = [
     report: "/23BTAI62_TiwariAbhi_MiniProjectReport.pdf"
   },
   {
-    number: "07",
+    number: "08",
     title: "SolarTwin AI",
     subtitle: "Digital twin for solar PV plants",
     category: "University",
@@ -285,7 +301,7 @@ function App() {
             <p className="section-aside">A collection of experiments, builds and university projects. Some are polished. Some are still teaching me things.</p>
           </div>
           <div className="filter-bar reveal" role="group" aria-label="Filter projects">
-            {["All", "Research", "AI / ML", "University"].map(item=><button key={item} className={filter===item ? "filter-button active" : "filter-button"} onClick={()=>setFilter(item)}>{item}</button>)}
+            {["All", "Research", "Automation", "AI / ML", "Finance / Data", "University"].map(item=><button key={item} className={filter===item ? "filter-button active" : "filter-button"} onClick={()=>setFilter(item)}>{item}</button>)}
             <span className="filter-count">{String(visibleProjects.length).padStart(2,"0")} PROJECTS</span>
           </div>
           <div className="projects-grid">
