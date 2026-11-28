@@ -348,11 +348,47 @@ function App() {
               <p>I like the mix of technology, people and the unexpected things you learn when you step outside your comfort zone. College has been as much about teams and experiences as it has been about code.</p>
               <a className="inline-link" href="mailto:tiwariabhi1211@gmail.com">Say hello sometime <ArrowUpRight size={15}/></a>
             </div>
-            <div className="about-facts">
-              <article className="fact-card fact-sport reveal"><Trophy size={21}/><span>SPORTS</span><h3>Cricket &<br/>Kabaddi.</h3><p>Part of the university sports community; represented the university in All India University Kabaddi and won an inter-university tournament.</p></article>
-              <article className="fact-card fact-lead reveal"><Sparkles size={21}/><span>LEADERSHIP</span><h3>Show up.<br/>Take charge.</h3><p>Discipline Vice Chairperson, AAYAM — the UIT Student Committee.</p></article>
-              <article className="fact-card fact-ncc reveal"><Heart size={21}/><span>NCC</span><h3>Discipline<br/>beyond campus.</h3><p>NCC cadet with a C Certificate and experience at two CATC camps.</p></article>
-              <article className="fact-card fact-ideas reveal"><Zap size={21}/><span>ALWAYS CURIOUS</span><h3>Ideas don't<br/>sit still.</h3><p>Interested in AI, products, startups and finding useful ways to connect the dots.</p></article>
+            <div className="about-content">
+              <article className="ncc-feature-card reveal">
+                <div className="ncc-feature-art" aria-hidden="true">
+                  <span className="ncc-art-orbit ncc-orbit-one"/>
+                  <span className="ncc-art-orbit ncc-orbit-two"/>
+                  <span className="ncc-big-letters">NCC</span>
+                  <div className="ncc-certificate-mark"><b>C</b><small>CADET<br/>CERTIFICATE</small></div>
+                  <span className="ncc-art-caption">NATIONAL CADET CORPS</span>
+                  <span className="ncc-art-number">02</span>
+                </div>
+                <div className="ncc-feature-copy">
+                  <span className="ncc-feature-kicker"><Heart size={14}/> A BIG PART OF MY JOURNEY</span>
+                  <h3>Discipline beyond the <em>classroom.</em></h3>
+                  <p>Being an NCC cadet has been about showing up, learning to work as a team and finding confidence through challenge. I hold an NCC C Certificate and have attended two CATC camps.</p>
+                  <div className="ncc-milestones">
+                    <div><b>C</b><span>C CERTIFICATE</span></div>
+                    <div><b>02</b><span>CATC CAMPS</span></div>
+                    <div className="ncc-values"><span>DISCIPLINE</span><i/> <span>TEAMWORK</span><i/> <span>COMMITMENT</span></div>
+                  </div>
+                </div>
+              </article>
+              <div className="about-facts">
+                <article className="fact-card fact-sport reveal">
+                  <div className="fact-topline"><Trophy size={19}/><span>01 / SPORTS</span></div>
+                  <h3>Cricket &<br/>Kabaddi.</h3>
+                  <p>Part of the university sports community. Represented KU in All India University Kabaddi and won an inter-university tournament.</p>
+                  <span className="fact-foot">PLAY WITH PURPOSE</span>
+                </article>
+                <article className="fact-card fact-lead reveal">
+                  <div className="fact-topline"><Sparkles size={19}/><span>02 / LEADERSHIP</span></div>
+                  <h3>Show up.<br/>Take charge.</h3>
+                  <p>Discipline Vice Chairperson, AAYAM — the UIT Student Committee.</p>
+                  <span className="fact-foot">LEAD BY DOING</span>
+                </article>
+                <article className="fact-card fact-ideas reveal">
+                  <div className="fact-topline"><Zap size={19}/><span>03 / CURIOSITY</span></div>
+                  <h3>Ideas don't<br/>sit still.</h3>
+                  <p>Interested in AI, products, startups and finding useful ways to connect the dots.</p>
+                  <span className="fact-foot">ALWAYS EXPLORING</span>
+                </article>
+              </div>
             </div>
           </div>
         </section>
