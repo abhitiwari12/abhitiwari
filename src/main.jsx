@@ -289,7 +289,7 @@ function App() {
             <span className="filter-count">{String(visibleProjects.length).padStart(2,"0")} PROJECTS</span>
           </div>
           <div className="projects-grid">
-            {visibleProjects.map((project,i)=><div className="project-reveal reveal" key={project.number} style={{transitionDelay:(i%3)*70+"ms"}}><ProjectCard project={project}/></div>)}
+            {visibleProjects.map((project,i)=><div className={"project-reveal reveal" + (project.featured ? " project-reveal-featured" : "")} key={project.number} style={{transitionDelay:(i%3)*70+"ms"}}><ProjectCard project={project}/></div>)}
           </div>
           <div className="all-work-link reveal"><span>MORE CODE, EXPERIMENTS & HALF-FORMED IDEAS</span><a href="https://github.com/abhitiwari12" target="_blank" rel="noreferrer">Find me on GitHub <ArrowUpRight size={15}/></a></div>
         </section>
