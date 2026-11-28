@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   color-scheme: dark;
@@ -1356,6 +1356,9 @@ html { scrollbar-color:#748b66 #f4f1e8; }
 
 /* ── Bold modern direction: deep navy + vivid blue ── */
 :root {
+  color-scheme:light;
+  --display:"Manrope",sans-serif;
+  --body:"Inter",sans-serif;
   --void:#08142b;
   --deep:#0b1b38;
   --panel:#ffffff;
@@ -1369,6 +1372,10 @@ html { scrollbar-color:#748b66 #f4f1e8; }
   --acid:#5b85ff;
 }
 html,body,.journey-site { background:#f4f7fc; color:#0b1b38; }
+.ambient-grid { background-image:linear-gradient(rgba(89,131,224,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(89,131,224,.06) 1px,transparent 1px); }
+.global-progress { background:#5b85ff; box-shadow:0 0 16px rgba(91,133,255,.42); }
+.system-status { color:#b5c5e4; }
+.system-status i { background:#6f94ff; box-shadow:0 0 0 4px rgba(111,148,255,.13); }
 html { scrollbar-color:#4775ed #e9eff9; }
 ::selection { background:#cbd9ff; color:#091832; }
 a:focus-visible,button:focus-visible { outline:2px solid #4775ed; outline-offset:4px; }
