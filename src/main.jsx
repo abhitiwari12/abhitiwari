@@ -106,29 +106,50 @@ function App() {
    </section>
 
    <section className="formation-section" id="formation"><div className="formation-inner section-wrap">
-    <div className="chapter-index chapter-index-light reveal"><span>02</span><i/><span>BEYOND THE CLASSROOM</span></div><div className="formation-heading reveal"><div><h2>Some things<br/>you learn <em>outside.</em></h2></div><p>Sport, NCC and student leadership have shaped my university experience just as much as my coursework.</p></div>
-    <article className="ncc-journey-card reveal"><div className="ncc-scene"><div className="ncc-rings"/><div className="ncc-letters">NCC</div><div className="ncc-seal"><b>C</b><small>CADET<br/>CERTIFICATE</small></div><span className="ncc-scene-label">NATIONAL CADET CORPS</span><span className="ncc-coordinate">DISCIPLINE / 02</span></div><div className="ncc-story"><div className="ncc-kicker"><ShieldCheck size={15}/> NATIONAL CADET CORPS</div><h3>NCC has taught me<br/><em>discipline and teamwork.</em></h3><p>I'm an NCC cadet and hold a C Certificate. I've also attended two CATC camps. The experience has helped me build confidence, work as part of a team and take responsibility.</p><div className="ncc-achievements"><div className="ncc-achievement"><b>C</b><span>C CERTIFICATE</span></div><div className="ncc-achievement"><b>02</b><span>CATC CAMPS</span></div><div className="ncc-traits"><span>DISCIPLINE</span><i/><span>TEAMWORK</span><i/><span>COMMITMENT</span></div></div></div></article>
-    <div className="formation-side-grid">
-     <article className="formation-tile leadership-tile formation-role-featured reveal">
-       <div className="tile-overline"><Flag size={18}/><span>STUDENT LEADERSHIP</span></div>
-       <div className="position-label">STUDENT LEADERSHIP · AAYAM / UIT</div>
-       <h3><span>Discipline Vice</span><em>Chairperson</em></h3>
-       <a className="position-organisation aayam-organisation" href="https://aayam.online/team" target="_blank" rel="noreferrer" aria-label="Visit the AAYAM team page">
-         <img className="aayam-logo" src="/assets/aayam-logo.svg" alt="AAYAM logo" loading="lazy"/>
-         <span className="aayam-name"><strong>AAYAM</strong><small>UIT Students' Committee</small></span>
-         <span className="aayam-card-link">VIEW TEAM <ArrowUpRight size={12}/></span>
-       </a>
-       <p>As Discipline Vice Chairperson, I help manage discipline and coordination during college events and activities, working with the committee to support smooth event execution.</p>
-       <div className="tile-bottom">
-         <span>KARNAVATI UNIVERSITY · UIT</span>
-         <a href="https://aayam.online/team" target="_blank" rel="noreferrer">VIEW TEAM <ArrowUpRight size={13}/></a>
-       </div>
-       <div className="tile-watermark">LEAD</div>
-     </article>
-     <article className="formation-tile sports-tile reveal"><div className="tile-overline"><Trophy size={17}/><span>02 / SPORTS</span></div><h3>University<br/><em>Cricket & Kabaddi.</em></h3><p>Part of KU’s main sports teams. Represented the university in All India University Kabaddi and won an inter-university tournament.</p><div className="tile-bottom"><span>KU MAIN TEAM</span><span>↗</span></div><div className="tile-watermark">SPORT</div></article>
-     <article className="formation-tile curiosity-tile reveal"><div className="tile-overline"><Sparkles size={17}/><span>03 / THE MINDSET</span></div><h3>Ideas don't<br/><em>sit still.</em></h3><p>AI, products, startups, random questions and the satisfaction of turning a rough thought into something real.</p><div className="tile-bottom"><span>ALWAYS EXPLORING</span><span>↗</span></div><div className="tile-watermark">IDEAS</div></article>
+    <div className="chapter-index chapter-index-light reveal"><span>02</span><i/><span>BEYOND THE CLASSROOM</span></div>
+    <div className="formation-heading reveal"><div><h2>Some things<br/>you learn <em>outside.</em></h2></div><p>Sport, NCC and student leadership have shaped my university experience just as much as my coursework.</p></div>
+    <div className="formation-card-grid">
+      <article className="formation-card ncc-compact-card reveal">
+        <div className="formation-card-head">
+          <img className="ncc-emblem" src="https://images.seeklogo.com/logo-png/37/1/national-cadet-corps-logo-png_seeklogo-371256.png" alt="National Cadet Corps emblem" loading="lazy"/>
+          <span className="formation-card-kicker">NATIONAL CADET CORPS</span>
+        </div>
+        <h3>NCC <em>C Certificate.</em></h3>
+        <p>Being an NCC cadet has taught me discipline, teamwork and responsibility. I've also attended two CATC camps.</p>
+        <div className="formation-card-tags"><span>C CERTIFICATE</span><span>02 CATC CAMPS</span></div>
+      </article>
+      <article className="formation-card leadership-compact-card reveal">
+        <div className="formation-card-head">
+          <Flag size={19}/>
+          <span className="formation-card-kicker">STUDENT LEADERSHIP</span>
+        </div>
+        <h3>Discipline Vice <em>Chairperson.</em></h3>
+        <p>Helping manage discipline and coordination during college events and activities with the AAYAM committee.</p>
+        <a className="aayam-compact-link" href="https://aayam.online/team" target="_blank" rel="noreferrer" aria-label="Visit the AAYAM team page">
+          <img className="aayam-logo" src="/assets/aayam-logo.svg" alt="AAYAM logo" loading="lazy"/>
+          <span className="aayam-name"><strong>AAYAM</strong><small>UIT Students' Committee</small></span>
+          <span className="aayam-card-link">VIEW TEAM <ArrowUpRight size={12}/></span>
+        </a>
+      </article>
+      <article className="formation-card sports-compact-card reveal">
+        <div className="formation-card-head">
+          <Trophy size={19}/>
+          <span className="formation-card-kicker">UNIVERSITY SPORTS</span>
+        </div>
+        <h3>Cricket & <em>Kabaddi.</em></h3>
+        <p>Part of KU's main sports teams. Represented the university in All India University Kabaddi and won an inter-university tournament.</p>
+        <div className="formation-card-tags"><span>KU MAIN TEAM</span><span>ALL INDIA UNIVERSITY</span></div>
+      </article>
+      <article className="formation-card curiosity-compact-card reveal">
+        <div className="formation-card-head">
+          <Sparkles size={19}/>
+          <span className="formation-card-kicker">THE MINDSET</span>
+        </div>
+        <h3>Ideas don't <em>sit still.</em></h3>
+        <p>AI, products, startups, random questions and the satisfaction of turning a rough thought into something real.</p>
+        <div className="formation-card-tags"><span>AI & PRODUCTS</span><span>ALWAYS EXPLORING</span></div>
+      </article>
     </div>
-    <div className="formation-note reveal"><span>Outside the classroom</span><p>Cricket, kabaddi, NCC and student leadership have all been part of my university life.</p></div>
    </div></section>
 
    <section className="build-section chapter-section" id="work"><div className="section-wrap">
